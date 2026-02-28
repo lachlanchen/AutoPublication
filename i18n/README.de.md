@@ -5,42 +5,89 @@
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-scaffold-1f6feb)
-![Docs](https://img.shields.io/badge/docs-readme_in_progress-2ea043)
-![i18n](https://img.shields.io/badge/i18n-planned-f59e0b)
-![Stage](https://img.shields.io/badge/stage-documentation_first-0ea5e9)
-![Repo%20Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
+![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
+![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
+![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
+![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
 
-> Mit KI-Tools Videos automatisch veröffentlichen.
+> Dokumentations-First-Scaffold für KI-gestützte Workflows zur Videopublikation.
 
-## 🧭 Überblick
+## 🗂️ README-Schnellnavigation<a id="readme-quick-navigation"></a>
 
-`AutoPublication` ist ein dokumentationsorientiertes Scaffold, das KI-gestützte Workflows für die Videoveröffentlichung definieren soll.
+| Abschnitt | Link |
+|---|---|
+| Überblick | [Übersicht](#at-a-glance) |
+| Funktionen | [Funktionen](#features) |
+| Projektstruktur | [Projektstruktur](#project-structure) |
+| Voraussetzungen | [Voraussetzungen](#prerequisites) |
+| Installation | [Installation](#installation) |
+| Nutzung | [Nutzung](#usage) |
+| Konfiguration | [Konfiguration](#configuration) |
+| Beispiele | [Beispiele](#examples) |
+| Entwicklungsnotizen | [Entwicklungsnotizen](#development-notes) |
+| Fehlerbehebung | [Fehlerbehebung](#troubleshooting) |
+| Roadmap | [Roadmap](#roadmap) |
+| Mitwirken | [Mitwirken](#contributing) |
+| Support | [Support](#support) |
+| Kontakt | [Kontakt](#contact) |
+| Lizenz | [Lizenz](#license) |
 
-Im aktuellen Stand des Repositories ist dieses Projekt ein Scaffold mit Dokumentation und Artefakten der README-Generierungspipeline, aber es wurde noch kein Anwendungsquellcode oder ein ausführbarer Einstiegspunkt eingecheckt.
+## 🧭 Übersicht<a id="at-a-glance"></a>
 
-Diese README ist die kanonische englische Dokumentationsquelle und so aufgebaut, dass sie zukünftiges Implementierungswachstum unterstützt, ohne die aktuelle Projektabsicht zu verlieren.
+| Bereich | Details |
+| --- | --- |
+| Rolle | Kanonische englische Dokumentationsquelle für einen KI-Video-Publikations-Workspace |
+| Sprachen | Englisch + 10 lokalisierte README-Spiegel |
+| Generierte Artefakte | Snapshot-Metadaten und Pipeline-Spuren in `.auto-readme-work/*` |
+| Aktueller Umsetzungsstand | Dokumentations-only-Snapshot (noch kein ausführbarer Anwendungscode committed) |
+| Aktuellster Snapshot | `.auto-readme-work/20260301_070712/` |
 
-## ✨ Funktionen
+![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
+![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
 
-### ✅ Aktuelle Fähigkeiten
+## 🧭 Projektüberblick<a id="overview"></a>
 
-- Kanonische Root-README für die Projektdefinition.
-- Vorgegebene mehrsprachige README-Ziele unter `i18n/`.
-- README-Pipeline-Kontext und Struktur-Artefakte unter `.auto-readme-work/`.
-- Sprachnavigationszeile im Header für sprachliche Konsistenz.
+`AutoPublication` ist ein dokumentationsorientiertes Repository-Scaffold, das dafür vorbereitet wurde, ein größeres KI-Videopublikations-System zu unterstützen.
+Es nutzt das englische `README.md` als Hauptquelle und gleicht Übersetzungen in `i18n/README.*.md` über Pipeline-Snapshots ab.
 
-### Geplante Fähigkeiten (abgeleitet aus Projektname und aktueller Beschreibung)
+### Was dieses Repository ist
 
-- Automatisierte Orchestrierung der Videoveröffentlichung.
-- KI-gestützte Aufbereitung von Metadaten und Inhalten.
-- Konfigurierbare Veröffentlichungsziele und Plattform-Integrationen.
+- Eine kanonische Quelle für Projektdokumentation und Beitragsleitfäden.
+- Ein mehrsprachiger Dokumentationssatz als Beispiel für synchronisierte README-Entwicklung.
+- Ein historischer Evidenzspeicher unter `.auto-readme-work/*`, der jeden Pipeline-Lauf dokumentiert.
 
-## 🗂️ Projektstruktur
+### Was dieses Repository (noch) nicht ist
+
+- Noch keine ausführbare Publikations-App.
+- Noch kein Paket mit Installationsskripten oder Abhängigkeitsmanifesten.
+- Noch kein Runtime-Konfigurationsmodell (`.env`, YAML, CLI-Schema) in diesem Branch.
+
+## ✨ Features<a id="features"></a>
+
+### Aktuelle Fähigkeiten
+
+- Kanonische englische Dokumentation in einer Quell-Datei (`README.md`).
+- Sprachwahlschalter-Block mit Links zu allen lokalisieren READMEs.
+- Zeitgestempelte Auto-README-Artefakte (`pipeline-context`, `language-nav-*`, `translation-plan`, `repo-structure-analysis`).
+- Dokumentationszentrierte Projektkarte zur Unterstützung inkrementeller Umsetzung.
+- Standardisierter Support-Block zur Sichtbarkeit von Spenden/Unterstützung.
+
+### Geplante Fähigkeiten
+
+- KI-gestützte Orchestrierung von Publikationsworkflows.
+- Metadaten-Generierung und -Validierung für mehrere Plattformen.
+- Konfigurierbare Veröffentlichungsziele und Verwaltung von Berechtigungsnachweisen.
+- Reproduzierbarer lokaler Entwicklungsweg mit Tests und CI-Prüfungen.
+
+## 🗂️ Projektstruktur<a id="project-structure"></a>
 
 ```text
 AutoPublication/
 ├── README.md
+├── README.md.auto-readme-support
+├── README.md.auto-readme-support.filtered
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -55,190 +102,191 @@ AutoPublication/
 │   └── README.zh-Hant.md
 └── .auto-readme-work/
     ├── 20260228_230008/
-    │   ├── pipeline-context.md
-    │   ├── language-nav-root.md
-    │   ├── language-nav-i18n.md
-    │   ├── translation-plan.txt
-    │   └── repo-structure-analysis.md
     ├── 20260301_064342/
-    │   ├── pipeline-context.md
-    │   ├── language-nav-root.md
-    │   ├── language-nav-i18n.md
-    │   ├── translation-plan.txt
-    │   └── repo-structure-analysis.md
-    └── 20260301_064412/
+    ├── 20260301_064412/
+    ├── 20260301_064745/
+    ├── 20260301_065035/
+    ├── 20260301_065907/
+    └── 20260301_070712/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
         └── translation-plan.txt
 ```
 
-## 🔎 Relevante Pfade
+### Wichtige Pfade<a id="notable-paths"></a>
 
 | Pfad | Zweck |
 |---|---|
-| `i18n/` | Zielordner für übersetzte README-Dateien. |
-| `.auto-readme-work/20260301_064412/pipeline-context.md` | Neuester Auto-README-Laufkontext und Einschränkungen. |
-| `.auto-readme-work/20260228_230008/translation-plan.txt` | Frühere Sprache/Datei-Planung für README-Varianten. |
-| `.auto-readme-work/20260301_064412/translation-plan.txt` | Aktueller Sprachplan und Prioritäten. |
-| `.gitignore` | Python-orientierte Ignore-Vorlage (derzeit keine Python-Anwendungsdateien vorhanden). |
+| `i18n/README.*.md` | Lokalisierte READMEs für nutzerorientierte Dokumentation |
+| `.auto-readme-work/*/pipeline-context.md` | Lauf-Constraints und Metadaten für jeden Pipeline-Durchlauf |
+| `.auto-readme-work/*/language-nav-*.md` | Kanonische und i18n-Sprachzuordnungsdateien |
+| `.auto-readme-work/*/repo-structure-analysis.md` | Historische Struktur-Snapshots |
+| `.auto-readme-work/*/translation-plan.txt` | Umfang und Ziel der Übersetzung |
+| `.auto-readme-work/*/translated-files.txt` | Listen der Ausgabedateien aus früheren Übersetzungsläufen |
 
-## Voraussetzungen
+## 🧰 Voraussetzungen<a id="prerequisites"></a>
 
-Da Implementierungsdateien noch nicht vorhanden sind, basieren die Laufzeitvoraussetzungen auf Annahmen aus dem Repository-Inhalt.
+Da dieser Snapshot dokumentations-only ist, gibt es keine Laufzeitabhängigkeiten für die Ausführung der Anwendung.
 
-| Typ | Anforderung |
-|---|---|
-| Tooling | `git` |
-| Shell | POSIX-kompatible Shell (Beispiele nutzen `bash`) |
+Für Wartung, Review und Übersetzungsabgleich brauchst du:
 
-Mögliche Hinweise auf den zukünftigen Stack (aus `.gitignore`):
+- `git`
+- Eine POSIX-kompatible Shell (Beispiele verwenden `bash`)
+- Einen Markdown-fähigen Editor
+- Optional: einen Diff-Viewer (zum Prüfen lokalisierter Branches)
 
-- Python-Toolchain und zugehörige Paketwerkzeuge
+## 🛠️ Installation<a id="installation"></a>
 
-## 🚀 Installation
+In diesem Snapshot existiert kein installierbares Paket.
 
-Auf dieser Stufe gibt es kein installierbares Paket, kein Dependency-Manifest oder einen Einstiegspunkt.
-
-Repository klonen und betreten:
+Um lokal zu arbeiten:
 
 ```bash
 git clone <your-repo-url> AutoPublication
 cd AutoPublication
+sed -n '1,140p' README.md
 ```
 
-## ▶️ Nutzung
+## ▶️ Nutzung<a id="usage"></a>
 
-Noch kein ausführbarer Anwendungsbefehl vorhanden.
-
-Praktische Nutzung beschränkt sich derzeit auf Dokumentations- und Workflow-Vorbereitung:
+Aktuelle Nutzung ist dokumentations- und pipeline-orientiert.
 
 ```bash
-# Repo-Struktur prüfen
-ls -la
+# Sprachumschalter-Mapping prüfen
+head -n 5 README.md
 
-# Sprachziele prüfen
-ls -la i18n
+# aktuellen Pipeline-Kontext prüfen
+cat .auto-readme-work/20260301_070712/pipeline-context.md
 
-# Aktiven README-Pipeline-Kontext prüfen
-cat .auto-readme-work/20260301_064412/pipeline-context.md
+# jüngste Struktur-Analyse des letzten verfügbaren Snapshots ansehen
+cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
+
+# lokalierte Dokumente für Paritätsprüfungen prüfen
+sed -n '1,90p' i18n/README.fr.md
 ```
 
-Sobald Implementierung ergänzt wird, werden diese Befehle durch konkrete Laufzeit- und Veröffentlichungs-Workflows ersetzt.
+### Empfohlener Wartungsablauf
 
-## ⚙️ Konfiguration
+1. Aktualisiere `README.md` bei strukturellen oder verhaltensrelevanten Änderungen.
+2. Erzeuge Übersetzungs-Updates bei Bedarf neu.
+3. Prüfe, dass Schlüsselabschnitte über `i18n/`-Dateien synchron bleiben.
+4. Halte `.auto-readme-work` Snapshots konsistent mit dem aktuellen Workflow.
 
-Noch keine formellen Konfigurationsdateien vorhanden (wie `.env.example`, `config.yaml` oder CLI-Flags).
+## 🧩 Konfiguration<a id="configuration"></a>
 
-Empfohlene zukünftige Ergänzungen:
+Es sind noch keine formalen Runtime-Konfigurationsdateien committed (`.env`, `config.yml`, CLI-Schema usw. fehlen noch).
 
-- Umgebungs-Template für API-Zugangsdaten und Veröffentlichungsziele.
-- YAML/JSON-Konfigurationsschema für plattformspezifische Metadaten und Workflow-Standards.
-- CLI-Konfigurationsdoku und Validierungsverhalten.
+Falls du eine zukünftige Runtime implementierst, sind diese Defaults empfohlen:
 
-## 🧪 Beispiele
+- Füge eine Beispielkonfigurationsdatei wie `config.sample.yml` hinzu.
+- Speichere Geheimnisse über `.env` (vom Repo ausgeschlossen) oder über den Secret Manager des Hostings.
+- Halte Dokumentation und CLI-Referenzen synchron, wenn neue Schlüssel hinzugefügt werden.
 
-### Aktuelles (Scaffold-)Beispiel
+## 🧪 Beispiele<a id="examples"></a>
 
-Das Repository als Dokumentationsbasis verwenden:
+### Aktuelle Beispiele (bestehendes Scaffold)
 
 ```bash
-# Kanonische Projektabsicht lesen
+# vollständige englische Dokumentation öffnen
 cat README.md
+
+# lokalisierten Stand vergleichen
+sed -n '1,90p' i18n/README.de.md
 ```
 
-### Zukünftiges (Ziel-)Beispiel (Platzhalter)
+### Zukünftige Beispiele (erwartete Umsetzung)
 
 ```bash
-# Beispiel für zukünftige Nutzung
-# python -m autopublication run --video ./assets/demo.mp4 --platform youtube
+# konzeptionelles Beispiel; kann fehlen, bis Runtime eingeführt wird
+auto-publication publish \
+  --video ./assets/sample.mp4 \
+  --config ./config.sample.yml \
+  --platform youtube,tiktok
 ```
 
-## 🛠️ Entwicklungshinweise
+## 🛠️ Entwicklungsnotizen<a id="development-notes"></a>
 
-- Das Repository enthält aktuell keinen ausführbaren Quellcode.
-- Die README-Generierung scheint pipelinebasiert über Dateien in `.auto-readme-work/` zu erfolgen.
-- Der mehrsprachige Workflow wird durch Dateien in `i18n/` und Übersetzungspläne aufgebaut.
+- Behandle Änderungen als inkrementell: priorisiere additive Verbesserungen und vermeide destruktive Neuschreibungen.
+- Bewahre das Englische als autoritative Dokumentationsgrundlage.
+- Nutze die Sprachdateien in `i18n/` als explizite Synchronisationsziele.
+- Behalte Pipeline-Artefakte (`.auto-readme-work/`) als historische Evidenz, nicht als handgeschriebenen Produktionscode.
+- Überversprich keine ausführbare Funktionalität in Befehlen; dokumentiere nur, was aktuell vorhanden ist.
 
-Vorgeschlagene nächste Implementierungsmilestones:
+### Annahmen in diesem README
 
-1. Quellverzeichnis hinzufügen (z. B. `src/` oder `autopublication/`).
-2. Dependency-Manifest hinzufügen (`pyproject.toml` oder äquivalent).
-3. Ausführbaren Einstiegspunkt und minimale Testabdeckung hinzufügen.
-4. CI hinzufügen, die Linting, Tests und Dokumentation validiert.
+- Das Repository bleibt dokumentations-first, bis Runtime-Module eingecheckt werden.
+- Übersetzungen bleiben mit sinnvollen strukturellen Änderungen synchron.
+- `.auto-readme-work/` enthält append-only, laufbezogene Historie und ist nicht die kanonische Arbeitskopie.
 
-## 🩺 Fehlerbehebung
+## 🔧 Fehlerbehebung<a id="troubleshooting"></a>
 
-### "Ich kann das Projekt nicht ausführen"
+### Ich kann keinen `auto-publication`-Befehl ausführen
 
-Ursache:
+**Ursache:** In diesem Snapshot existiert keine Runtime-Anwendung.
 
-- Es sind derzeit keine Laufzeit-Anwendungsdateien oder ein Einstiegspunkt eingecheckt.
+**Lösung:** Verwende dieses Repository für Dokumentations-Workflows und warte auf die Implementierungsdateien.
 
-Lösung:
+### Eine lokalisierte README wirkt nicht synchronisiert
 
-- Das Repository bis zum Vorhandensein der Implementierung als Scaffold/Dokumentationsbasis behandeln.
+**Ursache:** Übersetzungen wurden unabhängig von der englischen Quelle aktualisiert.
 
-### "Sprach-README-Links sind vorhanden, aber Dateien fehlen"
+**Lösung:** Wende die gleichen strukturellen Änderungen auf alle `i18n/README.*.md`-Dateien an und gleiche anschließend Wortlaut und Beispiele ab.
 
-Ursache:
+### Ein README-Link verweist auf nicht vorhandene Funktionalität
 
-- `i18n/` existiert, aber lokalisierte README-Dateien sind in diesem Snapshot nicht vollständig generiert.
+**Ursache:** Die Dokumentation enthält geplantes Verhalten.
 
-Lösung:
+**Lösung:** Halte den Abschnitt als geplant markiert oder ersetze ihn durch aktuell validierte Befehle.
 
-- Dateien gemäß `i18n/README.*.md` und den Übersetzungsplan-Artefakten hinzufügen.
+## 🗺️ Roadmap<a id="roadmap"></a>
 
-## 🧭 Roadmap
+- [ ] Quellpaket und Runtime-Entrypoint hinzufügen.
+- [ ] Abhängigkeitsmanifest und Installationsweg hinzufügen.
+- [ ] Plattform-spezifische Veröffentlichungsintegrationen hinzufügen.
+- [ ] Konfigurationsvalidierung und Secrets-Handling ergänzen.
+- [ ] Ausführbare Beispiele und CI-Smoke-Checks ergänzen.
+- [ ] Automatisierte Paritätsprüfungen zwischen lokalisierte READMEs ergänzen.
+- [ ] Eine `LICENSE`-Datei und klare Lizenzbedingungen hinzufügen.
 
-- [ ] Erste lauffähige Implementierung für automatisierte Veröffentlichung hinzufügen.
-- [ ] Anbieterintegrationen und Konfigurationsschema definieren.
-- [ ] Reproduzierbare lokale Setup-Anleitungen ergänzen.
-- [ ] Tests und CI-Pipeline hinzufügen.
-- [ ] Vollständigen mehrsprachigen README-Satz in `i18n/` veröffentlichen.
+## 🤝 Mitwirken<a id="contributing"></a>
 
-## 🤝 Mitwirken
-
-Beiträge sind willkommen, während das Projekt sich vom Scaffold zur Implementierung bewegt.
-
-Empfohlener Beitragablauf:
+Beiträge sind willkommen, während dieses Doku-Scaffold in die Umsetzung übergeht.
 
 ```bash
-# 1) Branch anlegen
-git checkout -b feat/<short-description>
+# 1. Branch erstellen
+git checkout -b docs/<short-description>
 
-# 2) Änderungen committen
-git add .
-git commit -m "feat: <describe change>"
+# 2. Änderungen committen
+git add README.md i18n/README.fr.md
+git commit -m "docs: update English README scaffold"
 
-# 3) Pushen und PR öffnen
-git push -u origin feat/<short-description>
+# 3. push und PR öffnen
+git push -u origin docs/<short-description>
 ```
 
-Bitte ergänzen:
+Vorgeschlagene PR-Checkliste:
 
-- Klare Problemstellung und Scope.
-- Reproduzierbare Schritte für alle Verhaltensänderungen.
-- Dokumentationsanpassungen für neue Befehle/Konfigurationen.
+- Halte `README.md` als Quelle der Wahrheit.
+- Aktualisiere alle betroffenen lokalisierten READMEs in `i18n/`.
+- Bewahre bestehende Abschnitte und füge inkrementellen Mehrwert hinzu.
+- Halte `.auto-readme-work/*`-Metadaten mit dem aktuellen Lauf aligned.
+
+## Kontakt<a id="contact"></a>
+
+Verwende die Repository-Issues für Fragen, Korrekturen der Dokumentation und die Koordination von Beiträgen.
+
+## 📄 Lizenz<a id="license"></a>
+
+In diesem Snapshot ist derzeit keine `LICENSE`-Datei vorhanden.
+
+Empfohlener nächster Schritt:
+
+- Ergänze eine `LICENSE`-Datei und aktualisiere diesen Abschnitt mit der gewählten Lizenzkennung.
+
 
 ## ❤️ Support
 
 | Donate | PayPal | Stripe |
-|---|---|---|
-| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=ko-fi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
-
-## 📫 Kontakt
-
-Für aktuelle Nutzungsfragen und Korrekturen in der Dokumentation bitte ein Issue im Repository öffnen.
-
-## 📄 Lizenz
-
-Zurzeit ist in dieser Repository-Snapshot keine Lizenzdatei vorhanden.
-
-Annahme:
-
-- Die Lizenz ist bislang nicht festgelegt.
-
-Empfohlener nächster Schritt:
-
-- Eine `LICENSE`-Datei hinzufügen und diesen Abschnitt explizit auf diese Referenz aktualisieren.
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

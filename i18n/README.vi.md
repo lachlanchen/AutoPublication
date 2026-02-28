@@ -5,42 +5,89 @@
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-scaffold-1f6feb)
-![Docs](https://img.shields.io/badge/docs-readme_in_progress-2ea043)
-![i18n](https://img.shields.io/badge/i18n-planned-f59e0b)
-![Stage](https://img.shields.io/badge/stage-documentation_first-0ea5e9)
-![Repo%20Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
+![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
+![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
+![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
+![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
 
-> Tự động đăng video bằng công cụ AI.
+> Khung tài liệu theo hướng documentation-first cho quy trình xuất bản video có hỗ trợ AI.
+
+## 📌 Tóm tắt nhanh
+
+| Khu vực | Chi tiết |
+| --- | --- |
+| Vai trò | Nguồn tài liệu tiếng Anh chuẩn cho workspace xuất bản video AI |
+| Ngôn ngữ | Tiếng Anh + 10 bản mirror README bản địa hóa |
+| Tài liệu tạo ra | Siêu dữ liệu snapshot và dấu vết pipeline trong `.auto-readme-work/*` |
+| Triển khai hiện tại | Snapshot chỉ chứa tài liệu (chưa commit mã ứng dụng runtime) |
+| Snapshot mới nhất | `.auto-readme-work/20260301_070712/` |
+
+![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
+![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
+
+## 🗂️ Điều hướng nhanh README
+
+| Mục | Liên kết |
+|---|---|
+| Tổng quan | [Tổng quan](#%E2%98%9B-overview) |
+| Tính năng | [Tính năng](#%E2%9C%A8-features) |
+| Cấu trúc dự án | [Cấu trúc dự án](#%F0%9F%97%82%EF%B8%8F-project-structure) |
+| Điều kiện tiên quyết | [Điều kiện tiên quyết](#%F0%9F%A7%B0-prerequisites) |
+| Cài đặt | [Cài đặt](#%F0%9F%9B%A0%EF%B8%8F-installation) |
+| Sử dụng | [Sử dụng](#%E2%96%B6%EF%B8%8F-usage) |
+| Cấu hình | [Cấu hình](#%F0%9F%A7%A9-configuration) |
+| Ví dụ | [Ví dụ](#%F0%9F%A7%AA-examples) |
+| Ghi chú phát triển | [Ghi chú phát triển](#%F0%9F%99%82-development-notes) |
+| Khắc phục sự cố | [Khắc phục sự cố](#%F0%9F%94%A7-troubleshooting) |
+| Lộ trình | [Lộ trình](#%F0%9F%97%BA-roadmap) |
+| Đóng góp | [Đóng góp](#%F0%9F%A4%9D-contributing) |
+| Hỗ trợ | [Support](#%E2%9D%A4%EF%B8%8F-support) |
+| Contact | [Contact](#contact) |
+| License | [License](#%F0%9F%93%84-license) |
 
 ## 🧭 Tổng quan
 
-`AutoPublication` là một scaffold theo hướng tài liệu trước, nhằm xác định quy trình xuất bản video có hỗ trợ AI.
+`AutoPublication` là một khung tài liệu cấp repository, được chuẩn bị để hỗ trợ hệ thống xuất bản video AI lớn hơn.
+Nó giữ `README.md` tiếng Anh làm nguồn dữ liệu chuẩn và đồng bộ bản dịch trong `i18n/README.*.md` thông qua snapshot pipeline.
 
-Ở giai đoạn hiện tại của kho này, dự án mới chỉ là một scaffold với các tài liệu và các artifact của pipeline sinh README, nhưng chưa có mã nguồn ứng dụng hay điểm vào runtime nào được commit.
+### Kho này là gì
 
-README này là nguồn tài liệu tiếng Anh quy chuẩn và được cấu trúc để hỗ trợ việc mở rộng triển khai sau này mà không làm mất đi mục tiêu hiện tại của dự án.
+- Nguồn tài liệu chuẩn cho tài liệu dự án và hướng dẫn cho người đóng góp.
+- Một bộ tài liệu đa ngôn ngữ được dùng làm ví dụ về tiến trình phát triển README đồng bộ.
+- Kho lưu trữ dữ liệu bằng chứng lịch sử trong `.auto-readme-work/*` ghi lại từng lần chạy pipeline.
+
+### Kho này chưa phải là gì (chưa)
+
+- Chưa phải là ứng dụng xuất bản có thể chạy.
+- Chưa phải một gói có script cài đặt hoặc manifest phụ thuộc.
+- Chưa triển khai mô hình cấu hình runtime (`.env`, YAML, schema CLI) trong nhánh này.
 
 ## ✨ Tính năng
 
-### ✅ Khả năng hiện tại
+### Khả năng hiện tại
 
-- README gốc chuẩn ở root cho việc định nghĩa dự án.
-- Các mục tiêu README đa ngôn ngữ đã được xác định trước trong `i18n/`.
-- Artifact ngữ cảnh pipeline README và cấu trúc trong `.auto-readme-work/`.
-- Dòng điều hướng ngôn ngữ được tập trung ở đầu để đảm bảo tính tương đương đa ngôn ngữ.
+- Tài liệu tiếng Anh chuẩn trong một tệp nguồn duy nhất (`README.md`).
+- Khối chọn ngôn ngữ liên kết đến toàn bộ các README bản địa hóa.
+- Các artefact auto-README có dấu thời gian (`pipeline-context`, `language-nav-*`, `translation-plan`, `repo-structure-analysis`).
+- Bản đồ dự án theo hướng tài liệu để hỗ trợ triển khai theo từng bước.
+- Bảng hỗ trợ chuẩn hóa để hiển thị rõ thông tin gây quỹ/đóng góp.
 
-### Khả năng dự kiến (suy ra từ tên dự án và mô tả hiện tại)
+### Khả năng dự kiến
 
-- Tự động điều phối quy trình xuất bản video.
-- Chuẩn bị metadata và nội dung có sự hỗ trợ của AI.
-- Tích hợp nền tảng đích có thể cấu hình.
+- Điều phối quy trình xuất bản có hỗ trợ AI.
+- Tạo và xác thực metadata đa nền tảng.
+- Mục tiêu xuất bản có thể cấu hình và quản lý credentials.
+- Quy trình phát triển local tái lập được với tests và kiểm tra CI.
 
 ## 🗂️ Cấu trúc dự án
 
 ```text
 AutoPublication/
 ├── README.md
+├── README.md.auto-readme-support
+├── README.md.auto-readme-support.filtered
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -55,190 +102,191 @@ AutoPublication/
 │   └── README.zh-Hant.md
 └── .auto-readme-work/
     ├── 20260228_230008/
-    │   ├── pipeline-context.md
-    │   ├── language-nav-root.md
-    │   ├── language-nav-i18n.md
-    │   ├── translation-plan.txt
-    │   └── repo-structure-analysis.md
     ├── 20260301_064342/
-    │   ├── pipeline-context.md
-    │   ├── language-nav-root.md
-    │   ├── language-nav-i18n.md
-    │   ├── translation-plan.txt
-    │   └── repo-structure-analysis.md
-    └── 20260301_064412/
+    ├── 20260301_064412/
+    ├── 20260301_064745/
+    ├── 20260301_065035/
+    ├── 20260301_065907/
+    └── 20260301_070712/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
         └── translation-plan.txt
 ```
 
-## 🔎 Đường dẫn đáng chú ý
+### Các đường dẫn đáng chú ý
 
 | Đường dẫn | Mục đích |
 |---|---|
-| `i18n/` | Thư mục đích cho các file README đã dịch. |
-| `.auto-readme-work/20260301_064412/pipeline-context.md` | Ngữ cảnh chạy pipeline README gần nhất và các ràng buộc. |
-| `.auto-readme-work/20260228_230008/translation-plan.txt` | Kế hoạch ngôn ngữ mục tiêu cho README ở lần chạy trước. |
-| `.auto-readme-work/20260301_064412/translation-plan.txt` | Kế hoạch ngôn ngữ mục tiêu mới nhất và ưu tiên.
-| `.gitignore` | Mẫu ignore theo hướng Python (chỉ mang tính gợi ý; hiện chưa có file ứng dụng Python). |
+| `i18n/README.*.md` | README bản địa hóa cho tài liệu hướng người dùng |
+| `.auto-readme-work/*/pipeline-context.md` | Ràng buộc chạy và siêu dữ liệu cho mỗi lượt pipeline |
+| `.auto-readme-work/*/language-nav-*.md` | Bản đồ ánh xạ ngôn ngữ chuẩn và i18n |
+| `.auto-readme-work/*/repo-structure-analysis.md` | Snapshot cấu trúc lịch sử |
+| `.auto-readme-work/*/translation-plan.txt` | Phạm vi locale và kế hoạch dịch |
+| `.auto-readme-work/*/translated-files.txt` | Danh sách tệp đầu ra từ các lần dịch trước |
 
-## Điều kiện tiên quyết
+## 🧰 Điều kiện tiên quyết
 
-Vì chưa có file triển khai nên điều kiện tiên quyết runtime hiện chỉ là giả định từ nội dung kho.
+Vì snapshot này là tài liệu-only, không có phụ thuộc runtime nào cho việc chạy ứng dụng.
 
-| Loại | Yêu cầu |
-|---|---|
-| Công cụ | `git` |
-| Shell | Shell tương thích POSIX (các ví dụ dùng `bash`) |
+Để bảo trì, review và đồng bộ bản dịch bạn cần:
 
-Tín hiệu stack trong tương lai (từ `.gitignore`):
+- `git`
+- Một shell tương thích POSIX (các ví dụ dùng `bash`)
+- Một trình chỉnh sửa Markdown
+- Tùy chọn: trình xem diff (để rà soát các nhánh bản địa hóa)
 
-- Công cụ đóng gói và hệ sinh thái Python
+## 🛠️ Cài đặt
 
-## 🚀 Cài đặt
+Trong snapshot này chưa có package có thể cài đặt.
 
-Ở giai đoạn này, chưa có package có thể cài đặt, manifest dependency, hay điểm vào nào.
-
-Clone và truy cập repository:
+Để làm việc local:
 
 ```bash
 git clone <your-repo-url> AutoPublication
 cd AutoPublication
+sed -n '1,140p' README.md
 ```
 
 ## ▶️ Sử dụng
 
-Hiện chưa có lệnh ứng dụng có thể chạy.
-
-Sử dụng thực tế hiện tại là chuẩn bị tài liệu repo và quy trình làm việc:
+Hiện tại mục đích sử dụng chủ yếu là tài liệu và theo dõi pipeline trace.
 
 ```bash
-# Inspect repository structure
-ls -la
+# inspect the language selector map
+head -n 5 README.md
 
-# Inspect language targets
-ls -la i18n
+# inspect the latest pipeline context
+cat .auto-readme-work/20260301_070712/pipeline-context.md
 
-# Inspect active README pipeline context
-cat .auto-readme-work/20260301_064412/pipeline-context.md
+# inspect the repository structure analysis from the latest available snapshot
+cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
+
+# review localized docs for parity checks
+sed -n '1,90p' i18n/README.fr.md
 ```
 
-Khi phần triển khai được bổ sung, thay thế các lệnh này bằng các luồng chạy và workflow xuất bản thực tế.
+### Luồng bảo trì được khuyến nghị
 
-## ⚙️ Cấu hình
+1. Cập nhật `README.md` cho các thay đổi cấu trúc hoặc hành vi.
+2. Tạo lại bản cập nhật bản dịch khi cần.
+3. Kiểm tra các section quan trọng vẫn đồng bộ giữa các file `i18n/`.
+4. Giữ các snapshot `.auto-readme-work` nhất quán với luồng làm việc hiện tại.
 
-Hiện chưa có file cấu hình chính thức (chẳng hạn `.env.example`, `config.yaml`, hoặc cờ CLI).
+## 🧩 Cấu hình
 
-Các bổ sung nên có trong tương lai:
+Hiện chưa có file cấu hình runtime chính thức nào được commit (`.env`, `config.yml`, schema CLI, v.v. hiện vẫn vắng mặt).
 
-- Mẫu môi trường cho API credentials và đích xuất bản.
-- Schema cấu hình YAML/JSON cho metadata theo nền tảng và mặc định workflow.
-- Tài liệu cấu hình CLI và hành vi xác thực.
+Nếu bạn đang triển khai runtime trong tương lai, nên dùng các mặc định sau:
+
+- Thêm file mẫu cấu hình như `config.sample.yml`.
+- Lưu trữ secrets qua `.env` (được loại khỏi repo) hoặc secret manager của hosting.
+- Giữ tài liệu và tham chiếu CLI đồng bộ khi thêm key mới.
 
 ## 🧪 Ví dụ
 
-### Ví dụ hiện tại (Scaffold)
-
-Sử dụng repository như một chuẩn tài liệu:
+### Ví dụ hiện tại (khung scaffold đang có)
 
 ```bash
-# Read canonical project intent
+# open full English documentation
 cat README.md
+
+# compare localized versions
+sed -n '1,90p' i18n/README.de.md
 ```
 
-### Ví dụ tương lai (Mục tiêu) (Placeholder)
+### Ví dụ tương lai (dự kiến triển khai)
 
 ```bash
-# Example intended future invocation
-# python -m autopublication run --video ./assets/demo.mp4 --platform youtube
+# conceptual example; may not exist until runtime is introduced
+auto-publication publish \
+  --video ./assets/sample.mp4 \
+  --config ./config.sample.yml \
+  --platform youtube,tiktok
 ```
 
 ## 🛠️ Ghi chú phát triển
 
-- Repository hiện chưa chứa mã nguồn thực thi.
-- Việc sinh README có vẻ chạy theo pipeline dựa trên các file trong `.auto-readme-work/`.
-- Quy trình đa ngôn ngữ được scaffold qua các file trong `i18n/` và các kế hoạch dịch.
+- Xử lý thay đổi theo hướng incremental: ưu tiên cải tiến cộng thêm và tránh viết lại phá hủy.
+- Giữ `README.md` tiếng Anh làm nền tảng tài liệu chuẩn.
+- Dùng các file ngôn ngữ trong `i18n/` làm target đồng bộ rõ ràng.
+- Giữ artefacts pipeline (`.auto-readme-work/`) như bằng chứng lịch sử, không chỉnh sửa thủ công như mã production.
+- Tránh cam kết hành vi thực thi chưa có sẵn; chỉ mô tả đúng thứ đã tồn tại hiện tại.
 
-Các mốc triển khai tiếp theo được đề xuất:
+### Giả định được nêu trong README này
 
-1. Thêm thư mục mã nguồn (ví dụ `src/` hoặc `autopublication/`).
-2. Thêm manifest dependency (`pyproject.toml` hoặc tương đương).
-3. Thêm entrypoint thực thi và mức độ test tối thiểu.
-4. Thêm CI để kiểm tra lint/test/docs.
+- Repository vẫn theo hướng documentation-first cho tới khi các module runtime được commit.
+- Bản dịch giữ nguyên đồng bộ với các thay đổi cấu trúc có ý nghĩa.
+- `.auto-readme-work/` chứa lịch sử append-only theo lượt chạy và không phải bản làm việc chuẩn.
 
-## 🩺 Khắc phục sự cố
+## 🔧 Khắc phục sự cố
 
-### "Không thể chạy dự án"
+### Tôi không thể chạy lệnh `auto-publication`
 
-Nguyên nhân:
+**Nguyên nhân:** Không có ứng dụng runtime trong snapshot này.
 
-- Chưa có file ứng dụng runtime hoặc entrypoint được commit.
+**Cách xử lý:** Dùng repo này cho quy trình tài liệu và chờ khi file triển khai được thêm vào.
 
-Giải pháp:
+### Một README bản địa hóa có vẻ không đồng bộ
 
-- Xem repository như một scaffold/documentation base cho tới khi phần triển khai được thêm.
+**Nguyên nhân:** Bản dịch được cập nhật độc lập với nguồn tiếng Anh.
 
-### "Các liên kết README ngôn ngữ tồn tại nhưng file bị thiếu"
+**Cách xử lý:** Áp dụng cùng thay đổi cấu trúc cho tất cả các file `i18n/README.*.md`, sau đó căn chỉnh lại cách diễn đạt và ví dụ.
 
-Nguyên nhân:
+### Liên kết trong README trỏ tới chức năng không tồn tại
 
-- `i18n/` tồn tại, nhưng các file README bản địa hóa chưa được sinh trong snapshot này.
+**Nguyên nhân:** Tài liệu có chứa hành vi đã lên kế hoạch.
 
-Giải pháp:
+**Cách xử lý:** Giữ phần được đánh dấu là dự kiến hoặc thay thế bằng lệnh đã được xác nhận hiện tại.
 
-- Tạo và thêm các file được liệt kê trong ánh xạ `i18n/README.*.md` cùng các artifact kế hoạch dịch.
+## 🗺️ Lộ trình
 
-## 🧭 Lộ trình
-
-- [ ] Thêm bản triển khai chạy được đầu tiên cho xuất bản tự động.
-- [ ] Định nghĩa tích hợp nhà cung cấp và schema cấu hình.
-- [ ] Thêm hướng dẫn thiết lập local có thể lặp lại.
-- [ ] Thêm test và pipeline CI.
-- [ ] Phát hành bộ README đa ngôn ngữ đầy đủ trong `i18n/`.
+- [ ] Thêm source package và entrypoint runtime.
+- [ ] Thêm manifest phụ thuộc và đường dẫn cài đặt.
+- [ ] Thêm tích hợp phát hành theo từng nền tảng.
+- [ ] Thêm xác thực cấu hình và xử lý secrets.
+- [ ] Thêm ví dụ thực thi được và kiểm tra smoke CI.
+- [ ] Thêm kiểm tra tự động đối chiếu các README bản địa hóa.
+- [ ] Thêm file `LICENSE` và điều khoản cấp phép rõ ràng.
 
 ## 🤝 Đóng góp
 
-Đóng góp được chào đón khi dự án chuyển từ scaffold sang triển khai thực tế.
-
-Luồng đóng góp gợi ý:
+Mọi đóng góp đều được chào đón khi khung tài liệu này chuyển dần sang giai đoạn triển khai.
 
 ```bash
-# 1) Create a branch
-git checkout -b feat/<short-description>
+# 1. create a branch
+git checkout -b docs/<short-description>
 
-# 2) Commit your changes
-git add .
-git commit -m "feat: <describe change>"
 
-# 3) Push and open a PR
-git push -u origin feat/<short-description>
+# 2. commit changes
+git add README.md i18n/README.fr.md
+git commit -m "docs: update English README scaffold"
+
+# 3. push and open PR
+git push -u origin docs/<short-description>
 ```
 
-Vui lòng bao gồm:
+Danh sách kiểm tra PR đề xuất:
 
-- Mô tả vấn đề rõ ràng và phạm vi.
-- Các bước tái hiện có thể lặp lại cho bất kỳ thay đổi hành vi nào.
-- Cập nhật tài liệu cho các lệnh/cấu hình mới.
+- Giữ `README.md` làm nguồn dữ liệu chuẩn.
+- Cập nhật mọi README bản địa hóa đã chỉnh sửa trong `i18n/`.
+- Giữ nguyên các section có sẵn khi thêm giá trị mới theo từng bước.
+- Keep `.auto-readme-work/*` metadata aligned with the current pass.
 
 ## ❤️ Support
 
 | Donate | PayPal | Stripe |
-|---|---|---|
-| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=ko-fi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-## 📫 Liên hệ
+## Contact
 
-Đối với các câu hỏi sử dụng hiện tại và chỉnh sửa tài liệu, tạo một issue trong repository.
+Dùng mục issue của repository cho các câu hỏi, chỉnh sửa tài liệu và phối hợp đóng góp.
 
-## 📄 Giấy phép
+## 📄 License
 
-Hiện không có file giấy phép trong snapshot repository này.
-
-Giả định:
-
-- Giấy phép chưa được khai báo.
+Hiện chưa có file `LICENSE` trong snapshot này.
 
 Bước tiếp theo đề xuất:
 
-- Thêm file `LICENSE` và cập nhật phần này để tham chiếu cụ thể.
+- Thêm file `LICENSE` và cập nhật phần này với mã giấy phép đã chọn.

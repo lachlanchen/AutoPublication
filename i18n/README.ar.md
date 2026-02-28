@@ -5,42 +5,89 @@
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-scaffold-1f6feb)
-![Docs](https://img.shields.io/badge/docs-readme_in_progress-2ea043)
-![i18n](https://img.shields.io/badge/i18n-planned-f59e0b)
-![Stage](https://img.shields.io/badge/stage-documentation_first-0ea5e9)
-![Repo%20Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
+![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
+![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
+![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
+![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
 
-> Auto Publish Videos with AI tools.
+> هيكل توثيق أولي مخصص لسير عمل نشر فيديو مدعوم بالذكاء الاصطناعي.
+
+## 📌 لمحة سريعة
+
+| المجال | التفاصيل |
+| --- | --- |
+| الدور | المصدر الرسمي للوثائق باللغة الإنجليزية لمساحة عمل نشر الفيديو بالذكاء الاصطناعي |
+| اللغات | الإنجليزية + 10 نسخ README مترجمة |
+| المخرجات المولدة | بيانات تعريف اللقطة وسجلات خط الأنابيب في `.auto-readme-work/*` |
+| التنفيذ الحالي | هيكل توثيقي فقط (لا يوجد كود تشغيل فعلي ملتزم بعد) |
+| أحدث لقطة | `.auto-readme-work/20260301_070712/` |
+
+![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
+![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
+
+## 🗂️ تنقل سريع للـ README
+
+| القسم | الرابط |
+|---|---|
+| نظرة عامة | [Overview](#%E2%98%9B-overview) |
+| الميزات | [Features](#%E2%9C%A8-features) |
+| بنية المشروع | [Project structure](#%F0%9F%97%82%EF%B8%8F-project-structure) |
+| المتطلبات المسبقة | [Prerequisites](#%F0%9F%A7%B0-prerequisites) |
+| التثبيت | [Installation](#%F0%9F%9B%A0%EF%B8%8F-installation) |
+| الاستخدام | [Usage](#%E2%96%B6%EF%B8%8F-usage) |
+| الإعداد | [Configuration](#%F0%9F%A7%A9-configuration) |
+| أمثلة | [Examples](#%F0%9F%A7%AA-examples) |
+| ملاحظات التطوير | [Development notes](#%F0%9F%99%82-development-notes) |
+| استكشاف الأخطاء | [Troubleshooting](#%F0%9F%94%A7-troubleshooting) |
+| خارطة الطريق | [Roadmap](#%F0%9F%97%BA-roadmap) |
+| المساهمة | [Contributing](#%F0%9F%A4%9D-contributing) |
+| الدعم | [Support](#%E2%9D%A4%EF%B8%8F-support) |
+| التواصل | [Contact](#contact) |
+| الترخيص | [License](#%F0%9F%93%84-license) |
 
 ## 🧭 نظرة عامة
 
-`AutoPublication` هو بنية أولية قائمة على التوثيق (documentation-first) تهدف إلى تعريف سيرات عمل نشر الفيديو باستخدام أدوات مدعومة بالذكاء الاصطناعي.
+`AutoPublication` هو هيكل توثيق على مستوى المستودع مُعد لدعم نظام أوسع لنشر الفيديو بالذكاء الاصطناعي.
+يُبقي ملف الـ `README.md` الإنجليزي كمصدر الحقيقة الأساسي، ويُزامن الترجمات في `i18n/README.*.md` عبر لقطات خط الأنابيب.
 
-في المرحلة الحالية للمستودع، هذا المشروع هو بنية أولية تضم توثيقًا ومخرجات خطّة آلية لإنشاء README، لكن لم يتم بعد تضمين أي شفرة مصدرية للتطبيق أو نقطة دخول تشغيل فعلية.
+### ما الذي يمثله هذا المستودع
 
-هذا الـREADME هو المصدر الإنجليزي الرسمي للتوثيق، ومُنظّم لدعم توسّع التنفيذ مستقبلاً دون فقدان نية المشروع الحالية.
+- مصدر رسمي لتوثيق المشروع وإرشادات المساهمين.
+- مجموعة وثائق متعددة اللغات تُستخدم كمرجع متزامن لتطور README.
+- مخزن أدلة تاريخية تحت `.auto-readme-work/*` يلتقط كل تشغيل من خط الأنابيب.
+
+### ما الذي لا يمثله هذا المستودع (حتى الآن)
+
+- لا يوجد تطبيق نشر قابل للتنفيذ بعد.
+- لا يوجد حزمة ذات نصوص تثبيت أو سجلات اعتماد.
+- لا يوجد نموذج تكوين تشغيل (`.env`، YAML، مخطط CLI) في هذا الفرع.
 
 ## ✨ الميزات
 
-### ✅ القدرات الحالية
+### القدرات الحالية
 
-- README أساسي موحد في الجذر لتعريف المشروع.
-- أهداف README متعددة اللغات محددة مسبقًا ضمن `i18n/`.
-- سياق بنية خط أنابيب الـREADME ومخرجاته ضمن `.auto-readme-work/`.
-- سطر تنقّل اللغات مركّز في الأعلى لتحقيق اتساق متعدد اللغات.
+- توثيق إنجليزي أساسي في ملف مصدر واحد (`README.md`).
+- كتلة اختيار لغة تربط جميع ملفات README المترجمة.
+- لقطات README مؤتمتة ذات طابع زمني (`pipeline-context`, `language-nav-*`, `translation-plan`, `repo-structure-analysis`).
+- خريطة مشروع قياسية موجهة للتوثيق لدعم التنفيذ التدريجي.
+- لوحة دعم قياسية لعرض خيارات التبرع/الرعاية.
 
-### القدرات المخططة (مستندة إلى اسم المشروع والوصف الحالي)
+### القدرات المخطط لها
 
-- تنسيق تلقائي لسير نشر الفيديو.
-- إعداد البيانات الوصفية والمحتوى بمساعدة الذكاء الاصطناعي.
-- وجهات نشر قابلة للتكوين وتكاملات مع منصّات متعددة.
+- تنسيق سير نشر المحتوى بمساعدة الذكاء الاصطناعي.
+- توليد بيانات وصفية متعددة المنصات والتحقق منها.
+- أهداف نشر قابلة للتخصيص وإدارة بيانات اعتماد.
+- مسار تطوير محلي قابل لإعادة التشغيل مع اختبارات وفحوصات CI.
 
 ## 🗂️ بنية المشروع
 
 ```text
 AutoPublication/
 ├── README.md
+├── README.md.auto-readme-support
+├── README.md.auto-readme-support.filtered
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -55,191 +102,190 @@ AutoPublication/
 │   └── README.zh-Hant.md
 └── .auto-readme-work/
     ├── 20260228_230008/
-    │   ├── pipeline-context.md
-    │   ├── language-nav-root.md
-    │   ├── language-nav-i18n.md
-    │   ├── translation-plan.txt
-    │   └── repo-structure-analysis.md
     ├── 20260301_064342/
-    │   ├── pipeline-context.md
-    │   ├── language-nav-root.md
-    │   ├── language-nav-i18n.md
-    │   ├── translation-plan.txt
-    │   └── repo-structure-analysis.md
-    └── 20260301_064412/
+    ├── 20260301_064412/
+    ├── 20260301_064745/
+    ├── 20260301_065035/
+    ├── 20260301_065907/
+    └── 20260301_070712/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
         └── translation-plan.txt
 ```
 
-## 🔎 المسارات المهمة
+### المسارات المهمة
 
 | المسار | الغرض |
 |---|---|
-| `i18n/` | مجلد الهدف لملفات README المترجمة. |
-| `.auto-readme-work/20260301_064412/pipeline-context.md` | سياق قيود وتشغيل Auto-README الأحدث. |
-| `.auto-readme-work/20260228_230008/translation-plan.txt` | خطة سابقة لأهداف اللغات في نسخ README. |
-| `.auto-readme-work/20260301_064412/translation-plan.txt` | أحدث خطة أولويات وأهداف لغوية. |
-| `.gitignore` | قالب تجاهل موجّه إلى بايثون (إرشادي فقط؛ لا توجد حالياً ملفات تطبيق بايثون). |
+| `i18n/README.*.md` | ملفات README مترجمة لتوثيق واجهات المستخدم |
+| `.auto-readme-work/*/pipeline-context.md` | قيود التشغيل والبيانات الوصفية لكل تمريرة خط أنابيب |
+| `.auto-readme-work/*/language-nav-*.md` | ملفات رسمية لتثبيت خرائط اللغة (root و i18n) |
+| `.auto-readme-work/*/repo-structure-analysis.md` | لقطات هيكلية تاريخية لبنية المستودع |
+| `.auto-readme-work/*/translation-plan.txt` | نطاقات الترجمة وخطة الترجمة |
+| `.auto-readme-work/*/translated-files.txt` | قوائم ملفات الإخراج من عمليات الترجمة السابقة |
 
-## المتطلبات المسبقة
+## 🧰 المتطلبات المسبقة
 
-نظرًا لعدم وجود ملفات تنفيذية حتى الآن، فمتطلبات التشغيل هي افتراضات مستندة إلى محتوى المستودع.
+نظرًا لأن هذه اللقطة توثيقية فقط، لا توجد تبعيات تنفيذية لتشغيل التطبيق.
 
-| النوع | المتطلب |
-|---|---|
-| الأدوات | `git` |
-| الصدفة | صدفة متوافقة مع POSIX (تستخدم الأمثلة `bash`). |
+لأعمال الصيانة والمراجعة وتزامن الترجمة تحتاج إلى:
 
-الإشارات المتوقعة للمكدس المستقبلي (من `.gitignore`):
+- `git`
+- واجهة shell متوافقة مع POSIX (تعتمد الأمثلة على `bash`)
+- محرر يدعم Markdown
+- اختياري: عرض المقارنات (diff viewer) لمراجعة الفروع المحلية
 
-- سلسلة أدوات Python وتغليف الحزم المرتبط بها.
+## 🛠️ التثبيت
 
-## 🚀 التثبيت
+لا توجد حزمة قابلة للتثبيت في هذه اللقطة.
 
-في هذه المرحلة لا توجد حزمة قابلة للتثبيت أو قائمة تبعيات أو نقطة دخول.
-
-استنساخ المستودع والدخول إليه:
+للعمل محليًا:
 
 ```bash
-# استنساخ المستودع والدخول إليه
 git clone <your-repo-url> AutoPublication
 cd AutoPublication
+sed -n '1,140p' README.md
 ```
 
 ## ▶️ الاستخدام
 
-لا يوجد حتى الآن أمر تشغيل قابل للتنفيذ.
-
-الاستخدام العملي الحالي هو إعداد المستودع والتوثيق:
+الاستخدام الحالي موجه للتوثيق وتتبع مسار خط الأنابيب.
 
 ```bash
-# فحص بنية المستودع
-ls -la
+# inspect the language selector map
+head -n 5 README.md
 
-# عرض أهداف اللغات
-ls -la i18n
+# inspect the latest pipeline context
+cat .auto-readme-work/20260301_070712/pipeline-context.md
 
-# عرض سياق أنبوب README النشط
-cat .auto-readme-work/20260301_064412/pipeline-context.md
+# inspect the repository structure analysis from the latest available snapshot
+cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
+
+# review localized docs for parity checks
+sed -n '1,90p' i18n/README.fr.md
 ```
 
-بعد إضافة التنفيذ، استبدل هذه الأوامر بسير عمل تشغيلية ونشر فعلية.
+### سير صيانة موصى به
 
-## ⚙️ الإعداد
+1. حدّث `README.md` عند تغييرات بنيوية أو سلوكية.
+2. أعد إنشاء تحديثات الترجمة عند الحاجة.
+3. تأكد من بقاء الأقسام الرئيسية متزامنة عبر ملفات `i18n/`.
+4. احرص على اتساق لقطات `.auto-readme-work` مع سير العمل الحالي.
 
-لا توجد حتى الآن ملفات إعداد رسمية (مثل `.env.example` أو `config.yaml` أو خيارات CLI).
+## 🧩 الإعداد
 
-الاقتراحات المستقبلية:
+لا توجد ملفات إعداد تشغيل رسمية بعد (`.env`, `config.yml`, CLI schema، إلخ غير موجودة).
 
-- قالب بيئة لإعداد بيانات اعتماد API ووجهات النشر.
-- مخطط تكوين `YAML/JSON` للبيانات الوصفية الافتراضية وتهيئة سير العمل لكل منصة.
-- توثيق إعدادات CLI وسلوك التحقق منها.
+إذا كنت ستنفذ نموذج تشغيل مستقبلاً، فالإعدادات المقترحة:
 
-## 🧪 أمثلة
+- أضف ملف نموذج مثل `config.sample.yml`.
+- خزّن الأسرار عبر `.env` (مستبعد من المستودع) أو مدير الأسرار في منصة الاستضافة.
+- احرص على تزامن الوثائق والـ CLI عند إضافة مفاتيح جديدة.
 
-### مثال الحالي (البنية الأولية)
+## 🧪 الأمثلة
 
-استخدم المستودع كأساس توثيقي:
+### الأمثلة الحالية (المخطط القائم حالياً)
 
 ```bash
-# قراءة مقصود المشروع الرسمي
+# open full English documentation
 cat README.md
+
+# compare localized versions
+sed -n '1,90p' i18n/README.de.md
 ```
 
-### مثال مستقبلي (عنصر نائب)
+### الأمثلة المستقبلية (المتوقعة)
 
 ```bash
-# مثال استدعاء متوقع مستقبلًا
-# python -m autopublication run --video ./assets/demo.mp4 --platform youtube
+# conceptual example; may not exist until runtime is introduced
+auto-publication publish \
+  --video ./assets/sample.mp4 \
+  --config ./config.sample.yml \
+  --platform youtube,tiktok
 ```
 
 ## 🛠️ ملاحظات التطوير
 
-- لا يحتوي المستودع حاليًا على أي شفرة مصدرية قابلة للتنفيذ.
-- يبدو أن إنشاء الـREADME يتم عبر خط أنابيب باستخدام الملفات داخل `.auto-readme-work/`.
-- تم تجهيز سير العمل متعدد اللغات عبر ملفات `i18n/` وخطط الترجمة.
+- عُدّ التغييرات بشكل تدريجي: قدّم تحسينات إضافية وابتعد عن إعادة البناء الجذرية.
+- احتفظ بالإنجليزية كمصدر موثوق للتوثيق الأساسي.
+- استخدم ملفات `i18n/` كأهداف مزامنة صريحة.
+- اعتبر لقطات `.auto-readme-work/` أدلة تاريخية، وليس شفرة إنتاجية.
+- لا تعدّي الوعود التشغيلية في الأوامر؛ وثّق فقط ما هو موجود بالفعل.
 
-المهام المقترحة للتنفيذ التالي:
+### الافتراضات المندرجة في هذا الـ README
 
-1. إضافة مجلد المصدر (مثلاً `src/` أو `autopublication/`).
-2. إضافة ملف تعريف التبعيات (`pyproject.toml` أو ما يعادله).
-3. إضافة نقطة دخول تنفيذية وتغطية اختبارية أولية.
-4. إضافة CI للتحقق من lint/test/docs.
+- يستمر المستودع كتوثيق أولاً حتى تُدمج وحدات التشغيل.
+- تبقى الترجمات متماشية مع التعديلات الهيكلية المعقولة.
+- يحتوي `.auto-readme-work/` على سجل تاريخي إضافي للعمليات وليس النسخة الأساسية للعمل.
 
-## 🩺 استكشاف الأخطاء
+## 🔧 استكشاف الأخطاء
 
-### "لا أستطيع تشغيل المشروع"
+### لا أستطيع تشغيل أمر `auto-publication`
 
-السبب:
+**السبب:** لا يوجد تطبيق وقتي/تشغيلي في هذه اللقطة.
 
-- لا توجد ملفات تنفيذية أو نقطة دخول تشغيلية ضمن الالتزامات الحالية.
+**الإصلاح:** استخدم هذا المستودع لسير عمل التوثيق وانتظر إضافة ملفات التنفيذ.
 
-الحل:
+### يبدو أن نسخة README مترجمة غير متزامنة
 
-- تعامل مع المستودع كبنية أولية/توضيحية للتوثيق حتى تتم إضافة التنفيذ.
+**السبب:** تم تحديث الترجمات بشكل منفصل عن المصدر الإنجليزي.
 
-### "روابط README اللغوية موجودة لكن الملفات غير موجودة"
+**الإصلاح:** طبّق نفس التغييرات البنيوية على جميع ملفات `i18n/README.*.md`، ثم راجع الصياغة والأمثلة.
 
-السبب:
+### يشير رابط README إلى وظيفة غير موجودة
 
-- المجلد `i18n/` موجود، لكن ملفات README المترجمة غير مضافة في هذه اللقطة.
+**السبب:** يحتوي التوثيق على سلوك مخطط في المستقبل.
 
-الحل:
+**الإصلاح:** أبقِ القسم محددًا كوظيفة مستقبلية أو استبدله بوظائف موثقة حاليًا.
 
-- أنشئ وأضف الملفات المدرجة ضمن `i18n/README.*.md` وخطط الترجمة.
+## 🗺️ خارطة الطريق
 
-## 🧭 خارطة الطريق
-
-- [ ] إضافة أول تنفيذ قابل للتشغيل للنشر الآلي.
-- [ ] تعريف تكاملات المزوّديين ومخطط الإعداد.
-- [ ] إضافة تعليمات إعداد محلي قابلة لإعادة الإنتاج.
-- [ ] إضافة اختبارات وأنبوب CI.
-- [ ] نشر مجموعة README كاملة متعددة اللغات ضمن `i18n/`.
+- [ ] إضافة حزمة المصدر ونقطة دخول تشغيلية.
+- [ ] إضافة بيان اعتمادات ومسار تثبيت.
+- [ ] إضافة تكاملات نشر خاصة بالمنصات.
+- [ ] إضافة التحقق من التكوين وإدارة الأسرار.
+- [ ] إضافة أمثلة تشغيلية وفحوصات smoke في CI.
+- [ ] إضافة فحوصات تطابق آلية بين READMEs المترجمة.
+- [ ] إضافة ملف `LICENSE` وصياغة شروط الترخيص.
 
 ## 🤝 المساهمة
 
-المساهمات مرحب بها بينما ينتقل المشروع من البنية الأولية إلى التنفيذ.
-
-تدفق المساهمة المقترح:
+المساهمات مرحب بها بينما ينتقل هذا الهيكل التوثيقي تدريجيًا نحو تنفيذ فعلي.
 
 ```bash
-# 1) إنشاء فرع جديد
-git checkout -b feat/<short-description>
+# 1. create a branch
+git checkout -b docs/<short-description>
 
-# 2) تثبيت التغييرات
-git add .
-git commit -m "feat: <describe change>"
+# 2. commit changes
+git add README.md i18n/README.fr.md
+git commit -m "docs: update English README scaffold"
 
-# 3) الدفع وفتح طلب سحب
-git push -u origin feat/<short-description>
+# 3. push and open PR
+git push -u origin docs/<short-description>
 ```
 
-يرجى تضمين:
+قائمة تحقق مقترحة للـ PR:
 
-- وصف واضح للمشكلة ونطاقها.
-- خطوات قابلة لإعادة التنفيذ لأي تغييرات سلوكية.
-- تحديثات للتوثيق عند إضافة أوامر/إعدادات جديدة.
+- حافظ على `README.md` كمصدر الحقيقة.
+- حدّث كل ملف `i18n/README.*.md` تم تعديله.
+- احتفظ بالأقسام الحالية مع إضافة قيمة تدريجية.
+- حافظ على اتساق بيانات `.auto-readme-work/*` مع هذه الدورة الحالية.
 
 ## ❤️ Support
 
 | Donate | PayPal | Stripe |
-|---|---|---|
-| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=ko-fi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-## 📫 التواصل
+## Contact
 
-للاستفسارات الحالية وتصحيحات التوثيق، افتح issue في المستودع.
+استخدم قضايا المستودع (Issues) للطرح والاستفسارات وتنسيق الملاحظات البرمجية.
 
-## 📄 الترخيص
+## 📄 License
 
-لا يوجد ملف ترخيص حاليًا في لقطة هذا المستودع.
+لا يوجد ملف `LICENSE` حاليًا في هذه اللقطة.
 
-الفرضية:
+الخطوة المقترحة التالية:
 
-- لم يتم تحديد الترخيص بعد.
-
-الخطوة التالية المقترحة:
-
-- أضف ملف `LICENSE` وقم بتحديث هذا القسم للإشارة إليه صراحةً.
+- أضف ملف `LICENSE` وحدث هذا القسم بمعرف الترخيص المختار.
