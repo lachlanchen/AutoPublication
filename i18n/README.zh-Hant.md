@@ -1,181 +1,205 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
+
 # AutoPublication
 
 ![Status](https://img.shields.io/badge/status-scaffold-1f6feb)
 ![Docs](https://img.shields.io/badge/docs-readme_in_progress-2ea043)
 ![i18n](https://img.shields.io/badge/i18n-planned-f59e0b)
 ![Stage](https://img.shields.io/badge/stage-documentation_first-0ea5e9)
-![Repo Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
+![Repo%20Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
 
 > 使用 AI 工具自動發布影片。
 
-## 概覽
+## 🧭 概覽
 
-`AutoPublication` 旨在使用 AI 輔助工具自動化影片發布工作流程。
+`AutoPublication` 是一個以文件優先為核心、用於定義 AI 輔助影片發布流程的腳手架。
 
-在目前的儲存庫階段中，此專案仍是包含文件與 README 生成流程產物的骨架，尚未提交任何應用程式原始碼或執行入口。
+在目前的倉庫階段，這個專案仍是腳手架：目前只提交了文件與 README 生成流程產物，但尚未提交應用原始碼或可執行進入點。
 
-本 README 作為標準英文基礎版本，並採用可支援後續實作成長的結構，同時保留目前專案意圖。
+此 README 是英文標準來源文件，結構上能支援未來實作擴展，同時保留目前專案目標與邊界。
 
-| 區域 | 目前狀態 |
-|---|---|
-| 實作 | 骨架階段（尚未提交可執行應用） |
-| 文件 | 已有標準根 README |
-| 多語系文件 | 已在 `i18n/` 下定義語言目標 |
-| 流程產物 | 位於 `.auto-readme-work/` |
+## ✨ 特性
 
-## 功能
+### ✅ 目前能力
 
-### 目前能力
+- 專案定義用的英文根 README。
+- 在 `i18n/` 下預先定義的多語系 README 目標。
+- 在 `.auto-readme-work/` 下提供 README 流程上下文與結構化產物。
+- 將語言導覽列集中在頂部以維持多語一致性。
 
-- 作為專案定義的標準根 README。
-- 在 `i18n/` 下預先定義多語系 README 目標。
-- 提供 README 流程內容，支援可重複的文件生成。
+### 規劃能力（依專案名稱與當前描述推斷）
 
-### 規劃中的能力（依專案名稱與目前描述推斷）
+- 自動化影片發布編排。
+- AI 輔助的中繼資料與內容準備。
+- 可設定的發布目標平台與平台整合能力。
 
-- 自動化影片發布協調。
-- AI 輔助中繼資料／內容準備。
-- 可設定的發布目的地整合。
-
-## 專案結構
+## 🗂️ 專案結構
 
 ```text
 AutoPublication/
 ├── README.md
 ├── .gitignore
 ├── i18n/
+│   ├── README.ar.md
+│   ├── README.de.md
+│   ├── README.es.md
+│   ├── README.fr.md
+│   ├── README.ja.md
+│   ├── README.ko.md
+│   ├── README.ru.md
+│   ├── README.vi.md
+│   ├── README.zh-Hans.md
+│   └── README.zh-Hant.md
 └── .auto-readme-work/
-    └── 20260228_230008/
+    ├── 20260228_230008/
+    │   ├── pipeline-context.md
+    │   ├── language-nav-root.md
+    │   ├── language-nav-i18n.md
+    │   ├── translation-plan.txt
+    │   └── repo-structure-analysis.md
+    ├── 20260301_064342/
+    │   ├── pipeline-context.md
+    │   ├── language-nav-root.md
+    │   ├── language-nav-i18n.md
+    │   ├── translation-plan.txt
+    │   └── repo-structure-analysis.md
+    └── 20260301_064412/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        ├── translation-plan.txt
-        └── repo-structure-analysis.md
+        └── translation-plan.txt
 ```
 
-### 重要路徑
+## 🔎 重要路徑
 
 | 路徑 | 用途 |
 |---|---|
-| `README.md` | 英文版標準專案定義。 |
-| `i18n/` | 翻譯版 README 檔案的目標資料夾。 |
-| `.auto-readme-work/20260228_230008/pipeline-context.md` | Auto-README 執行內容與限制條件。 |
-| `.auto-readme-work/20260228_230008/translation-plan.txt` | 語言對應與檔案目標。 |
-| `.gitignore` | 以 Python 為導向的忽略範本（僅供參考；目前不存在 Python 應用檔案）。 |
+| `i18n/` | 翻譯版本檔案的目標目錄。 |
+| `.auto-readme-work/20260301_064412/pipeline-context.md` | 最新 README 自動化執行的上下文與限制。 |
+| `.auto-readme-work/20260228_230008/translation-plan.txt` | 較早的語言目標與執行計畫。 |
+| `.auto-readme-work/20260301_064412/translation-plan.txt` | 最新語言目標與優先順序規劃。 |
+| `.gitignore` | Python 風格的忽略模板（目前僅為參考；尚未包含 Python 應用檔案）。 |
 
-## 先決條件
+## 前置條件
 
-由於目前尚未提供實作檔案，執行期先決條件目前仍屬假設。
+由於尚未提交實作檔案，執行前置條件目前根據倉庫內容進行假設。
 
-### 已記錄的基準
+| 類型 | 要求 |
+|---|---|
+| 工具 | `git` |
+| Shell | POSIX 相容的 Shell（範例使用 `bash`） |
 
-- `git`
-- 相容 POSIX 的 shell（範例使用 `bash`）
+可能的未來技術棧訊號（來自 `.gitignore`）：
 
-### 可能的未來技術棧訊號（僅來自 `.gitignore`）
+- Python 工具鏈與相關打包工具
 
-- 後續可能會需要 Python 工具鏈。
+## 🚀 安裝
 
-## 安裝
+此階段尚無可安裝套件、依賴清單或進入點。
 
-在目前階段，尚無可安裝的套件或相依性清單。
-
-複製儲存庫並進入目錄：
+克隆並進入倉庫：
 
 ```bash
 git clone <your-repo-url> AutoPublication
 cd AutoPublication
 ```
 
-## 使用方式
+## ▶️ 使用
 
-目前尚無可執行的應用程式指令。
+目前沒有可執行的應用程式指令。
 
-現階段可實際進行的使用方式是文件流程與儲存庫準備：
+當前可實際使用的是倉庫文件與流程準備：
 
 ```bash
-# Inspect repository structure
+# 檢視倉庫結構
 ls -la
 
-# Inspect i18n targets
+# 檢視語言目標
 ls -la i18n
+
+# 檢視目前 README 流程上下文
+cat .auto-readme-work/20260301_064412/pipeline-context.md
 ```
 
-一旦加入實作內容，本節應擴充為具體的執行指令與真實端到端範例。
+實作補齊後，請將這些命令替換為具體可執行的發布流程與執行指令。
 
-## 設定
+## ⚙️ 設定
 
-目前尚無正式設定檔（例如 `.env.example`、`config.yaml` 或 CLI 旗標）。
+目前尚未提供正式設定檔（例如 `.env.example`、`config.yaml` 或 CLI 旗標）。
 
-建議後續新增：
-- 已文件化的環境範本（用於 API keys/tokens）。
-- 平台特定的發布設定。
-- AI provider/model 選擇設定。
+建議的未來補充：
 
-## 範例
+- 提供用於 API 憑證與發布目標的環境變數範本。
+- 提供 YAML/JSON 設定 schema，用於平台特定中繼資料與流程預設值。
+- 補充 CLI 設定檔與參數驗證行為說明。
 
-### 目前（骨架）範例
+## 🧪 範例
 
-將此儲存庫作為文件基準使用：
+### 目前（腳手架）範例
+
+將本倉庫作為文件基準使用：
 
 ```bash
-# Read canonical project intent
+# 檢視標準化專案定義
 cat README.md
 ```
 
-### 未來（目標）範例
-
-假設的未來流程（僅佔位）：
+### 未來（目標）範例（佔位）
 
 ```bash
-# Placeholder example for future implementation
+# 預期未來可執行的指令範例
 # python -m autopublication run --video ./assets/demo.mp4 --platform youtube
 ```
 
-## 開發說明
+## 🛠️ 開發說明
 
-- 此儲存庫目前不含可執行的原始碼。
-- README 生成看起來是由 `.auto-readme-work/` 中的檔案驅動流程。
-- 語言導覽列刻意集中在 README 頂部，以支援多語版本一致性。
+- 倉庫目前不包含可執行原始碼。
+- README 生成看起來由 `.auto-readme-work/` 的流程檔驅動。
+- 多語流程已透過 `i18n/` 檔案與翻譯計畫進行腳手架搭建。
 
 建議的下一步實作里程碑：
-1. 新增原始碼目錄（例如 `src/` 或 `autopublication/`）。
-2. 新增相依性清單（`pyproject.toml` 或同等檔案）。
-3. 新增可執行入口點與最小測試覆蓋。
-4. 新增 CI 以驗證 lint/test/docs。
 
-## 疑難排解
+1. 新增原始碼目錄（例如 `src/` 或 `autopublication/`）。
+2. 新增依賴清單（`pyproject.toml` 或同類型檔案）。
+3. 新增可執行進入點並補齊基本測試覆蓋。
+4. 新增 CI 以校驗 lint/test/docs。
+
+## 🩺 疑難排解
 
 ### 「我無法執行專案」
 
 原因：
-- 目前尚未提交執行期應用檔案或入口點。
 
-解法：
-- 在加入原始碼之前，請將此儲存庫視為骨架／文件專案。
+- 目前尚未提交執行期應用檔案或進入點。
 
-### 「語言 README 連結存在，但檔案缺失」
+解決方式：
+
+- 將此倉庫視為腳手架與文件基線，待實作補齊後再驗證執行。
+
+### 「語言 README 連結存在但檔案缺失」
 
 原因：
-- `i18n/` 存在，但在此快照中尚未生成在地化 README 檔案。
 
-解法：
-- 生成／加入 `.auto-readme-work/20260228_230008/translation-plan.txt` 中列出的目標檔案。
+- `i18n/` 已存在，但此快照中的本地化 README 尚未全部生成。
 
-## 路線圖
+解決方式：
+
+- 依 `i18n/README.*.md` 對應清單與翻譯規劃生成並補齊所列檔案。
+
+## 🧭 路線圖
 
 - [ ] 新增第一個可執行的自動發布實作。
-- [ ] 定義 provider 整合與設定綱要。
-- [ ] 新增可重現的本機環境設定指引。
-- [ ] 新增測試與 CI 流程。
-- [ ] 在 `i18n/` 發布完整多語 README 集合。
+- [ ] 定義平台整合與設定 schema。
+- [ ] 新增可重複的本地環境建置說明。
+- [ ] 增加測試與 CI 流程。
+- [ ] 在 `i18n/` 完成完整多語 README 發布。
 
-## 貢獻
+## 🤝 貢獻
 
-隨著專案從骨架階段邁向實作，歡迎貢獻。
+專案由腳手架走向實作的過程歡迎提交貢獻。
 
 建議的貢獻流程：
 
@@ -192,22 +216,25 @@ git push -u origin feat/<short-description>
 ```
 
 請包含：
+
 - 清楚的問題敘述與範圍。
-- 任何行為變更的可重現步驟。
-- 針對新指令／設定的文件更新。
+- 對任何行為變更提供可重現步驟。
+- 為新增命令/設定同步更新文件。
 
-## 支援
+## ❤️ Support
 
-此儲存庫目前尚未宣告捐款／贊助管道。
+| Donate | PayPal | Stripe |
+|---|---|---|
+| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=ko-fi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-若日後加入支援連結，應列於此處並同步到各 i18n 版本。
+## 📫 聯絡方式
 
-## 授權
+若有當前使用問題或文件修正，請在倉庫提出 issue。
 
-在此儲存庫快照中目前沒有授權檔案。
+## 📄 授權
+
+此倉庫快照中尚未提供授權文件。
 
 假設：
-- 授權尚未宣告。
 
-建議下一步：
-- 新增 `LICENSE` 檔案，並更新本節以明確參照。
+- 授權尚未宣告。

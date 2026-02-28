@@ -1,87 +1,104 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
+
 # AutoPublication
 
 ![Status](https://img.shields.io/badge/status-scaffold-1f6feb)
 ![Docs](https://img.shields.io/badge/docs-readme_in_progress-2ea043)
 ![i18n](https://img.shields.io/badge/i18n-planned-f59e0b)
 ![Stage](https://img.shields.io/badge/stage-documentation_first-0ea5e9)
-![Repo Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
+![Repo%20Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
 
-> Publica videos automáticamente con herramientas de IA.
+> Publica vídeos automáticamente con herramientas de IA.
 
-## Resumen
+## 🧭 Descripción general
 
-`AutoPublication` está diseñado para automatizar flujos de publicación de video mediante herramientas asistidas por IA.
+`AutoPublication` es un andamiaje centrado en la documentación concebido para definir flujos de publicación de vídeo asistidos por IA.
 
-En la etapa actual del repositorio, este proyecto es un andamiaje con artefactos de documentación y del pipeline de generación de README, pero todavía no se ha incorporado código fuente de la aplicación ni un punto de entrada de ejecución.
+En el estado actual del repositorio, este proyecto es un andamiaje con documentación y artefactos de la canalización de generación de README, pero aún no se han incorporado código fuente de aplicación ni punto de entrada de ejecución.
 
-Este README funciona como base canónica en inglés y está estructurado para respaldar el crecimiento futuro de la implementación sin perder la intención actual del proyecto.
+Este README es la fuente canónica de documentación en inglés y está estructurado para soportar un crecimiento futuro de implementación sin perder la intención actual del proyecto.
 
-| Área | Estado actual |
-|---|---|
-| Implementación | Fase de andamiaje (sin aplicación de ejecución incorporada) |
-| Documentación | README canónico en la raíz presente |
-| Documentación multilingüe | Idiomas objetivo definidos en `i18n/` |
-| Artefactos de pipeline | Presentes en `.auto-readme-work/` |
+## ✨ Características
 
-## Funcionalidades
+### ✅ Capacidades actuales
 
-### Capacidades actuales
-
-- README canónico en la raíz para definir el proyecto.
-- Objetivos de README multilingüe predefinidos en `i18n/`.
-- Contexto del pipeline de README para una generación de documentación repetible.
+- README raíz canónico para la definición del proyecto.
+- Objetivos de README multilingües predefinidos en `i18n/`.
+- Artefactos de contexto y estructura de pipeline de README en `.auto-readme-work/`.
+- Línea de navegación de idioma centralizada en la parte superior para mantener paridad multilingüe.
 
 ### Capacidades planificadas (inferidas del nombre del proyecto y la descripción actual)
 
-- Orquestación automatizada de publicación de videos.
-- Preparación de metadatos/contenido asistida por IA.
-- Integraciones configurables para destinos de publicación.
+- Orquestación automatizada de publicación de vídeos.
+- Preparación de metadatos y contenido asistida por IA.
+- Destinos de publicación configurables e integraciones con plataformas.
 
-## Estructura del proyecto
+## 🗂️ Estructura del proyecto
 
 ```text
 AutoPublication/
 ├── README.md
 ├── .gitignore
 ├── i18n/
+│   ├── README.ar.md
+│   ├── README.de.md
+│   ├── README.es.md
+│   ├── README.fr.md
+│   ├── README.ja.md
+│   ├── README.ko.md
+│   ├── README.ru.md
+│   ├── README.vi.md
+│   ├── README.zh-Hans.md
+│   └── README.zh-Hant.md
 └── .auto-readme-work/
-    └── 20260228_230008/
+    ├── 20260228_230008/
+    │   ├── pipeline-context.md
+    │   ├── language-nav-root.md
+    │   ├── language-nav-i18n.md
+    │   ├── translation-plan.txt
+    │   └── repo-structure-analysis.md
+    ├── 20260301_064342/
+    │   ├── pipeline-context.md
+    │   ├── language-nav-root.md
+    │   ├── language-nav-i18n.md
+    │   ├── translation-plan.txt
+    │   └── repo-structure-analysis.md
+    └── 20260301_064412/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        ├── translation-plan.txt
-        └── repo-structure-analysis.md
+        └── translation-plan.txt
 ```
 
-### Rutas destacadas
+## 🔎 Rutas destacadas
 
 | Ruta | Propósito |
 |---|---|
-| `README.md` | Definición canónica del proyecto en inglés. |
-| `i18n/` | Carpeta objetivo para archivos README traducidos. |
-| `.auto-readme-work/20260228_230008/pipeline-context.md` | Contexto y restricciones de la ejecución de Auto-README. |
-| `.auto-readme-work/20260228_230008/translation-plan.txt` | Mapeo de idiomas y archivos objetivo. |
-| `.gitignore` | Plantilla de exclusión orientada a Python (solo sugerente; actualmente no existen archivos de aplicación en Python). |
+| `i18n/` | Carpeta destino de los README traducidos. |
+| `.auto-readme-work/20260301_064412/pipeline-context.md` | Último contexto de ejecución y restricciones de auto-README. |
+| `.auto-readme-work/20260228_230008/translation-plan.txt` | Plan de objetivos de idioma y precedencias anterior. |
+| `.auto-readme-work/20260301_064412/translation-plan.txt` | Último plan de objetivos de idioma y prioridades. |
+| `.gitignore` | Plantilla de exclusión orientada a Python (solo indicativa; actualmente no hay archivos de app Python). |
 
 ## Requisitos previos
 
-Como los archivos de implementación aún no están presentes, los requisitos de ejecución por ahora son supuestos.
+Dado que aún no existen archivos de implementación, los prerrequisitos de ejecución son suposiciones derivadas del contenido del repositorio.
 
-### Base documentada
+| Tipo | Requisito |
+|---|---|
+| Herramientas | `git` |
+| Shell | Shell compatible con POSIX (los ejemplos usan `bash`) |
 
-- `git`
-- Un shell compatible con POSIX (los ejemplos usan `bash`)
+Señales de stack futuro probable (según `.gitignore`):
 
-### Señal probable de stack futuro (solo a partir de `.gitignore`)
+- Cadena de herramientas de Python y utilidades de empaquetado relacionadas
 
-- Es posible que más adelante se espere una cadena de herramientas de Python.
+## 🚀 Instalación
 
-## Instalación
-
-En esta etapa, no hay un paquete instalable ni un manifiesto de dependencias.
+En esta fase no hay paquete instalable, manifiesto de dependencias ni punto de entrada.
 
 Clona y entra en el repositorio:
 
@@ -90,82 +107,89 @@ git clone <your-repo-url> AutoPublication
 cd AutoPublication
 ```
 
-## Uso
+## ▶️ Uso
 
-Todavía no existe un comando para ejecutar la aplicación.
+Aún no existe un comando de aplicación ejecutable.
 
-El uso práctico actual es el flujo de documentación y la preparación del repositorio:
+El uso práctico actual es la documentación del repositorio y la preparación del flujo de trabajo:
 
 ```bash
-# Inspect repository structure
+# Inspeccionar la estructura del repositorio
 ls -la
 
-# Inspect i18n targets
+# Inspeccionar objetivos de idioma
 ls -la i18n
+
+# Ver el contexto activo de la canalización de README
+cat .auto-readme-work/20260301_064412/pipeline-context.md
 ```
 
-Una vez que se añada la implementación, esta sección debe ampliarse con comandos de ejecución concretos y ejemplos reales de extremo a extremo.
+Cuando se agregue la implementación, reemplaza estos comandos con flujos de publicación y ejecución concretos.
 
-## Configuración
+## ⚙️ Configuración
 
-Aún no hay archivos formales de configuración (como `.env.example`, `config.yaml` o banderas de CLI).
+Aún no existen archivos de configuración formales (como `.env.example`, `config.yaml` o opciones de CLI).
 
-Adiciones futuras recomendadas:
-- Una plantilla de entorno documentada (para claves/tokens de API).
-- Configuración de publicación específica por plataforma.
-- Ajustes de selección de proveedor/modelo de IA.
+Añadidos recomendados para el futuro:
 
-## Ejemplos
+- Plantilla de entorno para credenciales de API y destinos de publicación.
+- Esquema de configuración YAML/JSON para metadatos específicos de plataforma y valores predeterminados de flujo.
+- Documentación de configuración de CLI y comportamiento de validación.
 
-### Ejemplo actual (Andamiaje)
+## 🧪 Ejemplos
 
-Usa el repositorio como base de documentación:
+### Ejemplo actual (andamiaje)
+
+Usa el repositorio como línea base de documentación:
 
 ```bash
-# Read canonical project intent
+# Leer la intención canónica del proyecto
 cat README.md
 ```
 
-### Ejemplo futuro (Objetivo)
-
-Flujo de trabajo futuro asumido (solo marcador de posición):
+### Ejemplo objetivo futuro (marcador de posición)
 
 ```bash
-# Placeholder example for future implementation
+# Ejemplo de invocación futura prevista
 # python -m autopublication run --video ./assets/demo.mp4 --platform youtube
 ```
 
-## Notas de desarrollo
+## 🛠️ Notas de desarrollo
 
-- El repositorio actualmente no contiene código fuente ejecutable.
-- La generación del README parece estar impulsada por pipeline mediante archivos en `.auto-readme-work/`.
-- La línea de navegación de idiomas está centralizada intencionalmente al inicio de este README para mantener la paridad multilingüe.
+- Actualmente el repositorio no contiene código fuente ejecutable.
+- La generación de README parece estar guiada por canalización con archivos en `.auto-readme-work/`.
+- El flujo multilingüe está esqueletonado por los archivos de `i18n/` y los planes de traducción.
 
-Próximos hitos sugeridos de implementación:
-1. Añadir un directorio de código fuente (por ejemplo, `src/` o `autopublication/`).
-2. Añadir un manifiesto de dependencias (`pyproject.toml` o equivalente).
-3. Añadir un punto de entrada ejecutable y una cobertura mínima de pruebas.
-4. Añadir CI para validar lint/test/docs.
+Hitos recomendados de implementación siguientes:
 
-## Solución de problemas
+1. Agregar directorio de código fuente (por ejemplo, `src/` o `autopublication/`).
+2. Agregar manifiesto de dependencias (`pyproject.toml` o equivalente).
+3. Agregar punto de entrada ejecutable y cobertura inicial de pruebas.
+4. Agregar CI para validar lint/test/docs.
+
+## 🩺 Solución de problemas
 
 ### "No puedo ejecutar el proyecto"
 
 Causa:
-- Actualmente no hay archivos de aplicación en ejecución ni un punto de entrada incorporados.
+
+- No hay archivos de aplicación en tiempo de ejecución ni punto de entrada comprometidos actualmente.
 
 Resolución:
-- Trata el repositorio como andamiaje/documentación hasta que se añada el código fuente.
 
-### "Existen enlaces a README por idioma pero faltan archivos"
+- Tratar el repositorio como un andamiaje/documentación base hasta que se agregue la implementación.
+
+### "Los enlaces de README por idioma existen, pero faltan archivos"
 
 Causa:
-- `i18n/` existe, pero los README localizados no están generados en esta instantánea.
+
+- `i18n/` existe, pero los README localizados no se han generado en esta instantánea.
 
 Resolución:
-- Genera/añade los archivos objetivo listados en `.auto-readme-work/20260228_230008/translation-plan.txt`.
 
-## Hoja de ruta
+- Genera y agrega los archivos listados en `i18n/README.*.md` y los artefactos del plan de traducción.
+
+## 🧭 Hoja de ruta
 
 - [ ] Añadir la primera implementación ejecutable para publicación automatizada.
 - [ ] Definir integraciones de proveedores y esquema de configuración.
@@ -173,41 +197,48 @@ Resolución:
 - [ ] Añadir pruebas y pipeline de CI.
 - [ ] Publicar el conjunto completo de README multilingües en `i18n/`.
 
-## Contribuciones
+## 🤝 Contribución
 
-Las contribuciones son bienvenidas a medida que el proyecto pase de andamiaje a implementación.
+Las contribuciones son bienvenidas a medida que el proyecto avance de un andamiaje a una implementación.
 
-Flujo sugerido de contribución:
+Flujo de contribución sugerido:
 
 ```bash
-# 1) Create a branch
+# 1) Crear una rama
 git checkout -b feat/<short-description>
 
-# 2) Commit your changes
+# 2) Confirmar cambios
 git add .
 git commit -m "feat: <describe change>"
 
-# 3) Push and open a PR
+# 3) Enviar y abrir un PR
 git push -u origin feat/<short-description>
 ```
 
-Por favor, incluye:
-- Una declaración clara del problema y el alcance.
+Por favor incluye:
+
+- Declaración clara del problema y alcance.
 - Pasos reproducibles para cualquier cambio de comportamiento.
 - Actualizaciones de documentación para nuevos comandos/configuración.
 
-## Soporte
+## ❤️ Support
 
-Actualmente no se han declarado canales de donación/patrocinio en este repositorio.
+| Donate | PayPal | Stripe |
+|---|---|---|
+| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=ko-fi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-Si más adelante se añaden enlaces de soporte, deben listarse aquí y reflejarse en las variantes i18n.
+## 📫 Contacto
 
-## Licencia
+Para preguntas de uso actuales y correcciones de documentación, abre un issue en el repositorio.
 
-Actualmente no hay un archivo de licencia en esta instantánea del repositorio.
+## 📄 Licencia
+
+No hay archivo de licencia presente actualmente en esta instantánea del repositorio.
 
 Suposición:
+
 - La licencia aún no está declarada.
 
-Próximo paso recomendado:
-- Añadir un archivo `LICENSE` y actualizar esta sección para referenciarlo explícitamente.
+Siguiente paso recomendado:
+
+- Añade un archivo `LICENSE` y actualiza esta sección para referenciarlo explícitamente.

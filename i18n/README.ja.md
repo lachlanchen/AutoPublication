@@ -1,213 +1,247 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
+
 # AutoPublication
 
 ![Status](https://img.shields.io/badge/status-scaffold-1f6feb)
 ![Docs](https://img.shields.io/badge/docs-readme_in_progress-2ea043)
 ![i18n](https://img.shields.io/badge/i18n-planned-f59e0b)
 ![Stage](https://img.shields.io/badge/stage-documentation_first-0ea5e9)
-![Repo Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
+![Repo%20Focus](https://img.shields.io/badge/focus-AI_video_publishing-8b5cf6)
 
-> AI ツールで動画公開を自動化。
+> AIツールでビデオを自動公開します。
 
-## 概要
+## 🧭 概要
 
-`AutoPublication` は、AI 支援ツールを使って動画公開ワークフローを自動化することを目的としています。
+`AutoPublication` は、AI 補助による動画公開ワークフローを定義するための、
+ドキュメント先行型スキャフォールドです。
 
-現在のリポジトリ段階では、このプロジェクトはドキュメントと README 生成パイプラインの成果物を含むスキャフォールドであり、アプリケーションのソースコードや実行エントリーポイントはまだコミットされていません。
+現在のリポジトリ段階では、本プロジェクトはドキュメントと README 自動生成パイプライン成果物のみで構成されており、
+まだアプリケーションソースコードや実行エントリポイントはコミットされていません。
 
-この README は正本となる英語ベースとして機能し、現在のプロジェクト意図を損なわずに将来の実装拡張を支えられるよう構成されています。
+この README は英語の正本として作成されており、現時点のプロジェクト意図を失わない形で
+今後の実装拡張に対応できる構成になっています。
 
-| 項目 | 現在の状態 |
-|---|---|
-| 実装 | スキャフォールド段階（実行可能アプリは未コミット） |
-| ドキュメント | 正本のルート README が存在 |
-| 多言語ドキュメント | `i18n/` 配下に言語ターゲットを定義 |
-| パイプライン成果物 | `.auto-readme-work/` 配下に存在 |
+## ✨ 機能
 
-## 機能
+### ✅ 現在の機能
 
-### 現在の機能
+- プロジェクト定義の基準となるルート README。
+- `i18n/` 配下に定義された多言語 README の対象。
+- `.auto-readme-work/` 配下の README パイプラインコンテキスト/構造アーティファクト。
+- 多言語整合のため、上部に一元化された言語リンク。
 
-- プロジェクト定義のための正本ルート README。
-- `i18n/` 配下に事前定義された多言語 README ターゲット。
-- 再現可能なドキュメント生成のための README パイプラインコンテキスト。
+### プロジェクト名と現行説明から推定される今後の機能
 
-### 計画中の機能（プロジェクト名と現在の説明からの推定）
+- 動画公開の自動化オーケストレーション。
+- AI 補助によるメタデータおよびコンテンツ準備。
+- 設定可能な公開先とプラットフォーム連携。
 
-- 動画公開の自動オーケストレーション。
-- AI 支援によるメタデータ/コンテンツ準備。
-- 公開先向けの設定可能な統合。
-
-## プロジェクト構成
+## 🗂️ プロジェクト構成
 
 ```text
 AutoPublication/
 ├── README.md
 ├── .gitignore
 ├── i18n/
+│   ├── README.ar.md
+│   ├── README.de.md
+│   ├── README.es.md
+│   ├── README.fr.md
+│   ├── README.ja.md
+│   ├── README.ko.md
+│   ├── README.ru.md
+│   ├── README.vi.md
+│   ├── README.zh-Hans.md
+│   └── README.zh-Hant.md
 └── .auto-readme-work/
-    └── 20260228_230008/
+    ├── 20260228_230008/
+    │   ├── pipeline-context.md
+    │   ├── language-nav-root.md
+    │   ├── language-nav-i18n.md
+    │   ├── translation-plan.txt
+    │   └── repo-structure-analysis.md
+    ├── 20260301_064342/
+    │   ├── pipeline-context.md
+    │   ├── language-nav-root.md
+    │   ├── language-nav-i18n.md
+    │   ├── translation-plan.txt
+    │   └── repo-structure-analysis.md
+    └── 20260301_064412/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        ├── translation-plan.txt
-        └── repo-structure-analysis.md
+        └── translation-plan.txt
 ```
 
-### 主要なパス
+## 🔎 主要パス
 
-| パス | 目的 |
+| パス | 用途 |
 |---|---|
-| `README.md` | 英語で記述された正本のプロジェクト定義。 |
-| `i18n/` | 翻訳済み README ファイルの配置先フォルダ。 |
-| `.auto-readme-work/20260228_230008/pipeline-context.md` | Auto-README 実行時のコンテキストと制約。 |
-| `.auto-readme-work/20260228_230008/translation-plan.txt` | 言語マッピングと対象ファイル。 |
-| `.gitignore` | Python 向けの ignore テンプレート（示唆的なもののみ。現在 Python アプリのファイルは存在しません）。 |
+| `i18n/` | 翻訳済み README ファイルの対象フォルダ。 |
+| `.auto-readme-work/20260301_064412/pipeline-context.md` | 最新の README 自動生成実行履歴（コンテキストと制約）。 |
+| `.auto-readme-work/20260228_230008/translation-plan.txt` | 以前の README 多言語化プラン。 |
+| `.auto-readme-work/20260301_064412/translation-plan.txt` | 最新の言語別ターゲット計画と優先度。 |
+| `.gitignore` | Python向けの除外テンプレート（現在は Python 実装ファイルは未存在）。 |
 
 ## 前提条件
 
-実装ファイルがまだ存在しないため、現時点での実行時前提条件は仮定に基づきます。
+現時点で実装ファイルが存在しないため、実行条件はリポジトリ内容からの推定です。
 
-### ドキュメント化されたベースライン
+| 種別 | 要件 |
+|---|---|
+| ツール | `git` |
+| シェル | POSIX 互換シェル（例は `bash`） |
 
-- `git`
-- POSIX 互換シェル（例では `bash` を使用）
+`.gitignore` から推定される将来の技術スタック:
 
-### 将来のスタック候補シグナル（`.gitignore` のみから推定）
+- Python ツールチェーンと関連パッケージ管理
 
-- 今後 Python ツールチェーンが必要になる可能性があります。
+## 🚀 インストール
 
-## インストール
+この段階では、インストール可能なパッケージ、依存関係定義、エントリポイントは存在しません。
 
-現段階では、インストール可能なパッケージや依存関係マニフェストはありません。
-
-リポジトリをクローンして移動します:
+リポジトリをクローンして移動します。
 
 ```bash
 git clone <your-repo-url> AutoPublication
 cd AutoPublication
 ```
 
-## 使い方
+## ▶️ 使い方
 
-現時点では、実行可能なアプリケーションコマンドはありません。
+現時点では実行可能なアプリケーションコマンドはありません。
 
-現在実用的な使い方は、ドキュメントワークフローとリポジトリ準備です:
+現在の実用的な使い方は、リポジトリのドキュメントとワークフロー準備です。
 
 ```bash
-# Inspect repository structure
+# リポジトリ構成を確認する
 ls -la
 
-# Inspect i18n targets
+# 言語ターゲットを確認する
 ls -la i18n
+
+# 現在のREADMEパイプラインコンテキストを確認する
+cat .auto-readme-work/20260301_064412/pipeline-context.md
 ```
 
-実装が追加されたら、このセクションに具体的な実行コマンドと実際のエンドツーエンド例を追記してください。
+実装が追加され次第、これらを具体的な実行/公開ワークフローのコマンドへ置き換えます。
 
-## 設定
+## ⚙️ 設定
 
-正式な設定ファイル（`.env.example`、`config.yaml`、CLI フラグなど）はまだ存在しません。
+`.env.example`、`config.yaml`、CLI オプションなどの正式な設定ファイルはまだ存在しません。
 
-今後推奨される追加項目:
-- 文書化された環境テンプレート（API キー/トークン用）。
-- プラットフォーム別の公開設定。
-- AI プロバイダー/モデル選択設定。
+今後の追加として推奨される内容:
 
-## 例
+- API認証情報と公開先を対象にした環境変数テンプレート。
+- プラットフォーム別メタデータやワークフロー既定値を定義する YAML/JSON スキーマ。
+- CLI 設定のドキュメントと検証仕様。
 
-### 現在（スキャフォールド）例
+## 🧪 例
 
-リポジトリをドキュメントのベースラインとして利用します:
+### 現在の（スキャフォールド）例
+
+リポジトリをドキュメントベースとして使う:
 
 ```bash
-# Read canonical project intent
+# プロジェクトの正本意図を確認する
 cat README.md
 ```
 
-### 将来（目標）例
-
-想定される将来ワークフロー（プレースホルダーのみ）:
+### 将来の（想定）例（プレースホルダー）
 
 ```bash
-# Placeholder example for future implementation
+# 予定される将来の呼び出し例
 # python -m autopublication run --video ./assets/demo.mp4 --platform youtube
 ```
 
-## 開発メモ
+## 🛠️ 開発ノート
 
-- 現在、リポジトリには実行可能なソースコードがありません。
-- README 生成は `.auto-readme-work/` 内のファイルを用いたパイプライン駆動であるようです。
-- 多言語の整合性を保つため、言語ナビゲーション行はこの README の先頭に意図的に集約されています。
+- リポジトリには現時点で実行可能なソースコードはありません。
+- README の生成は `.auto-readme-work/` 内のファイルを使ったパイプライン駆動と思われます。
+- 多言語ワークフローは `i18n/` ファイルと translation plans で土台化されています。
 
-推奨される次の実装マイルストーン:
-1. ソースディレクトリを追加（例: `src/` または `autopublication/`）。
-2. 依存関係マニフェストを追加（`pyproject.toml` など）。
-3. 実行エントリーポイントと最小限のテストカバレッジを追加。
-4. lint/test/docs を検証する CI を追加。
+今後の実装目標（推奨）:
 
-## トラブルシューティング
+1. ソース配下のディレクトリを追加する（例: `src/` または `autopublication/`）。
+2. 依存関係定義（`pyproject.toml` など）を追加する。
+3. 実行可能なエントリポイントと最小テストを追加する。
+4. Lint/Test/Docs を検証する CI を追加する。
+
+## 🩺 トラブルシューティング
 
 ### 「プロジェクトを実行できない」
 
 原因:
-- 実行時アプリケーションファイルまたはエントリーポイントがまだコミットされていません。
+
+- 実行用のアプリケーションファイルまたはエントリポイントが現時点でコミットされていません。
 
 解決策:
-- ソースコードが追加されるまでは、このリポジトリをスキャフォールド/ドキュメントとして扱ってください。
 
-### 「言語 README のリンクはあるがファイルがない」
+- 実装が追加されるまで、このリポジトリはスキャフォールド／ドキュメント基盤として扱ってください。
+
+### 「Language READMEリンクはあるのにファイルがない」
 
 原因:
-- `i18n/` は存在しますが、このスナップショットではローカライズ済み README が生成されていません。
+
+- `i18n/` は存在するものの、このスナップショットではローカライズ済み README が生成されていません。
 
 解決策:
-- `.auto-readme-work/20260228_230008/translation-plan.txt` に記載された対象ファイルを生成/追加してください。
 
-## ロードマップ
+- `i18n/README.*.md` のマッピング対象を生成・追加し、翻訳計画の成果物を揃えます。
 
-- [ ] 自動公開のための最初の実行可能実装を追加。
-- [ ] プロバイダー統合と設定スキーマを定義。
-- [ ] 再現可能なローカルセットアップ手順を追加。
-- [ ] テストと CI パイプラインを追加。
-- [ ] `i18n/` に完全な多言語 README セットを公開。
+## 🧭 ロードマップ
 
-## コントリビュート
+- [ ] 自動公開の最初の実装を追加する。
+- [ ] プロバイダー統合と設定スキーマを定義する。
+- [ ] 再現可能なローカルセットアップ手順を追加する。
+- [ ] テストと CI パイプラインを追加する。
+- [ ] `i18n/` に完全な多言語 README セットを公開する。
 
-プロジェクトがスキャフォールドから実装へ進むにつれて、コントリビューションを歓迎します。
+## 🤝 コントリビュート
 
-推奨される貢献フロー:
+このプロジェクトは、スキャフォールドから実装段階へ移行中のため、投稿は歓迎します。
+
+推奨されるコントリビュートの流れ:
 
 ```bash
-# 1) Create a branch
+# 1) ブランチを作成する
 git checkout -b feat/<short-description>
 
-# 2) Commit your changes
+# 2) 変更をコミットする
 git add .
 git commit -m "feat: <describe change>"
 
-# 3) Push and open a PR
+# 3) プッシュして PR を開く
 git push -u origin feat/<short-description>
 ```
 
 以下を含めてください:
-- 明確な問題定義とスコープ。
-- 振る舞い変更がある場合の再現手順。
-- 新しいコマンド/設定に対するドキュメント更新。
 
-## サポート
+- 変更内容の明確な問題定義とスコープ。
+- 挙動変更時の再現手順。
+- 新規コマンド/設定追加時のドキュメント更新。
 
-このリポジトリでは、現時点で寄付/スポンサーの窓口は定義されていません。
+## ❤️ Support
 
-将来的にサポートリンクを追加する場合は、ここに記載し、i18n 各版にも反映してください。
+| Donate | PayPal | Stripe |
+|---|---|---|
+| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=ko-fi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-## ライセンス
+## 📫 お問い合わせ
 
-このリポジトリのスナップショットには、現在ライセンスファイルがありません。
+現在の利用方法に関する質問やドキュメント修正は、リポジトリで issue を作成してください。
 
-想定:
-- ライセンスはまだ宣言されていません。
+## 📄 ライセンス
 
-推奨される次のステップ:
-- `LICENSE` ファイルを追加し、このセクションで明示的に参照するよう更新してください。
+このリポジトリの現在のスナップショットにはライセンスファイルがありません。
+
+前提:
+
+- ライセンスはまだ明示されていません。
+
+推奨される次の手順:
+
+- `LICENSE` ファイルを追加し、このセクションで明確に参照する。
