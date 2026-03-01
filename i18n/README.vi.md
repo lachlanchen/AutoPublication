@@ -290,3 +290,11 @@ Hiện chưa có file `LICENSE` trong snapshot này.
 Bước tiếp theo đề xuất:
 
 - Thêm file `LICENSE` và cập nhật phần này với mã giấy phép đã chọn.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish

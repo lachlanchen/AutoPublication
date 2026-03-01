@@ -285,3 +285,11 @@ Usa los issues del repositorio para preguntas, correcciones de documentación y 
 ## 📄 Licencia
 
 Actualmente no existe un archivo `LICENSE` en esta instantánea.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish

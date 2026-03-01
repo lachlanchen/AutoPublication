@@ -289,3 +289,11 @@ git push -u origin docs/<short-description>
 Suggested next step:
 
 - `LICENSE` 파일을 추가하고 선택한 라이선스 식별자로 이 섹션을 업데이트하세요.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish

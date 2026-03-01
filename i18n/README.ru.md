@@ -289,3 +289,11 @@ git push -u origin docs/<short-description>
 Рекомендуемый следующий шаг:
 
 - Добавьте `LICENSE` и обновите этот раздел с выбранным идентификатором лицензии.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish

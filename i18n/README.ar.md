@@ -289,3 +289,11 @@ git push -u origin docs/<short-description>
 الخطوة المقترحة التالية:
 
 - أضف ملف `LICENSE` وحدث هذا القسم بمعرف الترخيص المختار.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish

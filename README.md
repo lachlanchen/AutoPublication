@@ -287,3 +287,11 @@ No `LICENSE` file is currently present in this snapshot.
 Suggested next step:
 
 - Add a `LICENSE` file and update this section with the chosen license identifier.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish

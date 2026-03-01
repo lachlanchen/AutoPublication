@@ -289,3 +289,11 @@ Aucun fichier `LICENSE` n'est présent actuellement dans cet instantané.
 Étape suivante suggérée :
 
 - Ajouter un fichier `LICENSE` et mettre à jour cette section avec l'identifiant de licence choisi.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
+- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
+- `AutoPublish` → https://github.com/lachlanchen/AutoPublish
