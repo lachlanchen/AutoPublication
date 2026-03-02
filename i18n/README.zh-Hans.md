@@ -5,89 +5,120 @@
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
-![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
-![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
-![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
-![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
+![Status](https://img.shields.io/badge/status-meta--repo-0f172a?style=for-the-badge&logo=github&logoColor=white)
+![Architecture](https://img.shields.io/badge/architecture-git%20submodules-0ea5e9?style=for-the-badge&logo=git&logoColor=white)
+![Core](https://img.shields.io/badge/core-AutoPubMonitor%20%2B%20LazyEdit%20%2B%20AutoPublish-16a34a?style=for-the-badge&logo=stackshare&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-11%20locales-2563eb?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Ops](https://img.shields.io/badge/ops-linux--first-f59e0b?style=for-the-badge&logo=linux&logoColor=white)
 
-> 面向 AI 辅助视频发布工作流的文档优先脚手架。
+这是一个基于固定子模块（pinned submodules）的 AI 视频工作流技术栈规范根文档。
 
 ## 📌 一览
 
 | 区域 | 详情 |
 | --- | --- |
-| 角色 | AI 视频发布工作空间的英文权威文档来源 |
-| 语言 | 英文 + 10 种本地化 README 镜像 |
-| 生成产物 | `.auto-readme-work/*` 中的快照元数据与流水线追踪 |
-| 当前实现 | 仅文档快照（尚未提交可运行的应用代码） |
-| 最新快照 | `.auto-readme-work/20260301_070712/` |
-
-![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
-![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
-
-## 🗂️ README 快速导航
-
-| 章节 | 链接 |
-|---|---|
-| 概览 | [Overview](#%E2%98%9B-overview) |
-| 特性 | [Features](#%E2%9C%A8-features) |
-| 项目结构 | [Project structure](#%F0%9F%97%82%EF%B8%8F-project-structure) |
-| 前置条件 | [Prerequisites](#%F0%9F%A7%B0-prerequisites) |
-| 安装 | [Installation](#%F0%9F%9B%A0%EF%B8%8F-installation) |
-| 使用方法 | [Usage](#%E2%96%B6%EF%B8%8F-usage) |
-| 配置 | [Configuration](#%F0%9F%A7%A9-configuration) |
-| 示例 | [Examples](#%F0%9F%A7%AA-examples) |
-| 开发说明 | [Development notes](#%F0%9F%99%82-development-notes) |
-| 故障排查 | [Troubleshooting](#%F0%9F%94%A7-troubleshooting) |
-| 路线图 | [Roadmap](#%F0%9F%97%BA-roadmap) |
-| 参与贡献 | [Contributing](#%F0%9F%A4%9D-contributing) |
-| 支持 | [Support](#%E2%9D%A4%EF%B8%8F-support) |
-| 联系方式 | [Contact](#contact) |
-| 许可证 | [License](#%F0%9F%93%84-license) |
+| 仓库类型 | 使用固定 git 子模块的元仓库 |
+| 根仓库运行时角色 | 文档 + 编排入口 |
+| 核心子模块 | `AutoPubMonitor`、`LazyEdit`、`AutoPublish` |
+| 规范文档来源 | 根目录 `README.md` |
+| 多语言版本 | `i18n/README.*.md` |
+| 最新流水线产物快照 | `.auto-readme-work/20260302_124338/` |
 
 ## 🧭 概述
 
-`AutoPublication` 是一个为更大规模的 AI 视频发布系统提供支撑的仓库级文档脚手架。
-它将英文 `README.md` 作为真值源，并通过流水线快照将 `i18n/README.*.md` 中的翻译与之对齐。
+`AutoPublication` 协调一条端到端内容自动化流水线：
 
-### 本仓库是什么
+1. 在 `LazyEdit` 中准备、编辑并生成素材。
+2. 在 `AutoPublish` 中将素材发布到目标平台。
+3. 使用 `AutoPubMonitor` 保持队列/监控/同步链路健康。
 
-- 一个项目文档和贡献者指南的权威来源。
-- 一个多语言文档集，作为 README 持续同步演进的示例。
-- 一个位于 `.auto-readme-work/*` 下的历史证据库，记录每次流水线运行。
+根仓库有意固定子模块提交，以便在不同环境和部署主机上保持可复现性。
 
-### 本仓库目前不是什么
+### 这个仓库是什么
 
-- 尚未成为可运行的发布应用。
-- 尚未成为包含安装脚本或依赖清单的包。
-- 尚未在当前分支提供运行时配置模型（如 `.env`、YAML、CLI schema）。
+- 用于安装、运维与集成的规范根文档。
+- 子模块版本的 gitlink 固定层。
+- 多语言文档源（`i18n/README.*.md`）。
+- 流水线追踪与产物历史（`.auto-readme-work/*`）。
+
+### 这个仓库不是什么
+
+- 不是一个带单一根依赖清单的统一运行时包。
+- 不是各子模块 README/脚本的替代品。
+- 当前不提供根级统一 `.env` 模式。
 
 ## ✨ 特性
 
-### 当前能力
+- 通过固定子模块提交实现可复现架构。
+- 编辑、发布、监控之间具备清晰的职责边界。
+- Linux 优先运维（`tmux`、可选 `systemd`、FFmpeg、浏览器自动化）。
+- 文档优先工作流，并提供 i18n 版本。
+- 在 `.auto-readme-work/` 下可追踪 README 生成上下文。
 
-- 一个单一源文件中的英文权威文档（`README.md`）。
-- 链接所有本地化 README 的语言选择器区块。
-- 带时间戳的 auto-README 产物（`pipeline-context`、`language-nav-*`、`translation-plan`、`repo-structure-analysis`）。
-- 文档优先的项目映射，用于支持渐进式实现。
-- 标准化的支持面板，用于捐赠/赞助展示。
+## 🧱 子模块架构
 
-### 计划能力
+### 根模块映射
 
-- AI 辅助的发布流程编排。
-- 多平台元数据生成与校验。
-- 可配置的发布目标和凭据管理。
-- 可复现的本地开发路径，包含测试与 CI 检查。
+| 模块 | 角色 | 运行时画像 | 常见入口 |
+| --- | --- | --- | --- |
+| `AutoPubMonitor` | 围绕发布工作流的队列/监控/同步编排 | Shell 优先 + Python 辅助 + `tmux`/可选 `systemd` | `autopub_monitor/autopub_monitor_tmux_session.sh`, `autopub_monitor/process_queue.sh`, `autopub_monitor/monitor_autopublish.sh` |
+| `LazyEdit` | AI 辅助媒体生成/编辑/字幕/元数据工作流 | Tornado 后端 + Expo 前端 + 处理模块 | `app.py`, `start_lazyedit.sh`, `app/`, `lazyedit/` |
+| `AutoPublish` | 基于浏览器的多平台发布与队列 API 服务 | Python 脚本 + Selenium + Tornado 队列 API | `autopub.py`, `app.py`, `pub_*.py`, `login_*.py` |
+
+### 依赖边界
+
+| 边界 | 范围内 | 范围外 |
+| --- | --- | --- |
+| `LazyEdit` | 编辑/生成流水线、UI/后端、字幕与元数据准备 | 平台登录自动化与各平台发布动作 |
+| `AutoPublish` | 发布适配器、鉴权/会话处理、队列 API、发布执行 | 编辑/转录 UI 及多数上游转换 |
+| `AutoPubMonitor` | 队列监视、锁、同步任务、tmux/service 监管 | 编辑器 UI 行为与深层平台浏览器流程 |
+| Root (`AutoPublication`) | 文档、版本编排、子模块固定策略 | 统一运行时依赖管理 |
+
+### 集成契约
+
+| 交接项 | 生产方 | 消费方 | 契约重点 |
+| --- | --- | --- | --- |
+| 已准备媒体素材 | `LazyEdit` | `AutoPublish` | 目录约定、文件名、媒体可发布就绪性 |
+| 元数据/字幕 | `LazyEdit` | `AutoPublish` | 标题/描述/标签结构与字幕可用性 |
+| 发布状态与队列健康 | `AutoPublish` | `AutoPubMonitor` | API 端点可用性与队列语义 |
+| 同步/看门狗控制 | `AutoPubMonitor` | `AutoPublish` + ops | 锁机制纪律、队列完整性、可恢复重启 |
+
+### 运行时职责流
+
+```mermaid
+flowchart LR
+    A[LazyEdit\nAsset + metadata production] --> B[AutoPublish\nQueue API + platform publishing]
+    B --> C[AutoPubMonitor\nWatch, sync, lock, recover]
+    C --> B
+```
+
+1. `LazyEdit` 产出视频与元数据包。
+2. `AutoPublish` 执行频道/平台发布动作。
+3. `AutoPubMonitor` 监管队列与同步循环。
+
+## 📦 当前子模块 Pin
+
+当前根仓库固定版本（`git submodule status`）：
+
+- `AutoPubMonitor`: `6daa87ce612c2dab75fac9478d4523abd418f69d`
+- `AutoPublish`: `4f348ac342bfaff7bc435985085cedd9b448e1e8`
+- `LazyEdit`: `dc503d6db63b13db812fef5d9c8ffe0a882d725e`
+
+本地检查：
+
+```bash
+git submodule status
+git submodule status --recursive
+```
+
+嵌套说明：`LazyEdit` 含有额外嵌套子模块（例如 `whisper_with_lang_detect`、`furigana`、字幕相关仓库），因此根仓库很多操作应使用 `--recursive`。
 
 ## 🗂️ 项目结构
 
 ```text
 AutoPublication/
 ├── README.md
-├── README.md.auto-readme-support
-├── README.md.auto-readme-support.filtered
+├── .gitmodules
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -100,177 +131,409 @@ AutoPublication/
 │   ├── README.vi.md
 │   ├── README.zh-Hans.md
 │   └── README.zh-Hant.md
+├── AutoPubMonitor/                  # submodule
+│   ├── README.md
+│   └── autopub_monitor/
+├── LazyEdit/                        # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── app/
+│   └── lazyedit/
+├── AutoPublish/                     # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── autopub.py
+│   └── pub_*.py
 └── .auto-readme-work/
-    ├── 20260228_230008/
-    ├── 20260301_064342/
-    ├── 20260301_064412/
-    ├── 20260301_064745/
-    ├── 20260301_065035/
-    ├── 20260301_065907/
-    └── 20260301_070712/
+    └── <timestamp>/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        └── translation-plan.txt
+        ├── translation-plan.txt
+        └── repo-structure-analysis.md
 ```
 
 ### 关键路径
 
 | 路径 | 用途 |
-|---|---|
-| `i18n/README.*.md` | 面向用户的本地化 README |
-| `.auto-readme-work/*/pipeline-context.md` | 每次流水线运行的约束与元数据 |
-| `.auto-readme-work/*/language-nav-*.md` | 官方语言与本地语言映射文件 |
-| `.auto-readme-work/*/repo-structure-analysis.md` | 历史结构快照 |
-| `.auto-readme-work/*/translation-plan.txt` | 各次运行的语言与翻译范围 |
-| `.auto-readme-work/*/translated-files.txt` | 历史运行中输出文件列表 |
+| --- | --- |
+| `.gitmodules` | 声明子模块远程仓库与路径 |
+| `i18n/README.*.md` | 根 README 的本地化版本 |
+| `.auto-readme-work/*` | README 生成追踪/产物 |
+| `AutoPubMonitor/autopub_monitor/autopub.config` | Monitor 队列/同步/运行时配置 |
+| `LazyEdit/config.py` | LazyEdit 环境/路径默认值 |
+| `AutoPublish/.env.example` | AutoPublish 凭据/环境模板 |
 
 ## 🧰 前置条件
 
-由于本快照为仅文档内容，运行应用不需要额外运行时依赖。
+跨模块的 Linux 优先基线：
 
-在维护、复核和同步翻译时，你需要：
+- `git`（支持子模块）
+- `bash`
+- Python `3.10+`（部分 monitor 安装脚本仍假设 `3.8` 环境命名）
+- `tmux`
+- `ffmpeg` / `ffprobe`
+- `inotify-tools`
+- `rsync`
+- Chrome/Chromium + 匹配版本的 WebDriver
+- Node.js + npm（用于 `LazyEdit/app` 前端）
+- 可选：`systemd`、`conda`
 
-- `git`
-- 一个兼容 POSIX 的 shell（示例使用 `bash`）
-- 一个支持 Markdown 的编辑器
-- 可选：用于复核本地化分支的差异查看工具
+假设：macOS/Windows 需要自行适配脚本/路径/服务。
 
-## 🛠️ 安装
+## 🛠️ 安装与初始化
 
-本快照中没有可安装的软件包。
-
-在本地使用：
+### 1. 连同子模块克隆
 
 ```bash
-git clone <your-repo-url> AutoPublication
+git clone --recurse-submodules git@github.com:lachlanchen/AutoPublication.git
 cd AutoPublication
-sed -n '1,140p' README.md
 ```
 
-## ▶️ 使用方法
-
-当前主要用于文档和流水线追踪。
+如果仓库已克隆：
 
 ```bash
-# 检查语言选择器映射
-head -n 5 README.md
-
-# 查看最新流水线上下文
-cat .auto-readme-work/20260301_070712/pipeline-context.md
-
-# 查看最近一次可用快照中的仓库结构分析
-cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
-
-# 检查本地化文档的一致性
-sed -n '1,90p' i18n/README.fr.md
+git submodule update --init --recursive
 ```
 
-### 推荐的维护流程
-
-1. 更新 `README.md` 的结构或行为相关内容。
-2. 按需重新生成翻译更新。
-3. 校验关键章节在 `i18n/` 文件中的同步。
-4. 保持 `.auto-readme-work` 快照与当前工作流一致。
-
-## 🧩 配置
-
-当前尚未提交正式的运行时配置文件（例如 `.env`、`config.yml`、CLI schema 等）。
-
-如果未来实现运行时，建议采用以下默认实践：
-
-- 新增示例配置文件，如 `config.sample.yml`。
-- 通过 `.env`（仓库外部）或托管方密钥管理器保存密钥。
-- 在新增配置项时，确保文档与 CLI 引用保持同步。
-
-## 🧪 示例
-
-### 当前示例（已有脚手架）
+### 2. 同步并验证子模块对齐
 
 ```bash
-# 打开完整英文文档
-cat README.md
-
-# 对比本地化版本
-sed -n '1,90p' i18n/README.de.md
+git submodule sync --recursive
+git submodule status --recursive
+git submodule foreach --recursive 'git rev-parse --abbrev-ref HEAD; git rev-parse --short HEAD'
 ```
 
-### 未来示例（预计实现）
+### 3. 按子模块完成配置流程
+
+| 子模块 | 主要配置 | 配置重点 | 首次验证 |
+| --- | --- | --- | --- |
+| `LazyEdit` | `config.py`（+ 可选 `.env`） | Python/后端依赖、前端依赖、上传/输出/API 路径 | `cd LazyEdit && python app.py` |
+| `AutoPublish` | `.env`（由 `.env.example` 复制） | 凭据、浏览器 driver、队列/API 模式 | `cd AutoPublish && python app.py --port 8081` |
+| `AutoPubMonitor` | `autopub_monitor/autopub.config` | 队列/同步/锁路径、API 目标、tmux/service 设置 | `cd AutoPubMonitor && ./autopub_monitor/autopub_monitor_tmux_session.sh start` |
+
+权威模块文档：
+
+- `AutoPubMonitor/README.md`
+- `LazyEdit/README.md`
+- `AutoPublish/README.md`
+
+## ▶️ 使用与运维
+
+根仓库的使用主要是编排与版本对齐。
+
+### 日常操作流程
 
 ```bash
-# 概念示例；在引入运行时前可能尚未可用
-auto-publication publish \
-  --video ./assets/sample.mp4 \
-  --config ./config.sample.yml \
-  --platform youtube,tiktok
+# 保持检出状态与根仓库 pin 一致
+git submodule sync --recursive
+git submodule update --init --recursive
+
+# 验证当前状态
+git submodule status --recursive
 ```
 
-## 🛠️ 开发说明
+### 端到端运行流程
 
-- 以增量方式处理更改：优先采用增量增强并避免破坏性重写。
-- 将英文源保持为权威文档基线。
-- 使用 `i18n/` 目录中的语言文件作为明确同步目标。
-- 保持 `.auto-readme-work/` 流水线产物作为历史依据，而非手工编辑的生产代码。
-- 避免过度承诺可执行行为；仅记录当前已存在的内容。
+1. 启动 `LazyEdit` 并准备素材。
+2. 启动 `AutoPublish`（API 模式或 CLI watcher 模式）。
+3. 启动 `AutoPubMonitor`，维持队列/同步/看门狗连续性。
 
-### 本 README 中的假设
+### 快速启动命令
 
-- 在运行时模块提交前，仓库仍以文档优先为主。
-- 翻译应与有意义的结构性修改保持一致。
-- `.auto-readme-work/` 包含追加式、按运行场景的历史记录，不是权威工作副本。
+```bash
+# LazyEdit
+cd LazyEdit
+python app.py
+# optional frontend in second terminal:
+# cd app && npx expo start --web
 
-## 🔧 故障排查
+# AutoPublish
+cd ../AutoPublish
+python app.py --port 8081
+# or CLI watcher mode:
+# python autopub.py --help
 
-### 我无法运行 `auto-publication` 命令
+# AutoPubMonitor
+cd ../AutoPubMonitor
+./autopub_monitor/autopub_monitor_tmux_session.sh start
+```
 
-**原因：** 本快照中没有运行时应用。
+## 🧪 本地开发工作流
 
-**解决方案：** 将本仓库当作文档工作区使用，等待实现文件的后续补充。
+### 推荐循环
 
-### 本地化 README 与源出现不同步
+1. 编码前先对齐根仓库 pin。
+2. 一次只在一个子模块内开发和测试。
+3. 验证跨模块交接（`LazyEdit -> AutoPublish -> AutoPubMonitor`）。
+4. 先在子模块仓库提交实现改动。
+5. 最后在根仓库提交指针更新（`gitlinks`）。
 
-**原因：** 翻译内容独立于英文源更新。
+### 指针升级流程（示例）
 
-**解决方案：** 将同样的结构变更应用到所有 `i18n/README.*.md`，然后对齐措辞和示例。
+```bash
+# root align first
+git submodule sync --recursive
+git submodule update --init --recursive
 
-### README 链接指向不存在的功能
+# edit and commit in submodule
+cd LazyEdit
+git switch -c feature/<name>
+# ...change/test...
+git add -A && git commit -m "feat: <summary>"
+cd ..
 
-**原因：** 文档中包含了计划中的行为。
+# capture new pointer in root
+git add LazyEdit
+git commit -m "chore(submodule): bump LazyEdit pointer"
+```
 
-**解决方案：** 保持该段标注为计划内容，或用当前可验证的命令替换。
+### 提交边界规则
+
+- 根仓库提交应聚焦文档、编排约定与指针升级。
+- 实现层改动应先在子模块仓库提交。
+- 可能情况下，将根仓库指针提交与大体量文档改动分离。
+
+## ⚙️ 配置
+
+根仓库没有统一运行时配置。请直接配置各子模块：
+
+### `AutoPubMonitor`
+
+- 文件：`AutoPubMonitor/autopub_monitor/autopub.config`
+- 常见项：队列文件、锁文件、同步路径、API base URL、conda 环境、脚本路径
+
+### `LazyEdit`
+
+- 文件：`LazyEdit/config.py`（+ 可选 `.env`）
+- 常见项：上传/输出目录、后端端口、AutoPublish endpoint、字幕工具、超时
+
+### `AutoPublish`
+
+- 文件：`AutoPublish/.env.example`（复制为本地 `.env`）
+- 常见项：平台凭据、浏览器/driver 路径、SMTP/email 设置、验证码服务密钥
+
+安全建议：机器相关配置与密钥请保存在被忽略的本地文件/环境变量中。
+
+## 🔄 子模块更新策略
+
+### A. 初始化并同步到当前 pin
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### B. 有意更新到远程最新
+
+仅在你明确要推进固定版本时使用：
+
+```bash
+git submodule update --remote --recursive
+```
+
+然后验证并提交指针：
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit -m "chore(submodules): bump submodule pointers"
+```
+
+### C. 固定到指定 commit 或 tag
+
+```bash
+cd LazyEdit
+git fetch origin
+git checkout <commit-or-tag>
+cd ..
+git add LazyEdit
+git commit -m "chore(submodule): pin LazyEdit to <commit-or-tag>"
+```
+
+按需对 `AutoPubMonitor` 与 `AutoPublish` 重复。
+
+### D. 合并前审查指针差异
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### E. 推荐发布流程
+
+1. 递归同步/初始化。
+2. 一次仅更新一个子模块。
+3. 运行子模块级冒烟测试。
+4. 运行跨交接边界的集成冒烟检查。
+5. 只暂存预期的 gitlink 改动。
+6. 提交信息明确模块名与原因。
+
+### F. 固定策略
+
+- 根仓库应固定在已验证可用的提交。
+- 未完成集成验证前，避免一次性全模块大升级。
+- 使用明确的 pin 提交信息（`chore(submodule): pin <module> to <sha>`）。
+- 将根仓库视为发布清单，将子模块分支视为实现流。
+
+## 🔧 故障排查（子模块同步与状态）
+
+### 子模块目录为空或缺少文件
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `fatal: no submodule mapping found in .gitmodules`
+
+通常是元数据陈旧或路径不匹配：
+
+```bash
+cat .gitmodules
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `git submodule status` 显示 `-`、`+` 或 `U`
+
+- `-`：子模块未初始化。
+- `+`：检出提交与根仓库 pin 不一致。
+- `U`：子模块指针存在合并冲突。
+
+恢复方式：
+
+```bash
+git submodule update --init --recursive
+```
+
+若差异是有意行为，请在根仓库提交 gitlink 更新。
+
+### 子模块内是 Detached HEAD
+
+对固定子模块来说，Detached HEAD 是正常状态。开发前先建分支：
+
+```bash
+cd <submodule>
+git switch -c feature/<name>
+```
+
+### 子模块远程 URL 错误
+
+```bash
+git submodule sync --recursive
+git submodule foreach --recursive 'git remote -v'
+```
+
+如果 `.gitmodules` 有变更，请提交后重新同步。
+
+### 子模块指针合并冲突
+
+选择目标提交指针后执行：
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit
+```
+
+验证最终 SHA：
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### 克隆/更新认证失败
+
+根仓库 `.gitmodules` 目前使用 SSH 远程地址（`git@github.com:...`）。
+
+- 确认已配置 GitHub SSH key。
+- 或将 `.gitmodules` 改为 HTTPS 远程后执行 `git submodule sync --recursive`。
+
+### 子模块意外显示 dirty
+
+```bash
+git submodule foreach --recursive 'git status --short --branch'
+```
+
+若是有意修改，请先在各子模块提交，再更新根仓库指针。
+
+### `LazyEdit` 内嵌套子模块未初始化
+
+```bash
+git submodule update --init --recursive
+```
+
+如果仅需刷新 `LazyEdit` 的嵌套模块：
+
+```bash
+git -C LazyEdit submodule update --init --recursive
+```
+
+### 元数据陈旧时的强制重同步
+
+当常规 sync/update 无法恢复时使用：
+
+```bash
+git submodule deinit -f --all
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+## 🛠️ 开发备注
+
+### i18n 策略
+
+- 顶部仅保留一行语言导航。
+- 根目录英文 `README.md` 作为规范源。
+- 结构变更同步到 `i18n/README.*.md`。
+
+### 流水线上下文产物
+
+- 流水线产物保存在 `.auto-readme-work/<timestamp>/`。
+- 这些文件用于可追踪性与文档生成历史，不是运行时输入。
 
 ## 🗺️ 路线图
 
-- [ ] 增加源码包与运行时入口。
-- [ ] 增加依赖清单和安装路径。
-- [ ] 增加平台化发布集成。
-- [ ] 增加配置校验与密钥处理。
-- [ ] 增加可执行示例与 CI 冒烟检测。
-- [ ] 增加本地化 README 的自动一致性检查。
-- [ ] 增加 `LICENSE` 文件并明确许可条款。
+- [ ] 为常见跨子模块任务增加根级编排脚本。
+- [ ] 增加子模块同步健康与 pin 漂移的 CI 检查。
+- [ ] 增加根 README 与 i18n README 一致性自动检查。
+- [ ] 增加端到端运行流架构图。
+- [ ] 若计划仓库级授权，增加根级 `LICENSE` 策略文件。
 
 ## 🤝 贡献
 
-随着该文档脚手架向实现阶段过渡，欢迎提交贡献。
+欢迎针对文档、架构清晰度和工作流可靠性提交贡献。
 
 ```bash
-# 1. 创建分支
+# 1) create branch
 git checkout -b docs/<short-description>
 
-# 2. 提交更改
-git add README.md i18n/README.fr.md
-git commit -m "docs: update English README scaffold"
+# 2) stage docs and/or intended pointer updates
+git add README.md i18n/README.fr.md AutoPubMonitor LazyEdit AutoPublish
 
-# 3. 推送并发起 PR
+# 3) commit
+git commit -m "docs: improve root architecture and submodule workflows"
+
+# 4) push
 git push -u origin docs/<short-description>
 ```
 
-建议的 PR 检查清单：
+PR 检查清单：
 
-- 保持 `README.md` 为真值源。
-- 更新所有受影响的 `i18n/` 本地化 README。
-- 在增量变更时保留现有章节内容。
-- 保持 `.auto-readme-work/*` 元数据与当前运行一致。
+- 保持根 `README.md` 为规范源。
+- 保持一行语言选项和一个支持面板。
+- bump pin 时在 PR 说明中包含 `git submodule status`。
+- 记录每次子模块指针更新的原因。
+
+## Submodules
+
+此仓库包含以下根级 git 子模块：
+
+| Submodule | Repository |
+| --- | --- |
+| `AutoPubMonitor` | https://github.com/lachlanchen/AutoPubMonitor |
+| `LazyEdit` | https://github.com/lachlanchen/LazyEdit |
+| `AutoPublish` | https://github.com/lachlanchen/AutoPublish |
 
 ## ❤️ Support
 
@@ -280,20 +543,13 @@ git push -u origin docs/<short-description>
 
 ## Contact
 
-如有疑问、文档修正或协作协调，请使用仓库 Issue。
+如有问题、文档修正或协作需求，请使用仓库 Issues。
 
-## 📄 License
+## 📄 许可证
 
-当前快照中尚未提供 `LICENSE` 文件。
+当前仓库快照尚未提供根级 `LICENSE` 文件。
 
-建议下一步：
+假设：
 
-- 添加 `LICENSE` 文件，并使用目标许可证标识更新本节。
-
-## Submodules
-
-This repository includes these root-level git submodules:
-
-- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
-- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
-- `AutoPublish` → https://github.com/lachlanchen/AutoPublish
+- 许可证策略可能由各子模块独立定义。
+- 在再分发或商用前，请先审查每个子模块的许可证。

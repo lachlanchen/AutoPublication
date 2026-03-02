@@ -1,91 +1,124 @@
 [English](README.md) · [العربية](i18n/README.ar.md) · [Español](i18n/README.es.md) · [Français](i18n/README.fr.md) · [日本語](i18n/README.ja.md) · [한국어](i18n/README.ko.md) · [Tiếng Việt](i18n/README.vi.md) · [中文 (简体)](i18n/README.zh-Hans.md) · [中文（繁體）](i18n/README.zh-Hant.md) · [Deutsch](i18n/README.de.md) · [Русский](i18n/README.ru.md)
 
-🌐 **Language links**
-
 
 [![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
-![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
-![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
-![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
-![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
+![Status](https://img.shields.io/badge/status-meta--repo-0f172a?style=for-the-badge&logo=github&logoColor=white)
+![Architecture](https://img.shields.io/badge/architecture-git%20submodules-0ea5e9?style=for-the-badge&logo=git&logoColor=white)
+![Core](https://img.shields.io/badge/core-AutoPubMonitor%20%2B%20LazyEdit%20%2B%20AutoPublish-16a34a?style=for-the-badge&logo=stackshare&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-11%20locales-2563eb?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Ops](https://img.shields.io/badge/ops-linux--first-f59e0b?style=for-the-badge&logo=linux&logoColor=white)
 
-> Documentation-first scaffold for AI-assisted video publishing workflows.
+Canonical root documentation for a pinned, submodule-based AI video workflow stack.
 
-## 📌 At a glance
+## 📌 At a Glance
 
 | Area | Details |
 | --- | --- |
-| Generated artifacts | Snapshot metadata and pipeline traces in `.auto-readme-work/*` |
-| Current implementation | Documentation-only snapshot (no runtime app code committed yet) |
-| Latest snapshot | `.auto-readme-work/20260301_070712/` |
-
-![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
-![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
-
-## 🗂️ README quick navigation
-
-| Section | Link |
-|---|---|
-| Overview | [Overview](#%E2%98%9B-overview) |
-| Features | [Features](#%E2%9C%A8-features) |
-| Project structure | [Project structure](#%F0%9F%97%82%EF%B8%8F-project-structure) |
-| Prerequisites | [Prerequisites](#%F0%9F%A7%B0-prerequisites) |
-| Installation | [Installation](#%F0%9F%9B%A0%EF%B8%8F-installation) |
-| Usage | [Usage](#%E2%96%B6%EF%B8%8F-usage) |
-| Configuration | [Configuration](#%F0%9F%A7%A9-configuration) |
-| Examples | [Examples](#%F0%9F%A7%AA-examples) |
-| Development notes | [Development notes](#%F0%9F%99%82-development-notes) |
-| Troubleshooting | [Troubleshooting](#%F0%9F%94%A7-troubleshooting) |
-| Roadmap | [Roadmap](#%F0%9F%97%BA-roadmap) |
-| Contributing | [Contributing](#%F0%9F%A4%9D-contributing) |
-| Support | [Support](#%E2%9D%A4%EF%B8%8F-support) |
-| Contact | [Contact](#contact) |
-| License | [License](#%F0%9F%93%84-license) |
+| Repository type | Meta-repository with pinned git submodules |
+| Root runtime role | Documentation + orchestration entrypoint |
+| Core submodules | `AutoPubMonitor`, `LazyEdit`, `AutoPublish` |
+| Canonical docs source | Root `README.md` |
+| Language variants | `i18n/README.*.md` |
+| Latest pipeline artifact snapshot | `.auto-readme-work/20260302_124338/` |
 
 ## 🧭 Overview
 
-`AutoPublication` is a repository-level documentation scaffold prepared to support a larger AI video publication system.  
+`AutoPublication` coordinates an end-to-end content automation pipeline:
+
+1. Prepare, edit, and generate assets in `LazyEdit`.
+2. Publish assets to target platforms in `AutoPublish`.
+3. Keep queue/watch/sync operations healthy with `AutoPubMonitor`.
+
+The root repository intentionally pins submodule commits to preserve reproducibility across environments and deployment hosts.
 
 ### What this repository is
 
-- A canonical source for project documentation and contributor guidance.
-- A multilingual documentation set used as an example of synchronized README evolution.
-- A historical evidence store under `.auto-readme-work/*` capturing each pipeline run.
+- Canonical root docs for setup, operations, and integration.
+- Gitlink pinning layer for submodule versions.
+- Multilingual documentation source (`i18n/README.*.md`).
+- Pipeline trace and artifact history (`.auto-readme-work/*`).
 
-### What this repository is not (yet)
+### What this repository is not
 
-- Not yet a runnable publication app.
-- Not yet a package with install scripts or dependency manifests.
-- Not yet shipping a runtime config model (`.env`, YAML, CLI schema) in this branch.
+- Not a single runtime package with one root dependency manifest.
+- Not a replacement for each submodule's README/scripts.
+- Not currently a root-level unified `.env` schema.
 
 ## ✨ Features
 
-### Current capabilities
+- Reproducible architecture via pinned submodule commits.
+- Clear ownership boundaries between editing, publishing, and monitoring.
+- Linux-first operations (`tmux`, optional `systemd`, FFmpeg, browser automation).
+- Documentation-first workflow with i18n variants.
+- Traceable README generation context under `.auto-readme-work/`.
 
-- Language selector block linking to all localized READMEs.
-- Timestamped auto-README artifacts (`pipeline-context`, `language-nav-*`, `translation-plan`, `repo-structure-analysis`).
-- Document-first project map to support incremental implementation.
-- Standardized support panel for donation/sponsorship visibility.
+## 🧱 Submodule Architecture
 
-### Planned capabilities
+### Root module map
 
-- AI-assisted publication workflow orchestration.
-- Multi-platform metadata generation and validation.
-- Configurable publishing targets and credentials management.
-- Reproducible local development path with tests and CI checks.
+| Module | Role | Runtime profile | Typical entrypoints |
+| --- | --- | --- | --- |
+| `AutoPubMonitor` | Queue/watch/sync orchestration around publication workflows | Shell-first + Python helpers + `tmux`/optional `systemd` | `autopub_monitor/autopub_monitor_tmux_session.sh`, `autopub_monitor/process_queue.sh`, `autopub_monitor/monitor_autopublish.sh` |
+| `LazyEdit` | AI-assisted media generation/editing/subtitle/metadata workflow | Tornado backend + Expo frontend + processing modules | `app.py`, `start_lazyedit.sh`, `app/`, `lazyedit/` |
+| `AutoPublish` | Browser-driven multi-platform publishing and queue API service | Python scripts + Selenium + Tornado queue API | `autopub.py`, `app.py`, `pub_*.py`, `login_*.py` |
 
-## 🗂️ Project structure
+### Dependency boundaries
+
+| Boundary | In scope | Out of scope |
+| --- | --- | --- |
+| `LazyEdit` | Editing/generation pipeline, UI/backend, subtitle and metadata preparation | Platform login automation and per-platform publish actions |
+| `AutoPublish` | Publisher adapters, auth/session handling, queue API, publish execution | Editing/transcription UI and most upstream transforms |
+| `AutoPubMonitor` | Queue watchers, locks, sync jobs, tmux/service supervision | Editor UI behavior and deep per-platform browser flows |
+| Root (`AutoPublication`) | Docs, version orchestration, submodule pinning policy | Unified runtime dependency management |
+
+### Integration contracts
+
+| Handoff | Producer | Consumer | Contract focus |
+| --- | --- | --- | --- |
+| Prepared media assets | `LazyEdit` | `AutoPublish` | Directory conventions, filenames, media readiness |
+| Metadata/captions | `LazyEdit` | `AutoPublish` | Title/description/tag schema and caption availability |
+| Publish state and queue health | `AutoPublish` | `AutoPubMonitor` | API endpoint availability and queue semantics |
+| Sync/watchdog control | `AutoPubMonitor` | `AutoPublish` + ops | Lock discipline, queue integrity, recoverable restarts |
+
+### Runtime ownership flow
+
+```mermaid
+flowchart LR
+    A[LazyEdit\nAsset + metadata production] --> B[AutoPublish\nQueue API + platform publishing]
+    B --> C[AutoPubMonitor\nWatch, sync, lock, recover]
+    C --> B
+```
+
+1. `LazyEdit` produces videos and metadata packages.
+2. `AutoPublish` executes channel/platform publish actions.
+3. `AutoPubMonitor` supervises queue and synchronization loops.
+
+## 📦 Current Submodule Pins
+
+Current root pins (`git submodule status`):
+
+- `AutoPubMonitor`: `6daa87ce612c2dab75fac9478d4523abd418f69d`
+- `AutoPublish`: `4f348ac342bfaff7bc435985085cedd9b448e1e8`
+- `LazyEdit`: `dc503d6db63b13db812fef5d9c8ffe0a882d725e`
+
+Check locally:
+
+```bash
+git submodule status
+git submodule status --recursive
+```
+
+Nested note: `LazyEdit` includes additional nested submodules (for example `whisper_with_lang_detect`, `furigana`, captioning repos), so many root operations should use `--recursive`.
+
+## 🗂️ Project Structure
 
 ```text
 AutoPublication/
 ├── README.md
-├── README.md.auto-readme-support
-├── README.md.auto-readme-support.filtered
+├── .gitmodules
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -98,177 +131,408 @@ AutoPublication/
 │   ├── README.vi.md
 │   ├── README.zh-Hans.md
 │   └── README.zh-Hant.md
+├── AutoPubMonitor/                  # submodule
+│   ├── README.md
+│   └── autopub_monitor/
+├── LazyEdit/                        # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── app/
+│   └── lazyedit/
+├── AutoPublish/                     # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── autopub.py
+│   └── pub_*.py
 └── .auto-readme-work/
-    ├── 20260228_230008/
-    ├── 20260301_064342/
-    ├── 20260301_064412/
-    ├── 20260301_064745/
-    ├── 20260301_065035/
-    ├── 20260301_065907/
-    └── 20260301_070712/
+    └── <timestamp>/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        └── translation-plan.txt
+        ├── translation-plan.txt
+        └── repo-structure-analysis.md
 ```
 
 ### Notable paths
 
 | Path | Purpose |
-|---|---|
-| `i18n/README.*.md` | Localized READMEs for user-facing documentation |
-| `.auto-readme-work/*/pipeline-context.md` | Run constraints and metadata for each pipeline pass |
-| `.auto-readme-work/*/language-nav-*.md` | Canonical and i18n language mapping files |
-| `.auto-readme-work/*/repo-structure-analysis.md` | Historical structure snapshots |
-| `.auto-readme-work/*/translation-plan.txt` | Locale and translation scope |
-| `.auto-readme-work/*/translated-files.txt` | Output file lists from previous translation runs |
+| --- | --- |
+| `.gitmodules` | Declares submodule remotes and paths |
+| `i18n/README.*.md` | Localized root README variants |
+| `.auto-readme-work/*` | README generation traces/artifacts |
+| `AutoPubMonitor/autopub_monitor/autopub.config` | Monitor queue/sync/runtime config |
+| `LazyEdit/config.py` | LazyEdit environment/path defaults |
+| `AutoPublish/.env.example` | AutoPublish credential/env template |
 
 ## 🧰 Prerequisites
 
-Because this snapshot is documentation-only, there are no runtime dependencies for application execution.
+Linux-first baseline across modules:
 
-For maintenance, review, and translation sync work you need:
+- `git` (submodule-capable)
+- `bash`
+- Python `3.10+` (some monitor installers still assume `3.8` env names)
+- `tmux`
+- `ffmpeg` / `ffprobe`
+- `inotify-tools`
+- `rsync`
+- Chrome/Chromium + compatible WebDriver
+- Node.js + npm (for `LazyEdit/app` frontend)
+- Optional: `systemd`, `conda`
 
-- `git`
-- A POSIX-compatible shell (examples use `bash`)
-- A markdown-capable editor
-- Optional: a diff viewer (for reviewing localized branches)
+Assumption: macOS/Windows require script/path/service adaptations.
 
-## 🛠️ Installation
+## 🛠️ Installation and Bootstrap
 
-No installable package exists in this snapshot.
-
-To work locally:
+### 1. Clone with submodules
 
 ```bash
-git clone <your-repo-url> AutoPublication
+git clone --recurse-submodules git@github.com:lachlanchen/AutoPublication.git
 cd AutoPublication
-sed -n '1,140p' README.md
 ```
 
-## ▶️ Usage
-
-Current usage is documentation and pipeline-trace oriented.
+If already cloned:
 
 ```bash
-# inspect the language selector map
-head -n 5 README.md
-
-# inspect the latest pipeline context
-cat .auto-readme-work/20260301_070712/pipeline-context.md
-
-# inspect the repository structure analysis from the latest available snapshot
-cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
-
-# review localized docs for parity checks
-sed -n '1,90p' i18n/README.fr.md
+git submodule update --init --recursive
 ```
 
-### Recommended maintenance flow
-
-1. Update `README.md` for structural or behavioral changes.
-2. Regenerate translation updates when required.
-3. Verify key sections remain synchronized across `i18n/` files.
-4. Keep `.auto-readme-work` snapshots consistent with the current workflow.
-
-## 🧩 Configuration
-
-No formal runtime configuration files are committed yet (`.env`, `config.yml`, CLI schema, etc. are absent).
-
-If you are implementing a future runtime, recommended defaults:
-
-- Add a sample configuration file such as `config.sample.yml`.
-- Store secrets via `.env` (excluded from repo) or the hosting secret manager.
-- Keep docs and CLI references in lockstep when adding new keys.
-
-## 🧪 Examples
-
-### Current examples (existing scaffold)
+### 2. Sync and verify submodule alignment
 
 ```bash
-# open full English documentation
-cat README.md
-
-# compare localized versions
-sed -n '1,90p' i18n/README.de.md
+git submodule sync --recursive
+git submodule status --recursive
+git submodule foreach --recursive 'git rev-parse --abbrev-ref HEAD; git rev-parse --short HEAD'
 ```
 
-### Future examples (expected implementation)
+### 3. Setup flow by submodule
+
+| Submodule | Primary config | Setup focus | First validation |
+| --- | --- | --- | --- |
+| `LazyEdit` | `config.py` (+ optional `.env`) | Python/backend deps, frontend deps, upload/output/API paths | `cd LazyEdit && python app.py` |
+| `AutoPublish` | `.env` (from `.env.example`) | Credentials, browser driver, queue/API mode | `cd AutoPublish && python app.py --port 8081` |
+| `AutoPubMonitor` | `autopub_monitor/autopub.config` | Queue/sync/lock paths, API target, tmux/service setup | `cd AutoPubMonitor && ./autopub_monitor/autopub_monitor_tmux_session.sh start` |
+
+Authoritative module docs:
+
+- `AutoPubMonitor/README.md`
+- `LazyEdit/README.md`
+- `AutoPublish/README.md`
+
+## ▶️ Usage and Operations
+
+Root usage is primarily orchestration and version alignment.
+
+### Daily operator flow
 
 ```bash
-# conceptual example; may not exist until runtime is introduced
-auto-publication publish \
-  --video ./assets/sample.mp4 \
-  --config ./config.sample.yml \
-  --platform youtube,tiktok
+# Keep checkout aligned to root pins
+git submodule sync --recursive
+git submodule update --init --recursive
+
+# Verify current state
+git submodule status --recursive
 ```
 
-## 🛠️ Development notes
+### End-to-end runtime flow
 
-- Treat changes as incremental: prioritize additive improvements and avoid destructive rewrites.
-- Preserve the English source as the authoritative documentation baseline.
-- Use the language files in `i18n/` as explicit sync targets.
-- Keep pipeline artifacts (`.auto-readme-work/`) as historical evidence, not hand-edited production code.
-- Avoid overpromising executable behavior in commands; only document what is currently present.
+1. Start `LazyEdit` and prepare assets.
+2. Start `AutoPublish` in API mode or CLI watcher mode.
+3. Start `AutoPubMonitor` for queue/sync/watchdog continuity.
 
-### Assumptions made in this README
+### Quick start commands
 
-- The repository remains documentation-first until runtime modules are committed.
-- Translations stay aligned with meaningful structural edits.
-- `.auto-readme-work/` contains append-only, run-scoped history and is not the canonical working copy.
+```bash
+# LazyEdit
+cd LazyEdit
+python app.py
+# optional frontend in second terminal:
+# cd app && npx expo start --web
 
-## 🔧 Troubleshooting
+# AutoPublish
+cd ../AutoPublish
+python app.py --port 8081
+# or CLI watcher mode:
+# python autopub.py --help
 
-### I cannot run an `auto-publication` command
+# AutoPubMonitor
+cd ../AutoPubMonitor
+./autopub_monitor/autopub_monitor_tmux_session.sh start
+```
 
-**Cause:** No runtime application exists in this snapshot.
+## 🧪 Local Development Workflow
 
-**Fix:** Use this repository for documentation workflows and wait for implementation files to be added.
+### Recommended loop
 
-### A localized README seems out of sync
+1. Re-align to root pins before coding.
+2. Develop and test inside one submodule at a time.
+3. Validate cross-submodule handoffs (`LazyEdit -> AutoPublish -> AutoPubMonitor`).
+4. Commit implementation changes in submodule repos first.
+5. Commit root pointer updates (`gitlinks`) last.
 
-**Cause:** Translations were updated independently of the English source.
+### Pointer bump flow (example)
 
-**Fix:** Apply the same structural changes to all `i18n/README.*.md` files, then align wording and examples.
+```bash
+# root align first
+git submodule sync --recursive
+git submodule update --init --recursive
 
-### A README link points to non-existent functionality
+# edit and commit in submodule
+cd LazyEdit
+git switch -c feature/<name>
+# ...change/test...
+git add -A && git commit -m "feat: <summary>"
+cd ..
 
-**Cause:** The documentation includes planned behavior.
+# capture new pointer in root
+git add LazyEdit
+git commit -m "chore(submodule): bump LazyEdit pointer"
+```
 
-**Fix:** Keep the section marked as planned or replace it with currently validated commands.
+### Commit boundary rules
+
+- Root commits should focus on docs, orchestration conventions, and pointer bumps.
+- Implementation changes should be committed in submodule repos first.
+- Keep root pointer commits separate from large docs/content edits when possible.
+
+## ⚙️ Configuration
+
+There is no root unified runtime config. Configure each submodule directly:
+
+### `AutoPubMonitor`
+
+- File: `AutoPubMonitor/autopub_monitor/autopub.config`
+- Typical values: queue files, lock files, sync paths, API base URL, conda env, script paths
+
+### `LazyEdit`
+
+- File: `LazyEdit/config.py` (plus optional `.env`)
+- Typical values: upload/output directories, backend port, AutoPublish endpoint, subtitle/caption tools, timeouts
+
+### `AutoPublish`
+
+- File: `AutoPublish/.env.example` (copy to local `.env`)
+- Typical values: platform credentials, browser/driver paths, SMTP/email settings, captcha service keys
+
+Security recommendation: keep machine-specific config and secrets in ignored files/environment variables.
+
+## 🔄 Submodule Update Strategy
+
+### A. Initialize and sync to current pins
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### B. Update intentionally to remote tips
+
+Use only when you explicitly intend to move pinned versions:
+
+```bash
+git submodule update --remote --recursive
+```
+
+Then verify and commit pointers:
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit -m "chore(submodules): bump submodule pointers"
+```
+
+### C. Pin to explicit commit or tag
+
+```bash
+cd LazyEdit
+git fetch origin
+git checkout <commit-or-tag>
+cd ..
+git add LazyEdit
+git commit -m "chore(submodule): pin LazyEdit to <commit-or-tag>"
+```
+
+Repeat for `AutoPubMonitor` and `AutoPublish` as needed.
+
+### D. Review pointer deltas before merge
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### E. Recommended release playbook
+
+1. Sync/init recursively.
+2. Update one submodule at a time.
+3. Run submodule-level smoke tests.
+4. Run integration smoke checks across handoff boundaries.
+5. Stage only intended gitlink changes.
+6. Commit with explicit module names and rationale.
+
+### F. Pinning policy
+
+- Keep root pinned to known-good commits.
+- Avoid broad all-module bumps without integration validation.
+- Use explicit pin messages (`chore(submodule): pin <module> to <sha>`).
+- Treat root as the release manifest; treat submodule branches as implementation streams.
+
+## 🔧 Troubleshooting (Submodule Sync and State)
+
+### Submodule directory is empty or missing files
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `fatal: no submodule mapping found in .gitmodules`
+
+Usually stale metadata or a path mismatch:
+
+```bash
+cat .gitmodules
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `git submodule status` shows `-`, `+`, or `U`
+
+- `-`: submodule not initialized.
+- `+`: checked-out commit differs from root pin.
+- `U`: merge conflict in submodule pointer.
+
+Recovery:
+
+```bash
+git submodule update --init --recursive
+```
+
+If divergence is intentional, commit gitlink updates in root.
+
+### Detached HEAD inside submodule
+
+Detached HEAD is normal for pinned submodules. Create a branch before development:
+
+```bash
+cd <submodule>
+git switch -c feature/<name>
+```
+
+### Wrong remote URL for a submodule
+
+```bash
+git submodule sync --recursive
+git submodule foreach --recursive 'git remote -v'
+```
+
+If `.gitmodules` changed, commit it and re-sync.
+
+### Merge conflicts on submodule pointers
+
+Pick intended commit pointers, then:
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit
+```
+
+Validate selected SHAs:
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### Clone/update authentication failures
+
+Root `.gitmodules` currently uses SSH remotes (`git@github.com:...`).
+
+- Ensure GitHub SSH keys are configured.
+- Or switch to HTTPS remotes in `.gitmodules`, then run `git submodule sync --recursive`.
+
+### Submodule appears dirty unexpectedly
+
+```bash
+git submodule foreach --recursive 'git status --short --branch'
+```
+
+Commit intentional changes in each submodule first, then update root pointers.
+
+### Nested submodules in `LazyEdit` are not initialized
+
+```bash
+git submodule update --init --recursive
+```
+
+If only `LazyEdit` nested modules need refresh:
+
+```bash
+git -C LazyEdit submodule update --init --recursive
+```
+
+### Hard resync when metadata is stale
+
+Use when standard sync/update does not recover state:
+
+```bash
+git submodule deinit -f --all
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+## 🛠️ Development Notes
+
+### i18n policy
+
+- Keep exactly one language options line at the top.
+- Propagate structural changes to `i18n/README.*.md`.
+
+### Pipeline context artifacts
+
+- Pipeline artifacts are stored in `.auto-readme-work/<timestamp>/`.
+- Use them for traceability and doc generation history, not runtime inputs.
 
 ## 🗺️ Roadmap
 
-- [ ] Add source package and runtime entrypoint.
-- [ ] Add dependency manifest and installation path.
-- [ ] Add platform-specific publication integrations.
-- [ ] Add config validation and secrets handling.
-- [ ] Add executable examples and CI smoke checks.
-- [ ] Add automated parity checks across localized READMEs.
-- [ ] Add a `LICENSE` file and explicit licensing terms.
+- [ ] Add root orchestration scripts for common cross-submodule tasks.
+- [ ] Add CI checks for submodule sync health and pin drift.
+- [ ] Add automated root/i18n README parity checks.
+- [ ] Add architecture diagram for end-to-end runtime flow.
+- [ ] Add root `LICENSE` policy file if repository-level licensing is intended.
 
 ## 🤝 Contributing
 
-Contributions are welcome as this docs scaffold transitions into implementation.
+Contributions are welcome for docs, architecture clarity, and workflow reliability.
 
 ```bash
-# 1. create a branch
+# 1) create branch
 git checkout -b docs/<short-description>
 
-# 2. commit changes
-git add README.md i18n/README.fr.md
-git commit -m "docs: update English README scaffold"
+# 2) stage docs and/or intended pointer updates
+git add README.md i18n/README.fr.md AutoPubMonitor LazyEdit AutoPublish
 
-# 3. push and open PR
+# 3) commit
+git commit -m "docs: improve root architecture and submodule workflows"
+
+# 4) push
 git push -u origin docs/<short-description>
 ```
 
-Suggested PR checklist:
+PR checklist:
 
-- Keep `README.md` as the source of truth.
-- Update every touched localized README in `i18n/`.
-- Keep existing sections while adding incremental value.
-- Keep `.auto-readme-work/*` metadata aligned with the current pass.
+- Keep root `README.md` canonical.
+- Keep one language-options line and one support panel.
+- Include `git submodule status` in PR notes when bumping pins.
+- Document rationale for each submodule pointer update.
+
+## Submodules
+
+This repository includes these root-level git submodules:
+
+| Submodule | Repository |
+| --- | --- |
+| `AutoPubMonitor` | https://github.com/lachlanchen/AutoPubMonitor |
+| `LazyEdit` | https://github.com/lachlanchen/LazyEdit |
+| `AutoPublish` | https://github.com/lachlanchen/AutoPublish |
 
 ## ❤️ Support
 
@@ -282,16 +546,9 @@ Use repository issues for questions, documentation corrections, and contribution
 
 ## 📄 License
 
-No `LICENSE` file is currently present in this snapshot.
+No root-level `LICENSE` file is currently present in this repository snapshot.
 
-Suggested next step:
+Assumptions:
 
-- Add a `LICENSE` file and update this section with the chosen license identifier.
-
-## Submodules
-
-This repository includes these root-level git submodules:
-
-- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
-- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
-- `AutoPublish` → https://github.com/lachlanchen/AutoPublish
+- Licensing may be delegated to individual submodules.
+- Review each submodule license before redistribution or commercial use.

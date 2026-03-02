@@ -5,89 +5,120 @@
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
-![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
-![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
-![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
-![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
+![Status](https://img.shields.io/badge/status-meta--repo-0f172a?style=for-the-badge&logo=github&logoColor=white)
+![Architecture](https://img.shields.io/badge/architecture-git%20submodules-0ea5e9?style=for-the-badge&logo=git&logoColor=white)
+![Core](https://img.shields.io/badge/core-AutoPubMonitor%20%2B%20LazyEdit%20%2B%20AutoPublish-16a34a?style=for-the-badge&logo=stackshare&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-11%20locales-2563eb?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Ops](https://img.shields.io/badge/ops-linux--first-f59e0b?style=for-the-badge&logo=linux&logoColor=white)
 
-> Документационно-ориентированный каркас для рабочих процессов публикации видео с поддержкой ИИ.
+Каноническая корневая документация для закрепленного AI-стека видеоработы на базе подмодулей.
 
-## 📌 Краткий обзор<a id="at-a-glance"></a>
+## 📌 Кратко
 
-| Область | Подробности |
+| Область | Детали |
 | --- | --- |
-| Роль | Канонический англоязычный источник документации для рабочего пространства AI-публикации |
-| Языки | Английский + 10 локализованных версий README |
-| Сгенерированные артефакты | Метаданные снапшота и трассировки пайплайна в `.auto-readme-work/*` |
-| Текущая реализация | Документационный снапшот (исполняемый код приложения ещё не добавлен в коммитах) |
-| Последний снапшот | `.auto-readme-work/20260301_070712/` |
+| Тип репозитория | Мета-репозиторий с закрепленными git submodules |
+| Роль корневого runtime | Документация + точка входа оркестрации |
+| Ключевые подмодули | `AutoPubMonitor`, `LazyEdit`, `AutoPublish` |
+| Канонический источник документации | Корневой `README.md` |
+| Языковые версии | `i18n/README.*.md` |
+| Последний снимок артефактов пайплайна | `.auto-readme-work/20260302_124338/` |
 
-![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
-![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
+## 🧭 Обзор
 
-## 🗂️ Быстрая навигация по README<a id="readme-quick-navigation"></a>
+`AutoPublication` координирует сквозной пайплайн автоматизации контента:
 
-| Раздел | Ссылка |
-|---|---|
-| Обзор | [Обзор](#overview) |
-| Возможности | [Возможности](#features) |
-| Структура проекта | [Структура проекта](#project-structure) |
-| Предварительные требования | [Предварительные требования](#prerequisites) |
-| Установка | [Установка](#installation) |
-| Использование | [Использование](#usage) |
-| Конфигурация | [Конфигурация](#configuration) |
-| Примеры | [Примеры](#examples) |
-| Заметки по разработке | [Заметки по разработке](#development-notes) |
-| Устранение неполадок | [Устранение неполадок](#troubleshooting) |
-| Дорожная карта | [Дорожная карта](#roadmap) |
-| Участие | [Участие](#contributing) |
-| Поддержка | [Поддержка](#support) |
-| Контакт | [Контакт](#contact) |
-| Лицензия | [Лицензия](#license) |
+1. Подготовка, редактирование и генерация ассетов в `LazyEdit`.
+2. Публикация ассетов на целевых платформах через `AutoPublish`.
+3. Поддержание здоровья очередей/наблюдения/синхронизации с `AutoPubMonitor`.
 
-## 🧭 Обзор<a id="overview"></a>
+Корневой репозиторий намеренно закрепляет коммиты подмодулей, чтобы сохранить воспроизводимость между окружениями и хостами развертывания.
 
-`AutoPublication` — это документационный каркас репозитория, подготовленный для поддержки более масштабной системы публикации видео с ИИ.
-Он хранит английский `README.md` как источник истины и синхронизирует переводы в `i18n/README.*.md` с помощью снапшотов пайплайна.
+### Чем является этот репозиторий
 
-### Что это за репозиторий
+- Каноническая корневая документация по настройке, эксплуатации и интеграции.
+- Слой закрепления версий подмодулей через gitlink.
+- Источник многоязычной документации (`i18n/README.*.md`).
+- Трассировка пайплайна и история артефактов (`.auto-readme-work/*`).
 
-- Канонический источник для проектной документации и инструкций для контрибьюторов.
-- Многоязычный набор документации, используемый как пример синхронизированной эволюции README.
-- Исторический архив фактов в `.auto-readme-work/*`, фиксирующий каждый запуск пайплайна.
+### Чем этот репозиторий не является
 
-### Что это за репозиторий (пока)
+- Это не единый runtime-пакет с одним корневым dependency manifest.
+- Это не замена `README`/скриптам каждого подмодуля.
+- Здесь пока нет единой корневой схемы `.env`.
 
-- Пока это ещё не исполняемое приложение для публикации.
-- Пока это ещё не пакет со скриптами установки или манифестом зависимостей.
-- В этой ветке пока не добавлена модель runtime-конфигурации (`.env`, YAML, схема CLI).
+## ✨ Возможности
 
-## ✨ Возможности<a id="features"></a>
+- Воспроизводимая архитектура благодаря закрепленным коммитам подмодулей.
+- Четкие границы ответственности между редактированием, публикацией и мониторингом.
+- Linux-first эксплуатация (`tmux`, опционально `systemd`, FFmpeg, browser automation).
+- Документационно-ориентированный рабочий процесс с i18n-вариантами.
+- Отслеживаемый контекст генерации README в `.auto-readme-work/`.
 
-### Текущие возможности
+## 🧱 Архитектура подмодулей
 
-- Каноническая английская документация в одном исходном файле (`README.md`).
-- Блок выбора языка со ссылками на все локализованные README.
-- Снапшоты автоматической генерации README (`pipeline-context`, `language-nav-*`, `translation-plan`, `repo-structure-analysis`) с меткой времени.
-- Карта проекта, ориентированная на документацию, для поддержки поэтапной реализации.
-- Стандартизированная панель поддержки для отображения донатов и спонсорской помощи.
+### Карта корневых модулей
 
-### Планируемые возможности
+| Модуль | Роль | Профиль runtime | Типовые точки входа |
+| --- | --- | --- | --- |
+| `AutoPubMonitor` | Оркестрация очередей/наблюдения/синхронизации вокруг публикационных процессов | Преимущественно shell + Python-хелперы + `tmux`/опционально `systemd` | `autopub_monitor/autopub_monitor_tmux_session.sh`, `autopub_monitor/process_queue.sh`, `autopub_monitor/monitor_autopublish.sh` |
+| `LazyEdit` | AI-пайплайн генерации/редактирования медиа/субтитров/метаданных | Tornado backend + Expo frontend + модули обработки | `app.py`, `start_lazyedit.sh`, `app/`, `lazyedit/` |
+| `AutoPublish` | Browser-driven публикация на несколько платформ и queue API service | Python-скрипты + Selenium + Tornado queue API | `autopub.py`, `app.py`, `pub_*.py`, `login_*.py` |
 
-- Оркестровка рабочих процессов публикации с помощью ИИ.
-- Много-платформенная генерация и валидация метаданных.
-- Настраиваемые цели публикации и управление учётными данными.
-- Воспроизводимый локальный путь разработки с тестами и проверками CI.
+### Границы зависимостей
 
-## 🗂️ Структура проекта<a id="project-structure"></a>
+| Граница | В рамках зоны ответственности | Вне зоны ответственности |
+| --- | --- | --- |
+| `LazyEdit` | Пайплайн редактирования/генерации, UI/backend, подготовка субтитров и метаданных | Автоматизация логина на платформах и публикация по платформам |
+| `AutoPublish` | Адаптеры публикации, auth/session handling, queue API, выполнение публикации | UI редактирования/транскрибации и большинство апстрим-трансформаций |
+| `AutoPubMonitor` | Наблюдатели очередей, lock-файлы, jobs синхронизации, supervision через tmux/service | Поведение UI редактора и глубокие browser flow конкретных платформ |
+| Root (`AutoPublication`) | Документация, оркестрация версий, политика закрепления подмодулей | Единое управление runtime-зависимостями |
+
+### Контракты интеграции
+
+| Передача | Producer | Consumer | Фокус контракта |
+| --- | --- | --- | --- |
+| Подготовленные медиа-ассеты | `LazyEdit` | `AutoPublish` | Соглашения по директориям, именам файлов, готовности медиа |
+| Метаданные/субтитры | `LazyEdit` | `AutoPublish` | Схема title/description/tags и доступность caption |
+| Состояние публикации и здоровье очереди | `AutoPublish` | `AutoPubMonitor` | Доступность API endpoint и семантика очереди |
+| Управление sync/watchdog | `AutoPubMonitor` | `AutoPublish` + ops | Дисциплина lock, целостность очереди, восстанавливаемые перезапуски |
+
+### Поток ответственности во runtime
+
+```mermaid
+flowchart LR
+    A[LazyEdit\nAsset + metadata production] --> B[AutoPublish\nQueue API + platform publishing]
+    B --> C[AutoPubMonitor\nWatch, sync, lock, recover]
+    C --> B
+```
+
+1. `LazyEdit` производит видео и пакеты метаданных.
+2. `AutoPublish` выполняет публикацию на каналах/платформах.
+3. `AutoPubMonitor` контролирует циклы очереди и синхронизации.
+
+## 📦 Текущие закрепленные версии подмодулей
+
+Текущие корневые pins (`git submodule status`):
+
+- `AutoPubMonitor`: `6daa87ce612c2dab75fac9478d4523abd418f69d`
+- `AutoPublish`: `4f348ac342bfaff7bc435985085cedd9b448e1e8`
+- `LazyEdit`: `dc503d6db63b13db812fef5d9c8ffe0a882d725e`
+
+Проверка локально:
+
+```bash
+git submodule status
+git submodule status --recursive
+```
+
+Примечание о вложенности: `LazyEdit` содержит дополнительные вложенные подмодули (например `whisper_with_lang_detect`, `furigana`, репозитории captioning), поэтому многие корневые операции стоит запускать с `--recursive`.
+
+## 🗂️ Структура проекта
 
 ```text
 AutoPublication/
 ├── README.md
-├── README.md.auto-readme-support
-├── README.md.auto-readme-support.filtered
+├── .gitmodules
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -100,177 +131,409 @@ AutoPublication/
 │   ├── README.vi.md
 │   ├── README.zh-Hans.md
 │   └── README.zh-Hant.md
+├── AutoPubMonitor/                  # submodule
+│   ├── README.md
+│   └── autopub_monitor/
+├── LazyEdit/                        # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── app/
+│   └── lazyedit/
+├── AutoPublish/                     # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── autopub.py
+│   └── pub_*.py
 └── .auto-readme-work/
-    ├── 20260228_230008/
-    ├── 20260301_064342/
-    ├── 20260301_064412/
-    ├── 20260301_064745/
-    ├── 20260301_065035/
-    ├── 20260301_065907/
-    └── 20260301_070712/
+    └── <timestamp>/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        └── translation-plan.txt
+        ├── translation-plan.txt
+        └── repo-structure-analysis.md
 ```
 
-### Значимые пути<a id="notable-paths"></a>
+### Важные пути
 
-| Путь | Назначение |
-|---|---|
-| `i18n/README.*.md` | Локализованные README для пользовательской документации |
-| `.auto-readme-work/*/pipeline-context.md` | Ограничения запуска и метаданные для каждого прохода пайплайна |
-| `.auto-readme-work/*/language-nav-*.md` | Канонические и i18n карты соответствия языков |
-| `.auto-readme-work/*/repo-structure-analysis.md` | Исторические снимки структуры проекта |
-| `.auto-readme-work/*/translation-plan.txt` | Область и план локализации |
-| `.auto-readme-work/*/translated-files.txt` | Списки итоговых файлов из предыдущих циклов перевода |
+| Path | Назначение |
+| --- | --- |
+| `.gitmodules` | Объявляет remotes и пути подмодулей |
+| `i18n/README.*.md` | Локализованные варианты корневого README |
+| `.auto-readme-work/*` | Трассировка/артефакты генерации README |
+| `AutoPubMonitor/autopub_monitor/autopub.config` | Конфиг очереди/синхронизации/runtime монитора |
+| `LazyEdit/config.py` | Дефолты окружения/путей LazyEdit |
+| `AutoPublish/.env.example` | Шаблон credential/env для AutoPublish |
 
-## 🧰 Предварительные требования<a id="prerequisites"></a>
+## 🧰 Предварительные требования
 
-Поскольку этот снапшот — только документационный, для выполнения приложения не требуется runtime-зависимостей.
+Базовый Linux-first набор для всех модулей:
 
-Для сопровождения, проверки и синхронизации переводов вам потребуются:
+- `git` (с поддержкой submodule)
+- `bash`
+- Python `3.10+` (часть install-скриптов monitor все еще предполагает имена env для `3.8`)
+- `tmux`
+- `ffmpeg` / `ffprobe`
+- `inotify-tools`
+- `rsync`
+- Chrome/Chromium + совместимый WebDriver
+- Node.js + npm (для frontend `LazyEdit/app`)
+- Опционально: `systemd`, `conda`
 
-- `git`
-- POSIX-совместимая оболочка (в примерах используется `bash`)
-- Редактор с поддержкой Markdown
-- По желанию: средство сравнения diff (для проверки локализованных веток)
+Предположение: для macOS/Windows потребуется адаптация скриптов/путей/сервисов.
 
-## 🛠️ Установка<a id="installation"></a>
+## 🛠️ Установка и начальная настройка
 
-Установка исполняемого пакета в этом снапшоте отсутствует.
-
-Для локальной работы:
+### 1. Клонирование с подмодулями
 
 ```bash
-git clone <your-repo-url> AutoPublication
+git clone --recurse-submodules git@github.com:lachlanchen/AutoPublication.git
 cd AutoPublication
-sed -n '1,140p' README.md
 ```
 
-## ▶️ Использование<a id="usage"></a>
-
-Текущее использование ориентировано на документацию и трассировку пайплайна.
+Если репозиторий уже клонирован:
 
 ```bash
-# inspect the language selector map
-head -n 5 README.md
-
-# inspect the latest pipeline context
-cat .auto-readme-work/20260301_070712/pipeline-context.md
-
-# inspect the latest repository structure analysis from the available snapshot
-cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
-
-# review localized docs for parity checks
-sed -n '1,90p' i18n/README.fr.md
+git submodule update --init --recursive
 ```
 
-### Рекомендуемый процесс сопровождения
-
-1. Обновите `README.md` при структурных или поведенческих изменениях.
-2. Генерируйте обновления переводов при необходимости.
-3. Проверяйте, что ключевые разделы остаются синхронизированными между файлами `i18n/`.
-4. Поддерживайте согласованность снапшотов `.auto-readme-work` с текущим пайплайном.
-
-## 🧩 Конфигурация<a id="configuration"></a>
-
-На текущий момент формальных runtime-файлов конфигурации не закоммичено (`.env`, `config.yml`, схема CLI и т.д. отсутствуют).
-
-Если вы реализуете будущий runtime, рекомендуются такие базовые настройки:
-
-- Добавьте пример файла конфигурации, например `config.sample.yml`.
-- Храните секреты через `.env` (исключённый из репозитория) или менеджер секретов хостинга.
-- Синхронизируйте документацию и CLI-ссылки при добавлении новых ключей.
-
-## 🧪 Примеры<a id="examples"></a>
-
-### Текущие примеры (существующий каркас)
+### 2. Синхронизация и проверка выравнивания подмодулей
 
 ```bash
-# open full English documentation
-cat README.md
-
-# compare localized versions
-sed -n '1,90p' i18n/README.de.md
+git submodule sync --recursive
+git submodule status --recursive
+git submodule foreach --recursive 'git rev-parse --abbrev-ref HEAD; git rev-parse --short HEAD'
 ```
 
-### Будущие примеры (ожидаемая реализация)
+### 3. Поток настройки по подмодулям
+
+| Подмодуль | Основной конфиг | Фокус настройки | Первая валидация |
+| --- | --- | --- | --- |
+| `LazyEdit` | `config.py` (+ опционально `.env`) | Python/backend deps, frontend deps, пути upload/output/API | `cd LazyEdit && python app.py` |
+| `AutoPublish` | `.env` (из `.env.example`) | Credentials, browser driver, queue/API mode | `cd AutoPublish && python app.py --port 8081` |
+| `AutoPubMonitor` | `autopub_monitor/autopub.config` | Пути queue/sync/lock, целевой API, настройка tmux/service | `cd AutoPubMonitor && ./autopub_monitor/autopub_monitor_tmux_session.sh start` |
+
+Авторитетная документация модулей:
+
+- `AutoPubMonitor/README.md`
+- `LazyEdit/README.md`
+- `AutoPublish/README.md`
+
+## ▶️ Использование и эксплуатация
+
+Использование root в основном сводится к оркестрации и выравниванию версий.
+
+### Ежедневный рабочий цикл оператора
 
 ```bash
-# conceptual example; may not exist until runtime is introduced
-auto-publication publish \
-  --video ./assets/sample.mp4 \
-  --config ./config.sample.yml \
-  --platform youtube,tiktok
+# Keep checkout aligned to root pins
+git submodule sync --recursive
+git submodule update --init --recursive
+
+# Verify current state
+git submodule status --recursive
 ```
 
-## 🛠️ Заметки по разработке<a id="development-notes"></a>
+### Сквозной runtime-поток
 
-- Рассматривайте изменения как инкрементальные: отдавайте приоритет дополнениям и избегайте деструктивных переписей.
-- Сохраняйте английский `README.md` как авторитетный источник документации.
-- Используйте файлы локализации в `i18n/` как явные цели синхронизации.
-- Сохраняйте артефакты пайплайна (`.auto-readme-work/`) как исторические следы, а не как вручную правленный продакшн-код.
-- Не обещайте выполняемое поведение в командах; описывайте только то, что реально существует.
+1. Запустите `LazyEdit` и подготовьте ассеты.
+2. Запустите `AutoPublish` в API mode или CLI watcher mode.
+3. Запустите `AutoPubMonitor` для непрерывности queue/sync/watchdog.
 
-### Предположения, принятые в этом README
-
-- Репозиторий остаётся документационно-первичным, пока не добавлены runtime-модули.
-- Переводы сохраняют синхронизацию с релевантными структурными изменениями.
-- `.auto-readme-work/` содержит append-only историю по каждому запуску и не является канонической рабочей копией.
-
-## 🔧 Устранение неполадок<a id="troubleshooting"></a>
-
-### Не получается запустить `auto-publication`
-
-**Причина:** В этом снапшоте нет исполняемого приложения.
-
-**Решение:** Используйте этот репозиторий для документирования рабочих процессов и дождитесь добавления файлов реализации.
-
-### Локализованный README не синхронизирован
-
-**Причина:** Переводы обновлялись независимо от английского источника.
-
-**Решение:** Примените одинаковые структурные изменения ко всем файлам `i18n/README.*.md`, затем согласуйте формулировки и примеры.
-
-### Ссылка в README указывает на несуществующую функцию
-
-**Причина:** Документация описывает запланированное поведение.
-
-**Решение:** Оставьте раздел как запланированный либо замените его на уже проверенное функциональное описание.
-
-## 🗺️ Дорожная карта<a id="roadmap"></a>
-
-- [ ] Добавить исходный пакет и runtime entrypoint.
-- [ ] Добавить манифест зависимостей и путь установки.
-- [ ] Добавить платформенные интеграции публикации.
-- [ ] Добавить валидацию конфигурации и обработку секретов.
-- [ ] Добавить исполняемые примеры и smoke-проверки CI.
-- [ ] Добавить автоматические проверки эквивалентности между локализованными README.
-- [ ] Добавить файл `LICENSE` и явно указать лицензионные условия.
-
-## 🤝 Участие<a id="contributing"></a>
-
-Вклад приветствуется, пока этот документационный каркас переходит в стадию реализации.
+### Команды быстрого старта
 
 ```bash
-# 1. create a branch
+# LazyEdit
+cd LazyEdit
+python app.py
+# optional frontend in second terminal:
+# cd app && npx expo start --web
+
+# AutoPublish
+cd ../AutoPublish
+python app.py --port 8081
+# or CLI watcher mode:
+# python autopub.py --help
+
+# AutoPubMonitor
+cd ../AutoPubMonitor
+./autopub_monitor/autopub_monitor_tmux_session.sh start
+```
+
+## 🧪 Локальный workflow разработки
+
+### Рекомендуемый цикл
+
+1. Перед кодингом выровняйтесь с root pins.
+2. Разрабатывайте и тестируйте внутри одного подмодуля за раз.
+3. Проверяйте межмодульные handoff (`LazyEdit -> AutoPublish -> AutoPubMonitor`).
+4. Сначала коммитьте изменения реализации в репозитории подмодулей.
+5. В конце коммитьте обновления root pointer (`gitlinks`).
+
+### Поток обновления pointer (пример)
+
+```bash
+# root align first
+git submodule sync --recursive
+git submodule update --init --recursive
+
+# edit and commit in submodule
+cd LazyEdit
+git switch -c feature/<name>
+# ...change/test...
+git add -A && git commit -m "feat: <summary>"
+cd ..
+
+# capture new pointer in root
+git add LazyEdit
+git commit -m "chore(submodule): bump LazyEdit pointer"
+```
+
+### Правила границ коммитов
+
+- Root-коммиты должны фокусироваться на документации, соглашениях оркестрации и обновлении pointers.
+- Изменения реализации сначала коммитьте в репозиториях подмодулей.
+- По возможности держите root pointer-коммиты отдельно от крупных правок документации/контента.
+
+## ⚙️ Конфигурация
+
+Единого корневого runtime-config нет. Настраивайте каждый подмодуль напрямую:
+
+### `AutoPubMonitor`
+
+- Файл: `AutoPubMonitor/autopub_monitor/autopub.config`
+- Типичные значения: queue files, lock files, sync paths, API base URL, conda env, script paths
+
+### `LazyEdit`
+
+- Файл: `LazyEdit/config.py` (плюс опционально `.env`)
+- Типичные значения: upload/output directories, backend port, endpoint AutoPublish, subtitle/caption tools, timeouts
+
+### `AutoPublish`
+
+- Файл: `AutoPublish/.env.example` (скопируйте в локальный `.env`)
+- Типичные значения: platform credentials, browser/driver paths, SMTP/email settings, captcha service keys
+
+Рекомендация по безопасности: храните machine-specific config и секреты в игнорируемых файлах/переменных окружения.
+
+## 🔄 Стратегия обновления подмодулей
+
+### A. Инициализация и синхронизация с текущими pins
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### B. Осознанное обновление до remote tips
+
+Используйте только если вы явно хотите сдвинуть закрепленные версии:
+
+```bash
+git submodule update --remote --recursive
+```
+
+Затем проверьте и закоммитьте pointers:
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit -m "chore(submodules): bump submodule pointers"
+```
+
+### C. Закрепление на конкретный commit или tag
+
+```bash
+cd LazyEdit
+git fetch origin
+git checkout <commit-or-tag>
+cd ..
+git add LazyEdit
+git commit -m "chore(submodule): pin LazyEdit to <commit-or-tag>"
+```
+
+Повторите для `AutoPubMonitor` и `AutoPublish` при необходимости.
+
+### D. Проверка изменений pointers перед merge
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### E. Рекомендуемый release playbook
+
+1. Синхронизируйте/инициализируйте рекурсивно.
+2. Обновляйте по одному подмодулю за раз.
+3. Запустите smoke tests на уровне подмодуля.
+4. Запустите интеграционные smoke-check между границами handoff.
+5. Добавьте в staging только запланированные изменения gitlink.
+6. Коммитьте с явным указанием модулей и обоснования.
+
+### F. Политика pinning
+
+- Держите root закрепленным на known-good коммитах.
+- Избегайте широких одновременных bump всех модулей без интеграционной валидации.
+- Используйте явные сообщения pin (`chore(submodule): pin <module> to <sha>`).
+- Рассматривайте root как release manifest, а ветки подмодулей как implementation streams.
+
+## 🔧 Устранение неполадок (синхронизация и состояние подмодулей)
+
+### Директория подмодуля пустая или в ней отсутствуют файлы
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `fatal: no submodule mapping found in .gitmodules`
+
+Обычно это устаревшие метаданные или несовпадение пути:
+
+```bash
+cat .gitmodules
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `git submodule status` показывает `-`, `+` или `U`
+
+- `-`: подмодуль не инициализирован.
+- `+`: checked-out commit отличается от root pin.
+- `U`: merge conflict в pointer подмодуля.
+
+Восстановление:
+
+```bash
+git submodule update --init --recursive
+```
+
+Если расхождение намеренное, закоммитьте обновления gitlink в root.
+
+### Detached HEAD внутри подмодуля
+
+Detached HEAD нормален для закрепленных подмодулей. Перед разработкой создайте ветку:
+
+```bash
+cd <submodule>
+git switch -c feature/<name>
+```
+
+### Некорректный remote URL у подмодуля
+
+```bash
+git submodule sync --recursive
+git submodule foreach --recursive 'git remote -v'
+```
+
+Если `.gitmodules` изменился, закоммитьте его и повторно выполните sync.
+
+### Конфликты merge в pointers подмодулей
+
+Выберите нужные commit pointers, затем:
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit
+```
+
+Проверьте выбранные SHAs:
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### Ошибки аутентификации при clone/update
+
+В root `.gitmodules` сейчас используются SSH remotes (`git@github.com:...`).
+
+- Убедитесь, что SSH-ключи GitHub настроены.
+- Или переключитесь на HTTPS remotes в `.gitmodules`, затем запустите `git submodule sync --recursive`.
+
+### Подмодуль неожиданно отображается как dirty
+
+```bash
+git submodule foreach --recursive 'git status --short --branch'
+```
+
+Сначала закоммитьте намеренные изменения в каждом подмодуле, затем обновите root pointers.
+
+### Вложенные подмодули в `LazyEdit` не инициализированы
+
+```bash
+git submodule update --init --recursive
+```
+
+Если нужно обновить только вложенные модули `LazyEdit`:
+
+```bash
+git -C LazyEdit submodule update --init --recursive
+```
+
+### Жесткая повторная синхронизация при устаревших метаданных
+
+Используйте, когда обычные sync/update не восстанавливают состояние:
+
+```bash
+git submodule deinit -f --all
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+## 🛠️ Заметки по разработке
+
+### Политика i18n
+
+- Сверху должна быть ровно одна строка выбора языка.
+- Считайте корневой английский `README.md` каноническим.
+- Распространяйте структурные изменения на `i18n/README.*.md`.
+
+### Артефакты контекста пайплайна
+
+- Артефакты пайплайна хранятся в `.auto-readme-work/<timestamp>/`.
+- Используйте их для трассируемости и истории генерации документации, а не как runtime-входы.
+
+## 🗺️ Дорожная карта
+
+- [ ] Добавить root-скрипты оркестрации для общих межмодульных задач.
+- [ ] Добавить CI-проверки состояния синхронизации подмодулей и pin drift.
+- [ ] Добавить автоматические проверки паритета root/i18n README.
+- [ ] Добавить архитектурную диаграмму сквозного runtime-потока.
+- [ ] Добавить корневой файл политики `LICENSE`, если предполагается лицензирование на уровне репозитория.
+
+## 🤝 Участие в разработке
+
+Приветствуются вклады в документацию, ясность архитектуры и надежность workflow.
+
+```bash
+# 1) create branch
 git checkout -b docs/<short-description>
 
-# 2. commit changes
-git add README.md i18n/README.fr.md
-git commit -m "docs: update English README scaffold"
+# 2) stage docs and/or intended pointer updates
+git add README.md i18n/README.fr.md AutoPubMonitor LazyEdit AutoPublish
 
-# 3. push and open PR
+# 3) commit
+git commit -m "docs: improve root architecture and submodule workflows"
+
+# 4) push
 git push -u origin docs/<short-description>
 ```
 
-### Рекомендуемый чеклист PR
+Чеклист для PR:
 
-- Держите `README.md` в роли источника правды.
-- Обновляйте каждый затронутый локализованный README в `i18n/`.
-- Сохраняйте существующий контент и добавляйте инкрементальную ценность.
-- Поддерживайте метаданные `.auto-readme-work/*` синхронизированными с текущим проходом.
+- Держите root `README.md` каноническим.
+- Сохраняйте одну строку выбора языков и одну панель поддержки.
+- При обновлении pins включайте `git submodule status` в заметки PR.
+- Документируйте обоснование каждого обновления pointer подмодуля.
+
+## Submodules
+
+Этот репозиторий включает следующие git submodules верхнего уровня:
+
+| Submodule | Repository |
+| --- | --- |
+| `AutoPubMonitor` | https://github.com/lachlanchen/AutoPubMonitor |
+| `LazyEdit` | https://github.com/lachlanchen/LazyEdit |
+| `AutoPublish` | https://github.com/lachlanchen/AutoPublish |
 
 ## ❤️ Support
 
@@ -278,22 +541,15 @@ git push -u origin docs/<short-description>
 | --- | --- | --- |
 | [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-## Contact<a id="contact"></a>
+## Contact
 
 Используйте issues репозитория для вопросов, правок документации и координации вкладов.
 
-## 📄 License<a id="license"></a>
+## 📄 Лицензия
 
-В текущем снапшоте отсутствует файл `LICENSE`.
+В текущем снимке этого репозитория отсутствует корневой файл `LICENSE`.
 
-Рекомендуемый следующий шаг:
+Предположения:
 
-- Добавьте `LICENSE` и обновите этот раздел с выбранным идентификатором лицензии.
-
-## Submodules
-
-This repository includes these root-level git submodules:
-
-- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
-- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
-- `AutoPublish` → https://github.com/lachlanchen/AutoPublish
+- Лицензирование может быть делегировано отдельным подмодулям.
+- Перед перераспространением или коммерческим использованием проверьте лицензию каждого подмодуля.

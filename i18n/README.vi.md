@@ -5,89 +5,120 @@
 
 # AutoPublication
 
-![Status](https://img.shields.io/badge/status-documentation_first-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
-![Scope](https://img.shields.io/badge/scope-readme_generation-0ea5e9?style=for-the-badge&logo=github&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-10%20locales-16a34a?style=for-the-badge&logo=googletranslate&logoColor=white)
-![Focus](https://img.shields.io/badge/focus-AI%20Video%20Publishing-9333ea?style=for-the-badge&logo=video&logoColor=white)
-![Lifecycle](https://img.shields.io/badge/lifecycle-documentation--first-6b7280?style=for-the-badge&logo=github&logoColor=white)
-![Pipelines](https://img.shields.io/badge/pipeline%20artifacts-.auto--readme--work-0f766e?style=for-the-badge&logo=githubactions&logoColor=white)
+![Status](https://img.shields.io/badge/status-meta--repo-0f172a?style=for-the-badge&logo=github&logoColor=white)
+![Architecture](https://img.shields.io/badge/architecture-git%20submodules-0ea5e9?style=for-the-badge&logo=git&logoColor=white)
+![Core](https://img.shields.io/badge/core-AutoPubMonitor%20%2B%20LazyEdit%20%2B%20AutoPublish-16a34a?style=for-the-badge&logo=stackshare&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-11%20locales-2563eb?style=for-the-badge&logo=googletranslate&logoColor=white)
+![Ops](https://img.shields.io/badge/ops-linux--first-f59e0b?style=for-the-badge&logo=linux&logoColor=white)
 
-> Khung tài liệu theo hướng documentation-first cho quy trình xuất bản video có hỗ trợ AI.
+Tài liệu chuẩn ở cấp root cho bộ quy trình video AI dùng kiến trúc submodule được pin commit.
 
-## 📌 Tóm tắt nhanh
+## 📌 Tổng Quan Nhanh
 
 | Khu vực | Chi tiết |
 | --- | --- |
-| Vai trò | Nguồn tài liệu tiếng Anh chuẩn cho workspace xuất bản video AI |
-| Ngôn ngữ | Tiếng Anh + 10 bản mirror README bản địa hóa |
-| Tài liệu tạo ra | Siêu dữ liệu snapshot và dấu vết pipeline trong `.auto-readme-work/*` |
-| Triển khai hiện tại | Snapshot chỉ chứa tài liệu (chưa commit mã ứng dụng runtime) |
-| Snapshot mới nhất | `.auto-readme-work/20260301_070712/` |
+| Loại repository | Meta-repository với git submodule được pin commit |
+| Vai trò runtime của root | Tài liệu + điểm vào điều phối |
+| Submodule cốt lõi | `AutoPubMonitor`, `LazyEdit`, `AutoPublish` |
+| Nguồn tài liệu chuẩn | Root `README.md` |
+| Biến thể ngôn ngữ | `i18n/README.*.md` |
+| Snapshot artifact pipeline mới nhất | `.auto-readme-work/20260302_124338/` |
 
-![Docs](https://img.shields.io/badge/docs%20state-documentation--first-0ea5e9?style=for-the-badge&logo=readme&logoColor=white)
-![Locale sync](https://img.shields.io/badge/locale%20sync-English%20source%20%2F%20i18n-22c55e?style=for-the-badge&logo=googletranslate&logoColor=white)
+## 🧭 Tổng Quan
 
-## 🗂️ Điều hướng nhanh README
+`AutoPublication` điều phối pipeline tự động hóa nội dung đầu-cuối:
 
-| Mục | Liên kết |
-|---|---|
-| Tổng quan | [Tổng quan](#%E2%98%9B-overview) |
-| Tính năng | [Tính năng](#%E2%9C%A8-features) |
-| Cấu trúc dự án | [Cấu trúc dự án](#%F0%9F%97%82%EF%B8%8F-project-structure) |
-| Điều kiện tiên quyết | [Điều kiện tiên quyết](#%F0%9F%A7%B0-prerequisites) |
-| Cài đặt | [Cài đặt](#%F0%9F%9B%A0%EF%B8%8F-installation) |
-| Sử dụng | [Sử dụng](#%E2%96%B6%EF%B8%8F-usage) |
-| Cấu hình | [Cấu hình](#%F0%9F%A7%A9-configuration) |
-| Ví dụ | [Ví dụ](#%F0%9F%A7%AA-examples) |
-| Ghi chú phát triển | [Ghi chú phát triển](#%F0%9F%99%82-development-notes) |
-| Khắc phục sự cố | [Khắc phục sự cố](#%F0%9F%94%A7-troubleshooting) |
-| Lộ trình | [Lộ trình](#%F0%9F%97%BA-roadmap) |
-| Đóng góp | [Đóng góp](#%F0%9F%A4%9D-contributing) |
-| Hỗ trợ | [Support](#%E2%9D%A4%EF%B8%8F-support) |
-| Contact | [Contact](#contact) |
-| License | [License](#%F0%9F%93%84-license) |
+1. Chuẩn bị, chỉnh sửa và tạo tài sản trong `LazyEdit`.
+2. Xuất bản tài sản lên các nền tảng đích bằng `AutoPublish`.
+3. Giữ các vòng lặp queue/watch/sync ổn định với `AutoPubMonitor`.
 
-## 🧭 Tổng quan
+Repository root chủ đích pin commit submodule để đảm bảo khả năng tái lập giữa các môi trường và máy chủ triển khai.
 
-`AutoPublication` là một khung tài liệu cấp repository, được chuẩn bị để hỗ trợ hệ thống xuất bản video AI lớn hơn.
-Nó giữ `README.md` tiếng Anh làm nguồn dữ liệu chuẩn và đồng bộ bản dịch trong `i18n/README.*.md` thông qua snapshot pipeline.
+### Repository này là gì
 
-### Kho này là gì
+- Tài liệu chuẩn ở root cho cài đặt, vận hành và tích hợp.
+- Lớp pin phiên bản submodule bằng gitlink.
+- Nguồn tài liệu đa ngôn ngữ (`i18n/README.*.md`).
+- Lịch sử trace và artifact pipeline (`.auto-readme-work/*`).
 
-- Nguồn tài liệu chuẩn cho tài liệu dự án và hướng dẫn cho người đóng góp.
-- Một bộ tài liệu đa ngôn ngữ được dùng làm ví dụ về tiến trình phát triển README đồng bộ.
-- Kho lưu trữ dữ liệu bằng chứng lịch sử trong `.auto-readme-work/*` ghi lại từng lần chạy pipeline.
+### Repository này không phải là gì
 
-### Kho này chưa phải là gì (chưa)
+- Không phải một gói runtime đơn với một manifest dependency ở root.
+- Không thay thế README/script riêng của từng submodule.
+- Hiện chưa phải schema `.env` hợp nhất ở root.
 
-- Chưa phải là ứng dụng xuất bản có thể chạy.
-- Chưa phải một gói có script cài đặt hoặc manifest phụ thuộc.
-- Chưa triển khai mô hình cấu hình runtime (`.env`, YAML, schema CLI) trong nhánh này.
+## ✨ Tính Năng
 
-## ✨ Tính năng
+- Kiến trúc có thể tái lập nhờ commit submodule được pin.
+- Ranh giới trách nhiệm rõ ràng giữa chỉnh sửa, xuất bản và giám sát.
+- Vận hành ưu tiên Linux (`tmux`, `systemd` tùy chọn, FFmpeg, tự động hóa trình duyệt).
+- Quy trình ưu tiên tài liệu với các biến thể i18n.
+- Bối cảnh tạo README có thể truy vết dưới `.auto-readme-work/`.
 
-### Khả năng hiện tại
+## 🧱 Kiến Trúc Submodule
 
-- Tài liệu tiếng Anh chuẩn trong một tệp nguồn duy nhất (`README.md`).
-- Khối chọn ngôn ngữ liên kết đến toàn bộ các README bản địa hóa.
-- Các artefact auto-README có dấu thời gian (`pipeline-context`, `language-nav-*`, `translation-plan`, `repo-structure-analysis`).
-- Bản đồ dự án theo hướng tài liệu để hỗ trợ triển khai theo từng bước.
-- Bảng hỗ trợ chuẩn hóa để hiển thị rõ thông tin gây quỹ/đóng góp.
+### Bản đồ module ở root
 
-### Khả năng dự kiến
+| Module | Vai trò | Hồ sơ runtime | Entrypoint điển hình |
+| --- | --- | --- | --- |
+| `AutoPubMonitor` | Điều phối queue/watch/sync quanh luồng xuất bản | Shell-first + helper Python + `tmux`/`systemd` tùy chọn | `autopub_monitor/autopub_monitor_tmux_session.sh`, `autopub_monitor/process_queue.sh`, `autopub_monitor/monitor_autopublish.sh` |
+| `LazyEdit` | Quy trình tạo/chỉnh sửa media/phụ đề/metadata có AI hỗ trợ | Backend Tornado + frontend Expo + module xử lý | `app.py`, `start_lazyedit.sh`, `app/`, `lazyedit/` |
+| `AutoPublish` | Xuất bản đa nền tảng bằng trình duyệt và dịch vụ queue API | Script Python + Selenium + queue API Tornado | `autopub.py`, `app.py`, `pub_*.py`, `login_*.py` |
 
-- Điều phối quy trình xuất bản có hỗ trợ AI.
-- Tạo và xác thực metadata đa nền tảng.
-- Mục tiêu xuất bản có thể cấu hình và quản lý credentials.
-- Quy trình phát triển local tái lập được với tests và kiểm tra CI.
+### Ranh giới phụ thuộc
 
-## 🗂️ Cấu trúc dự án
+| Ranh giới | Trong phạm vi | Ngoài phạm vi |
+| --- | --- | --- |
+| `LazyEdit` | Pipeline chỉnh sửa/tạo nội dung, UI/backend, chuẩn bị phụ đề và metadata | Tự động hóa đăng nhập nền tảng và hành động publish theo từng nền tảng |
+| `AutoPublish` | Adapter publisher, xử lý auth/session, queue API, thực thi publish | UI chỉnh sửa/chuyển lời nói thành văn bản và phần lớn transform ở upstream |
+| `AutoPubMonitor` | Queue watcher, lock, job sync, giám sát tmux/service | Hành vi UI editor và luồng trình duyệt chuyên sâu theo từng nền tảng |
+| Root (`AutoPublication`) | Tài liệu, điều phối phiên bản, chính sách pin submodule | Quản lý dependency runtime hợp nhất |
+
+### Hợp đồng tích hợp
+
+| Điểm bàn giao | Bên tạo | Bên nhận | Trọng tâm hợp đồng |
+| --- | --- | --- | --- |
+| Tài sản media đã chuẩn bị | `LazyEdit` | `AutoPublish` | Quy ước thư mục, tên file, trạng thái sẵn sàng của media |
+| Metadata/phụ đề | `LazyEdit` | `AutoPublish` | Schema title/description/tag và tính sẵn có của caption |
+| Trạng thái publish và sức khỏe queue | `AutoPublish` | `AutoPubMonitor` | Tính sẵn sàng endpoint API và ngữ nghĩa queue |
+| Điều khiển sync/watchdog | `AutoPubMonitor` | `AutoPublish` + vận hành | Kỷ luật lock, toàn vẹn queue, restart có thể khôi phục |
+
+### Luồng runtime theo quyền sở hữu
+
+```mermaid
+flowchart LR
+    A[LazyEdit\nAsset + metadata production] --> B[AutoPublish\nQueue API + platform publishing]
+    B --> C[AutoPubMonitor\nWatch, sync, lock, recover]
+    C --> B
+```
+
+1. `LazyEdit` tạo video và gói metadata.
+2. `AutoPublish` thực thi hành động xuất bản theo kênh/nền tảng.
+3. `AutoPubMonitor` giám sát queue và các vòng lặp đồng bộ.
+
+## 📦 Pin Submodule Hiện Tại
+
+Pin hiện tại ở root (`git submodule status`):
+
+- `AutoPubMonitor`: `6daa87ce612c2dab75fac9478d4523abd418f69d`
+- `AutoPublish`: `4f348ac342bfaff7bc435985085cedd9b448e1e8`
+- `LazyEdit`: `dc503d6db63b13db812fef5d9c8ffe0a882d725e`
+
+Kiểm tra ở local:
+
+```bash
+git submodule status
+git submodule status --recursive
+```
+
+Lưu ý nested: `LazyEdit` có thêm các submodule lồng nhau (ví dụ `whisper_with_lang_detect`, `furigana`, các repo captioning), nên nhiều thao tác ở root cần dùng `--recursive`.
+
+## 🗂️ Cấu Trúc Dự Án
 
 ```text
 AutoPublication/
 ├── README.md
-├── README.md.auto-readme-support
-├── README.md.auto-readme-support.filtered
+├── .gitmodules
 ├── .gitignore
 ├── i18n/
 │   ├── README.ar.md
@@ -100,178 +131,408 @@ AutoPublication/
 │   ├── README.vi.md
 │   ├── README.zh-Hans.md
 │   └── README.zh-Hant.md
+├── AutoPubMonitor/                  # submodule
+│   ├── README.md
+│   └── autopub_monitor/
+├── LazyEdit/                        # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── app/
+│   └── lazyedit/
+├── AutoPublish/                     # submodule
+│   ├── README.md
+│   ├── app.py
+│   ├── autopub.py
+│   └── pub_*.py
 └── .auto-readme-work/
-    ├── 20260228_230008/
-    ├── 20260301_064342/
-    ├── 20260301_064412/
-    ├── 20260301_064745/
-    ├── 20260301_065035/
-    ├── 20260301_065907/
-    └── 20260301_070712/
+    └── <timestamp>/
         ├── pipeline-context.md
         ├── language-nav-root.md
         ├── language-nav-i18n.md
-        └── translation-plan.txt
+        ├── translation-plan.txt
+        └── repo-structure-analysis.md
 ```
 
-### Các đường dẫn đáng chú ý
+### Đường dẫn đáng chú ý
 
 | Đường dẫn | Mục đích |
-|---|---|
-| `i18n/README.*.md` | README bản địa hóa cho tài liệu hướng người dùng |
-| `.auto-readme-work/*/pipeline-context.md` | Ràng buộc chạy và siêu dữ liệu cho mỗi lượt pipeline |
-| `.auto-readme-work/*/language-nav-*.md` | Bản đồ ánh xạ ngôn ngữ chuẩn và i18n |
-| `.auto-readme-work/*/repo-structure-analysis.md` | Snapshot cấu trúc lịch sử |
-| `.auto-readme-work/*/translation-plan.txt` | Phạm vi locale và kế hoạch dịch |
-| `.auto-readme-work/*/translated-files.txt` | Danh sách tệp đầu ra từ các lần dịch trước |
+| --- | --- |
+| `.gitmodules` | Khai báo remote và path submodule |
+| `i18n/README.*.md` | Các biến thể README root đã bản địa hóa |
+| `.auto-readme-work/*` | Trace/artifact của quá trình tạo README |
+| `AutoPubMonitor/autopub_monitor/autopub.config` | Cấu hình queue/sync/runtime của monitor |
+| `LazyEdit/config.py` | Mặc định môi trường/đường dẫn của LazyEdit |
+| `AutoPublish/.env.example` | Mẫu credential/env của AutoPublish |
 
-## 🧰 Điều kiện tiên quyết
+## 🧰 Điều Kiện Tiên Quyết
 
-Vì snapshot này là tài liệu-only, không có phụ thuộc runtime nào cho việc chạy ứng dụng.
+Baseline ưu tiên Linux cho toàn bộ module:
 
-Để bảo trì, review và đồng bộ bản dịch bạn cần:
+- `git` (hỗ trợ submodule)
+- `bash`
+- Python `3.10+` (một số trình cài monitor vẫn giả định tên env `3.8`)
+- `tmux`
+- `ffmpeg` / `ffprobe`
+- `inotify-tools`
+- `rsync`
+- Chrome/Chromium + WebDriver tương thích
+- Node.js + npm (cho frontend `LazyEdit/app`)
+- Tùy chọn: `systemd`, `conda`
 
-- `git`
-- Một shell tương thích POSIX (các ví dụ dùng `bash`)
-- Một trình chỉnh sửa Markdown
-- Tùy chọn: trình xem diff (để rà soát các nhánh bản địa hóa)
+Giả định: macOS/Windows cần điều chỉnh script/path/service.
 
-## 🛠️ Cài đặt
+## 🛠️ Cài Đặt và Bootstrap
 
-Trong snapshot này chưa có package có thể cài đặt.
-
-Để làm việc local:
+### 1. Clone kèm submodule
 
 ```bash
-git clone <your-repo-url> AutoPublication
+git clone --recurse-submodules git@github.com:lachlanchen/AutoPublication.git
 cd AutoPublication
-sed -n '1,140p' README.md
 ```
 
-## ▶️ Sử dụng
-
-Hiện tại mục đích sử dụng chủ yếu là tài liệu và theo dõi pipeline trace.
+Nếu đã clone trước đó:
 
 ```bash
-# inspect the language selector map
-head -n 5 README.md
-
-# inspect the latest pipeline context
-cat .auto-readme-work/20260301_070712/pipeline-context.md
-
-# inspect the repository structure analysis from the latest available snapshot
-cat .auto-readme-work/20260301_070712/../20260301_065907/repo-structure-analysis.md
-
-# review localized docs for parity checks
-sed -n '1,90p' i18n/README.fr.md
+git submodule update --init --recursive
 ```
 
-### Luồng bảo trì được khuyến nghị
-
-1. Cập nhật `README.md` cho các thay đổi cấu trúc hoặc hành vi.
-2. Tạo lại bản cập nhật bản dịch khi cần.
-3. Kiểm tra các section quan trọng vẫn đồng bộ giữa các file `i18n/`.
-4. Giữ các snapshot `.auto-readme-work` nhất quán với luồng làm việc hiện tại.
-
-## 🧩 Cấu hình
-
-Hiện chưa có file cấu hình runtime chính thức nào được commit (`.env`, `config.yml`, schema CLI, v.v. hiện vẫn vắng mặt).
-
-Nếu bạn đang triển khai runtime trong tương lai, nên dùng các mặc định sau:
-
-- Thêm file mẫu cấu hình như `config.sample.yml`.
-- Lưu trữ secrets qua `.env` (được loại khỏi repo) hoặc secret manager của hosting.
-- Giữ tài liệu và tham chiếu CLI đồng bộ khi thêm key mới.
-
-## 🧪 Ví dụ
-
-### Ví dụ hiện tại (khung scaffold đang có)
+### 2. Đồng bộ và xác minh trạng thái submodule
 
 ```bash
-# open full English documentation
-cat README.md
-
-# compare localized versions
-sed -n '1,90p' i18n/README.de.md
+git submodule sync --recursive
+git submodule status --recursive
+git submodule foreach --recursive 'git rev-parse --abbrev-ref HEAD; git rev-parse --short HEAD'
 ```
 
-### Ví dụ tương lai (dự kiến triển khai)
+### 3. Luồng thiết lập theo từng submodule
+
+| Submodule | Cấu hình chính | Trọng tâm thiết lập | Kiểm tra đầu tiên |
+| --- | --- | --- | --- |
+| `LazyEdit` | `config.py` (+ `.env` tùy chọn) | Dependency Python/backend, dependency frontend, đường dẫn upload/output/API | `cd LazyEdit && python app.py` |
+| `AutoPublish` | `.env` (từ `.env.example`) | Credential, browser driver, chế độ queue/API | `cd AutoPublish && python app.py --port 8081` |
+| `AutoPubMonitor` | `autopub_monitor/autopub.config` | Đường dẫn queue/sync/lock, API target, thiết lập tmux/service | `cd AutoPubMonitor && ./autopub_monitor/autopub_monitor_tmux_session.sh start` |
+
+Tài liệu chuẩn theo module:
+
+- `AutoPubMonitor/README.md`
+- `LazyEdit/README.md`
+- `AutoPublish/README.md`
+
+## ▶️ Sử Dụng và Vận Hành
+
+Ở root, cách dùng chủ yếu là điều phối và đồng bộ phiên bản.
+
+### Luồng vận hành hằng ngày
 
 ```bash
-# conceptual example; may not exist until runtime is introduced
-auto-publication publish \
-  --video ./assets/sample.mp4 \
-  --config ./config.sample.yml \
-  --platform youtube,tiktok
+# Giữ checkout đồng bộ với pin ở root
+git submodule sync --recursive
+git submodule update --init --recursive
+
+# Xác minh trạng thái hiện tại
+git submodule status --recursive
 ```
 
-## 🛠️ Ghi chú phát triển
+### Luồng runtime đầu-cuối
 
-- Xử lý thay đổi theo hướng incremental: ưu tiên cải tiến cộng thêm và tránh viết lại phá hủy.
-- Giữ `README.md` tiếng Anh làm nền tảng tài liệu chuẩn.
-- Dùng các file ngôn ngữ trong `i18n/` làm target đồng bộ rõ ràng.
-- Giữ artefacts pipeline (`.auto-readme-work/`) như bằng chứng lịch sử, không chỉnh sửa thủ công như mã production.
-- Tránh cam kết hành vi thực thi chưa có sẵn; chỉ mô tả đúng thứ đã tồn tại hiện tại.
+1. Khởi chạy `LazyEdit` và chuẩn bị tài sản.
+2. Khởi chạy `AutoPublish` ở API mode hoặc CLI watcher mode.
+3. Khởi chạy `AutoPubMonitor` để duy trì queue/sync/watchdog.
 
-### Giả định được nêu trong README này
-
-- Repository vẫn theo hướng documentation-first cho tới khi các module runtime được commit.
-- Bản dịch giữ nguyên đồng bộ với các thay đổi cấu trúc có ý nghĩa.
-- `.auto-readme-work/` chứa lịch sử append-only theo lượt chạy và không phải bản làm việc chuẩn.
-
-## 🔧 Khắc phục sự cố
-
-### Tôi không thể chạy lệnh `auto-publication`
-
-**Nguyên nhân:** Không có ứng dụng runtime trong snapshot này.
-
-**Cách xử lý:** Dùng repo này cho quy trình tài liệu và chờ khi file triển khai được thêm vào.
-
-### Một README bản địa hóa có vẻ không đồng bộ
-
-**Nguyên nhân:** Bản dịch được cập nhật độc lập với nguồn tiếng Anh.
-
-**Cách xử lý:** Áp dụng cùng thay đổi cấu trúc cho tất cả các file `i18n/README.*.md`, sau đó căn chỉnh lại cách diễn đạt và ví dụ.
-
-### Liên kết trong README trỏ tới chức năng không tồn tại
-
-**Nguyên nhân:** Tài liệu có chứa hành vi đã lên kế hoạch.
-
-**Cách xử lý:** Giữ phần được đánh dấu là dự kiến hoặc thay thế bằng lệnh đã được xác nhận hiện tại.
-
-## 🗺️ Lộ trình
-
-- [ ] Thêm source package và entrypoint runtime.
-- [ ] Thêm manifest phụ thuộc và đường dẫn cài đặt.
-- [ ] Thêm tích hợp phát hành theo từng nền tảng.
-- [ ] Thêm xác thực cấu hình và xử lý secrets.
-- [ ] Thêm ví dụ thực thi được và kiểm tra smoke CI.
-- [ ] Thêm kiểm tra tự động đối chiếu các README bản địa hóa.
-- [ ] Thêm file `LICENSE` và điều khoản cấp phép rõ ràng.
-
-## 🤝 Đóng góp
-
-Mọi đóng góp đều được chào đón khi khung tài liệu này chuyển dần sang giai đoạn triển khai.
+### Lệnh quick start
 
 ```bash
-# 1. create a branch
+# LazyEdit
+cd LazyEdit
+python app.py
+# optional frontend in second terminal:
+# cd app && npx expo start --web
+
+# AutoPublish
+cd ../AutoPublish
+python app.py --port 8081
+# or CLI watcher mode:
+# python autopub.py --help
+
+# AutoPubMonitor
+cd ../AutoPubMonitor
+./autopub_monitor/autopub_monitor_tmux_session.sh start
+```
+
+## 🧪 Quy Trình Phát Triển Local
+
+### Vòng lặp khuyến nghị
+
+1. Căn chỉnh lại về pin ở root trước khi code.
+2. Phát triển và test trong từng submodule, từng cái một.
+3. Xác minh bàn giao liên submodule (`LazyEdit -> AutoPublish -> AutoPubMonitor`).
+4. Commit thay đổi triển khai trong repo submodule trước.
+5. Commit cập nhật con trỏ root (`gitlinks`) sau cùng.
+
+### Luồng bump pointer (ví dụ)
+
+```bash
+# root align first
+git submodule sync --recursive
+git submodule update --init --recursive
+
+# edit and commit in submodule
+cd LazyEdit
+git switch -c feature/<name>
+# ...change/test...
+git add -A && git commit -m "feat: <summary>"
+cd ..
+
+# capture new pointer in root
+git add LazyEdit
+git commit -m "chore(submodule): bump LazyEdit pointer"
+```
+
+### Quy tắc ranh giới commit
+
+- Commit ở root nên tập trung vào tài liệu, quy ước điều phối và pointer bump.
+- Thay đổi triển khai nên được commit trong repo submodule trước.
+- Khi có thể, tách riêng commit pointer ở root khỏi các chỉnh sửa tài liệu/nội dung lớn.
+
+## ⚙️ Cấu Hình
+
+Không có cấu hình runtime hợp nhất ở root. Hãy cấu hình trực tiếp theo từng submodule:
+
+### `AutoPubMonitor`
+
+- File: `AutoPubMonitor/autopub_monitor/autopub.config`
+- Giá trị điển hình: file queue, file lock, đường dẫn sync, API base URL, conda env, đường dẫn script
+
+### `LazyEdit`
+
+- File: `LazyEdit/config.py` (kèm `.env` tùy chọn)
+- Giá trị điển hình: thư mục upload/output, backend port, endpoint AutoPublish, công cụ subtitle/caption, timeout
+
+### `AutoPublish`
+
+- File: `AutoPublish/.env.example` (copy sang `.env` local)
+- Giá trị điển hình: credential nền tảng, đường dẫn browser/driver, thiết lập SMTP/email, khóa dịch vụ captcha
+
+Khuyến nghị bảo mật: giữ cấu hình và secret theo máy trong file bị ignore/biến môi trường.
+
+## 🔄 Chiến Lược Cập Nhật Submodule
+
+### A. Khởi tạo và đồng bộ theo pin hiện tại
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### B. Cập nhật có chủ đích lên remote tip
+
+Chỉ dùng khi bạn thực sự muốn di chuyển phiên bản đã pin:
+
+```bash
+git submodule update --remote --recursive
+```
+
+Sau đó xác minh và commit pointer:
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit -m "chore(submodules): bump submodule pointers"
+```
+
+### C. Pin vào commit hoặc tag cụ thể
+
+```bash
+cd LazyEdit
+git fetch origin
+git checkout <commit-or-tag>
+cd ..
+git add LazyEdit
+git commit -m "chore(submodule): pin LazyEdit to <commit-or-tag>"
+```
+
+Lặp lại cho `AutoPubMonitor` và `AutoPublish` khi cần.
+
+### D. Rà soát chênh lệch pointer trước khi merge
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### E. Playbook phát hành khuyến nghị
+
+1. Sync/init dạng recursive.
+2. Cập nhật từng submodule một.
+3. Chạy smoke test ở cấp submodule.
+4. Chạy smoke check tích hợp qua các ranh giới bàn giao.
+5. Chỉ stage các thay đổi gitlink có chủ đích.
+6. Commit với tên module và lý do rõ ràng.
+
+### F. Chính sách pin
+
+- Giữ root pin vào các commit đã kiểm chứng ổn định.
+- Tránh bump đồng loạt mọi module nếu chưa có xác minh tích hợp.
+- Dùng thông điệp pin tường minh (`chore(submodule): pin <module> to <sha>`).
+- Xem root là release manifest; xem branch của submodule là luồng triển khai.
+
+## 🔧 Khắc Phục Sự Cố (Đồng Bộ và Trạng Thái Submodule)
+
+### Thư mục submodule trống hoặc thiếu file
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `fatal: no submodule mapping found in .gitmodules`
+
+Thường do metadata cũ hoặc path không khớp:
+
+```bash
+cat .gitmodules
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+### `git submodule status` hiển thị `-`, `+`, hoặc `U`
+
+- `-`: submodule chưa được khởi tạo.
+- `+`: commit checkout khác với pin ở root.
+- `U`: xung đột merge tại pointer submodule.
+
+Khôi phục:
+
+```bash
+git submodule update --init --recursive
+```
+
+Nếu độ lệch là chủ đích, commit cập nhật gitlink ở root.
+
+### Detached HEAD trong submodule
+
+Detached HEAD là trạng thái bình thường với submodule pin commit. Tạo branch trước khi phát triển:
+
+```bash
+cd <submodule>
+git switch -c feature/<name>
+```
+
+### Remote URL submodule không đúng
+
+```bash
+git submodule sync --recursive
+git submodule foreach --recursive 'git remote -v'
+```
+
+Nếu `.gitmodules` thay đổi, hãy commit rồi đồng bộ lại.
+
+### Xung đột merge trên pointer submodule
+
+Chọn commit pointer mong muốn, rồi:
+
+```bash
+git add AutoPubMonitor LazyEdit AutoPublish
+git commit
+```
+
+Xác minh SHA đã chọn:
+
+```bash
+git diff --submodule=log
+git submodule status --recursive
+```
+
+### Lỗi xác thực khi clone/update
+
+`.gitmodules` ở root hiện dùng SSH remotes (`git@github.com:...`).
+
+- Đảm bảo GitHub SSH key đã được cấu hình.
+- Hoặc chuyển sang HTTPS remotes trong `.gitmodules`, sau đó chạy `git submodule sync --recursive`.
+
+### Submodule xuất hiện dirty ngoài ý muốn
+
+```bash
+git submodule foreach --recursive 'git status --short --branch'
+```
+
+Commit thay đổi có chủ đích trong từng submodule trước, rồi cập nhật pointer ở root.
+
+### Nested submodule trong `LazyEdit` chưa được khởi tạo
+
+```bash
+git submodule update --init --recursive
+```
+
+Nếu chỉ cần refresh nested module của `LazyEdit`:
+
+```bash
+git -C LazyEdit submodule update --init --recursive
+```
+
+### Hard resync khi metadata đã cũ
+
+Dùng khi sync/update thông thường vẫn không phục hồi được trạng thái:
+
+```bash
+git submodule deinit -f --all
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+## 🛠️ Ghi Chú Phát Triển
+
+### Chính sách i18n
+
+- Giữ đúng một dòng tùy chọn ngôn ngữ ở đầu file.
+- Lan truyền thay đổi cấu trúc sang `i18n/README.*.md`.
+
+### Artifact bối cảnh pipeline
+
+- Artifact pipeline được lưu tại `.auto-readme-work/<timestamp>/`.
+- Dùng để truy vết và lưu lịch sử tạo tài liệu, không dùng làm đầu vào runtime.
+
+## 🗺️ Lộ Trình
+
+- [ ] Thêm script điều phối ở root cho các tác vụ liên submodule thường gặp.
+- [ ] Thêm kiểm tra CI cho sức khỏe đồng bộ submodule và độ lệch pin.
+- [ ] Thêm kiểm tra tương đương README giữa root/i18n tự động.
+- [ ] Thêm sơ đồ kiến trúc cho luồng runtime đầu-cuối.
+- [ ] Thêm file chính sách `LICENSE` ở root nếu có chủ đích cấp phép cấp repository.
+
+## 🤝 Đóng Góp
+
+Hoan nghênh đóng góp cho tài liệu, độ rõ ràng kiến trúc và độ tin cậy quy trình.
+
+```bash
+# 1) create branch
 git checkout -b docs/<short-description>
 
+# 2) stage docs and/or intended pointer updates
+git add README.md i18n/README.fr.md AutoPubMonitor LazyEdit AutoPublish
 
-# 2. commit changes
-git add README.md i18n/README.fr.md
-git commit -m "docs: update English README scaffold"
+# 3) commit
+git commit -m "docs: improve root architecture and submodule workflows"
 
-# 3. push and open PR
+# 4) push
 git push -u origin docs/<short-description>
 ```
 
-Danh sách kiểm tra PR đề xuất:
+PR checklist:
 
-- Giữ `README.md` làm nguồn dữ liệu chuẩn.
-- Cập nhật mọi README bản địa hóa đã chỉnh sửa trong `i18n/`.
-- Giữ nguyên các section có sẵn khi thêm giá trị mới theo từng bước.
-- Keep `.auto-readme-work/*` metadata aligned with the current pass.
+- Giữ root `README.md` là nguồn chuẩn.
+- Giữ một dòng tùy chọn ngôn ngữ và một support panel.
+- Thêm `git submodule status` vào ghi chú PR khi bump pin.
+- Ghi rõ lý do cho từng lần cập nhật pointer submodule.
+
+## Submodules
+
+Repository này bao gồm các git submodule ở root sau:
+
+| Submodule | Repository |
+| --- | --- |
+| `AutoPubMonitor` | https://github.com/lachlanchen/AutoPubMonitor |
+| `LazyEdit` | https://github.com/lachlanchen/LazyEdit |
+| `AutoPublish` | https://github.com/lachlanchen/AutoPublish |
 
 ## ❤️ Support
 
@@ -281,20 +542,13 @@ Danh sách kiểm tra PR đề xuất:
 
 ## Contact
 
-Dùng mục issue của repository cho các câu hỏi, chỉnh sửa tài liệu và phối hợp đóng góp.
+Dùng repository issues cho câu hỏi, chỉnh sửa tài liệu và phối hợp đóng góp.
 
-## 📄 License
+## 📄 Giấy Phép
 
-Hiện chưa có file `LICENSE` trong snapshot này.
+Hiện snapshot repository này chưa có file `LICENSE` ở root.
 
-Bước tiếp theo đề xuất:
+Giả định:
 
-- Thêm file `LICENSE` và cập nhật phần này với mã giấy phép đã chọn.
-
-## Submodules
-
-This repository includes these root-level git submodules:
-
-- `AutoPubMonitor` → https://github.com/lachlanchen/AutoPubMonitor
-- `LazyEdit` → https://github.com/lachlanchen/LazyEdit
-- `AutoPublish` → https://github.com/lachlanchen/AutoPublish
+- Việc cấp phép có thể được giao cho từng submodule.
+- Hãy kiểm tra license của từng submodule trước khi phân phối lại hoặc dùng cho mục đích thương mại.
