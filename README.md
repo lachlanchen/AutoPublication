@@ -11,6 +11,12 @@
 ![i18n](https://img.shields.io/badge/i18n-11%20locales-2563eb?style=for-the-badge&logo=googletranslate&logoColor=white)
 ![Ops](https://img.shields.io/badge/ops-linux--first-f59e0b?style=for-the-badge&logo=linux&logoColor=white)
 
+<p align="center">
+  <img src="demos/studio-publish-demo.png" alt="LazyEdit Studio demo from the AutoPublication stack" width="1100" />
+  <br />
+  <sub>LazyEdit Studio inside the AutoPublication stack: platform selection, preview, process status, and publish queue.</sub>
+</p>
+
 Canonical root documentation for a pinned, submodule-based AI video workflow stack.
 
 ## 📌 At a Glance
@@ -102,7 +108,7 @@ Current root pins (`git submodule status`):
 
 - `AutoPubMonitor`: `6daa87ce612c2dab75fac9478d4523abd418f69d`
 - `AutoPublish`: `4f348ac342bfaff7bc435985085cedd9b448e1e8`
-- `LazyEdit`: `dc503d6db63b13db812fef5d9c8ffe0a882d725e`
+- `LazyEdit`: `5d515694d824d593e635713cafb7bb65955a1700`
 
 Check locally:
 
