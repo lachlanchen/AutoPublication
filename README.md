@@ -7,7 +7,7 @@
 
 ![Status](https://img.shields.io/badge/status-meta--repo-0f172a?style=for-the-badge&logo=github&logoColor=white)
 ![Architecture](https://img.shields.io/badge/architecture-git%20submodules-0ea5e9?style=for-the-badge&logo=git&logoColor=white)
-![Core](https://img.shields.io/badge/core-AutoPubMonitor%20%2B%20LazyEdit%20%2B%20AutoPublish-16a34a?style=for-the-badge&logo=stackshare&logoColor=white)
+![Core](https://img.shields.io/badge/core-AutoPubMonitor%20%2B%20LazyEdit%20%2B%20AutoPublish%20%2B%20Whisper-16a34a?style=for-the-badge&logo=stackshare&logoColor=white)
 ![i18n](https://img.shields.io/badge/i18n-11%20locales-2563eb?style=for-the-badge&logo=googletranslate&logoColor=white)
 ![Ops](https://img.shields.io/badge/ops-linux--first-f59e0b?style=for-the-badge&logo=linux&logoColor=white)
 
@@ -25,7 +25,7 @@ Canonical root documentation for a pinned, submodule-based AI video workflow sta
 | --- | --- |
 | Repository type | Meta-repository with pinned git submodules |
 | Root runtime role | Documentation + orchestration entrypoint |
-| Core submodules | `AutoPubMonitor`, `LazyEdit`, `AutoPublish` |
+| Core submodules | `AutoPubMonitor`, `LazyEdit`, `AutoPublish`, `whisper_with_lang_detect` |
 | Canonical docs source | Root `README.md` |
 | Language variants | `i18n/README.*.md` |
 | Latest pipeline artifact snapshot | `.auto-readme-work/20260302_124338/` |
@@ -35,8 +35,9 @@ Canonical root documentation for a pinned, submodule-based AI video workflow sta
 `AutoPublication` coordinates an end-to-end content automation pipeline:
 
 1. Prepare, edit, and generate assets in `LazyEdit`.
-2. Publish assets to target platforms in `AutoPublish`.
-3. Keep queue/watch/sync operations healthy with `AutoPubMonitor`.
+2. Run standalone multilingual transcription/VAD workflows in `whisper_with_lang_detect`.
+3. Publish assets to target platforms in `AutoPublish`.
+4. Keep queue/watch/sync operations healthy with `AutoPubMonitor`.
 
 The root repository intentionally pins submodule commits to preserve reproducibility across environments and deployment hosts.
 
@@ -70,12 +71,14 @@ The root repository intentionally pins submodule commits to preserve reproducibi
 | `AutoPubMonitor` | Queue/watch/sync orchestration around publication workflows | Shell-first + Python helpers + `tmux`/optional `systemd` | `autopub_monitor/autopub_monitor_tmux_session.sh`, `autopub_monitor/process_queue.sh`, `autopub_monitor/monitor_autopublish.sh` |
 | `LazyEdit` | AI-assisted media generation/editing/subtitle/metadata workflow | Tornado backend + Expo frontend + processing modules | `app.py`, `start_lazyedit.sh`, `app/`, `lazyedit/` |
 | `AutoPublish` | Browser-driven multi-platform publishing and queue API service | Python scripts + Selenium + Tornado queue API | `autopub.py`, `app.py`, `pub_*.py`, `login_*.py` |
+| `whisper_with_lang_detect` | Standalone multilingual transcription + Silero VAD toolchain | Python CLI + Whisper + torchaudio/soundfile audio IO | `vad_lang_subtitle.py`, `SCRIPT_LOGIC.md` |
 
 ### Dependency boundaries
 
 | Boundary | In scope | Out of scope |
 | --- | --- | --- |
 | `LazyEdit` | Editing/generation pipeline, UI/backend, subtitle and metadata preparation | Platform login automation and per-platform publish actions |
+| `whisper_with_lang_detect` | Reusable transcription/VAD pipeline and Whisper compatibility layer | Editor UI, publish automation, queue supervision |
 | `AutoPublish` | Publisher adapters, auth/session handling, queue API, publish execution | Editing/transcription UI and most upstream transforms |
 | `AutoPubMonitor` | Queue watchers, locks, sync jobs, tmux/service supervision | Editor UI behavior and deep per-platform browser flows |
 | Root (`AutoPublication`) | Docs, version orchestration, submodule pinning policy | Unified runtime dependency management |
@@ -84,6 +87,7 @@ The root repository intentionally pins submodule commits to preserve reproducibi
 
 | Handoff | Producer | Consumer | Contract focus |
 | --- | --- | --- | --- |
+| Raw/normalized transcription artifacts | `whisper_with_lang_detect` | `LazyEdit` and operators | WAV/SRT/JSON conventions, Whisper model behavior, VAD segmentation |
 | Prepared media assets | `LazyEdit` | `AutoPublish` | Directory conventions, filenames, media readiness |
 | Metadata/captions | `LazyEdit` | `AutoPublish` | Title/description/tag schema and caption availability |
 | Publish state and queue health | `AutoPublish` | `AutoPubMonitor` | API endpoint availability and queue semantics |
@@ -93,14 +97,16 @@ The root repository intentionally pins submodule commits to preserve reproducibi
 
 ```mermaid
 flowchart LR
-    A[LazyEdit\nAsset + metadata production] --> B[AutoPublish\nQueue API + platform publishing]
+    T[whisper_with_lang_detect\nTranscription + VAD] --> A[LazyEdit\nAsset + metadata production]
+    A --> B[AutoPublish\nQueue API + platform publishing]
     B --> C[AutoPubMonitor\nWatch, sync, lock, recover]
     C --> B
 ```
 
-1. `LazyEdit` produces videos and metadata packages.
-2. `AutoPublish` executes channel/platform publish actions.
-3. `AutoPubMonitor` supervises queue and synchronization loops.
+1. `whisper_with_lang_detect` provides the standalone transcription/VAD layer.
+2. `LazyEdit` produces videos and metadata packages.
+3. `AutoPublish` executes channel/platform publish actions.
+4. `AutoPubMonitor` supervises queue and synchronization loops.
 
 ## 📦 Current Submodule Pins
 
@@ -109,6 +115,7 @@ Current root pins (`git submodule status`):
 - `AutoPubMonitor`: `6daa87ce612c2dab75fac9478d4523abd418f69d`
 - `AutoPublish`: `4f348ac342bfaff7bc435985085cedd9b448e1e8`
 - `LazyEdit`: `5d515694d824d593e635713cafb7bb65955a1700`
+- `whisper_with_lang_detect`: `aa8fed3d97322cbbc1dba6be38ec46d92b9c2624`
 
 Check locally:
 
@@ -117,7 +124,7 @@ git submodule status
 git submodule status --recursive
 ```
 
-Nested note: `LazyEdit` includes additional nested submodules (for example `whisper_with_lang_detect`, `furigana`, captioning repos), so many root operations should use `--recursive`.
+Nested note: `LazyEdit` still includes additional nested submodules (for example `furigana` and captioning repos). `whisper_with_lang_detect` is also pinned directly at the root so the transcription tool can be developed or updated independently of the full `LazyEdit` tree.
 
 ## 🗂️ Project Structure
 
@@ -150,6 +157,9 @@ AutoPublication/
 │   ├── app.py
 │   ├── autopub.py
 │   └── pub_*.py
+├── whisper_with_lang_detect/        # submodule
+│   ├── SCRIPT_LOGIC.md
+│   └── vad_lang_subtitle.py
 └── .auto-readme-work/
     └── <timestamp>/
         ├── pipeline-context.md
@@ -169,6 +179,7 @@ AutoPublication/
 | `AutoPubMonitor/autopub_monitor/autopub.config` | Monitor queue/sync/runtime config |
 | `LazyEdit/config.py` | LazyEdit environment/path defaults |
 | `AutoPublish/.env.example` | AutoPublish credential/env template |
+| `whisper_with_lang_detect/vad_lang_subtitle.py` | Standalone transcription/VAD entrypoint |
 
 ## 🧰 Prerequisites
 

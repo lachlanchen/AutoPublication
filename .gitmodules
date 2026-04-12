@@ -7,3 +7,6 @@
 [submodule "AutoPublish"]
 	path = AutoPublish
 	url = git@github.com:lachlanchen/AutoPublish.git
+[submodule "whisper_with_lang_detect"]
+	path = whisper_with_lang_detect
+	url = git@github.com:lachlanchen/MultilingualWhisper.git
