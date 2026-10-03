@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+source_root="$repo/LazyEdit"
+state=${AUTO_PUBLICATION_STATE:-"$HOME/.local/share/lazyedit-hosted"}
+if [[ ${1:-} == --state ]]; then state=$2; shift 2; fi
+command=${1:-help}; shift || true
+if [[ "$command" == help || "$command" == --help ]]; then
+  cat <<'HELP'
+AutoPublication — pinned LazyEdit + AutoPublish integration
+Usage: scripts/autopublication [--state PRIVATE_DIR] COMMAND [ARGS]
+  build                     Build shared gateway, provisioner and worker images
+  init DOMAIN [--same-host]  Initialize NEW private control state, never migrate owner
+  start                     Start account gateway and private provisioner
+  status                    Inspect control containers and workspace identities
+  invite                    Print one-use invitation; deliver it privately
+  retry WORKSPACE_ID        Retry failed provisioning with the same identity
+  test                      Run existing Studio/hosted account and transport tests
+  client --server URL ...   Use scoped Studio API; explicit account base required
+HELP
+  exit 0
+fi
+[[ -f "$source_root/hosted/admin.mjs" ]] || {
+  echo 'Initialize the pinned source: git submodule update --init --recursive' >&2
+  exit 1
+}
+case "$command" in
+  build)
+    for target in gateway provisioner workspace; do
+      docker build -f "$source_root/deploy/hosted/Dockerfile" --target "$target" -t "lazyedit-$target:local" "$source_root"
+    done ;;
+  init|invite|retry) node "$source_root/hosted/admin.mjs" "$command" "$state" "$@" ;;
+  start) docker compose -f "$state/compose.json" up -d ;;
+  status)
+    docker compose -f "$state/compose.json" ps
+    node "$source_root/hosted/admin.mjs" status "$state" ;;
+  test)
+    node - "$source_root" <<'JS'
+const { createRequire } = require('node:module');
+const resolve = createRequire(process.argv[2] + '/app/package.json');
+try { resolve.resolve('react'); resolve.resolve('react-dom/server'); }
+catch {
+  console.error('Install test dependencies: npm ci --prefix LazyEdit/app --no-audit --no-fund');
+  process.exit(1);
+}
+JS
+    node --test "$source_root"/hosted/test.mjs "$source_root"/studio/*.test.mjs ;;
+  client)
+    supplied=false
+    for arg in "$@"; do
+      if [[ "$arg" == --server || "$arg" == --server=* ]]; then supplied=true; fi
+    done
+    [[ "$supplied" == true ]] || { echo 'Supply --server with this account’s exact API base.' >&2; exit 1; }
+    "${AUTO_PUBLICATION_PYTHON:-python}" "$source_root/scripts/studio/client.py" "$@" ;;
+  *) echo "Unknown command: $command" >&2; exit 2 ;;
+esac

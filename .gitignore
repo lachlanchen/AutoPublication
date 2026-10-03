@@ -169,3 +169,25 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Private hosted runtime, credentials and account media
+.env.*
+!.env.example
+private/
+runtime/
+DATA/
+profiles/
+node_modules/
+providers.env
+*credentials*.json
+*account*.json
+*invitation*.json
+*session*.json
+*.sqlite*
+*.db
+*.pem
+*.key
+*.mp4
+*.mov
+*.zip
+temp/

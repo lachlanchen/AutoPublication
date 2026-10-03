@@ -1,0 +1,132 @@
+# Integrated hosted service and owner Pi endpoint
+
+The current service is **https://edit.lazying.art**. Invited users enter at
+**https://edit.lazying.art/accounts**. A separate domain is optional, not
+required for the trusted invite pilot. The original owner's credentials and
+private Pi remain unchanged: its backend is a special existing publication
+endpoint alongside the new Docker endpoints, not a shared worker for guests.
+
+This repository pins the implementation; it does not copy private deployment
+state. Read the authoritative LazyEdit guides:
+
+- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/00e1d9ce0fae0de0013ae138127c78887c56126d/references/2026-10-03-hosted-multiuser-docker.md)
+- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/00e1d9ce0fae0de0013ae138127c78887c56126d/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
+- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/00e1d9ce0fae0de0013ae138127c78887c56126d/references/studio/operations.md)
+
+## Service boundaries
+
+```text
+Current Caddy/TLS + LazyEdge + reverse SSH
+  └─ authenticated Studio ingress
+       ├─ existing owner → existing LazyEdit → owner-only Pi AutoPublish
+       └─ invited account → own Docker workspace
+                               ├─ Studio + LazyEdit + AutoPublish + desktop
+                               ├─ own media/settings/profiles/queue volume
+                               └─ own PostgreSQL database
+```
+
+Media stays local. HuanaYun is a small streaming ingress, not a media store,
+render worker or browser host. Containers share image layers, not writable
+account state. Each workspace serializes its own publications. Existing-owner
+tasks continue through the original queue. No live endpoint is restarted by
+checking out or updating these pinned sources.
+
+Only the private provisioner can access Docker. The public gateway has no
+Docker socket or caller-controlled image/mount/command fields. An expired
+invited session fails closed rather than falling through to the owner. Raw
+VNC/CDP/database/backend ports stay private. The user's desktop requires their
+browser session plus an exact Origin check through the authenticated edge.
+
+## Starting a new installation
+
+Use Linux x86-64, Docker Engine/Compose, Node 22 and a Python environment with
+the client dependencies. The initial container uses portable CPU Whisper; GPU
+scheduling and ARM builds are separate work. Initialize source submodules:
+
+```bash
+git submodule update --init --recursive
+scripts/autopublication build
+scripts/autopublication --state "$HOME/.local/share/autopublication-new" init studio.example.com
+```
+
+Configure provider keys privately using `LazyEdit/deploy/hosted/providers.env.example`,
+then start that state and deliver invitations privately. Independent-domain
+mode requires domain/workspace DNS and certificates. Same-host mode uses
+`init DOMAIN --same-host` plus the reviewed Studio/LazyEdge ingress adapter;
+initialization alone does not edit DNS/Caddy or deploy a public route.
+Do not run a bootstrap/firewall recipe against existing shared ingress.
+
+## Operating the existing installation
+
+```bash
+scripts/autopublication status
+scripts/autopublication invite
+```
+
+The default private state is `~/.local/share/lazyedit-hosted`. Invitations are
+single-use and expire after 72 hours. Existing-owner login is at the usual URL;
+guests register/login at `/accounts` and open their Studio. They sign into
+platforms in **Platform accounts**, then upload, process, preview and publish.
+Do not put owner SMTP recipients, cookies or profiles in the template. Use
+separate provider credentials/budgets before wider invitations.
+
+The original owner API base is `https://edit.lazying.art`. Each guest's
+`GET /accounts/account` reports an `apiBase` such as
+`https://edit.lazying.art/workspaces/<id>`. Other tools must use that base for
+all scoped token/login/refresh/upload/process/publish calls. The integration
+wrapper requires an explicit `--server` to avoid an accidental owner endpoint.
+
+```bash
+scripts/autopublication client \
+  --server 'https://edit.lazying.art/workspaces/<id>' \
+  --state /private/client-session.json \
+  login --account-file /private/account.json
+```
+
+Normal processing uses corrected subtitles and contextual correction prompts.
+Treat scripts/lyrics/background as references; preserve the actual speech,
+timing and intended meaning. Inspect apparent omissions or abnormal lines.
+Metadata describes the video/song, not internal production or prompt details.
+Reuse finished runs/packages when adding platforms; never regenerate or blindly
+republish an already submitted post. Publication keeps existing explicit review
+and idempotency rules. Music is a separate queued task with corrected lyrics,
+cover and all supported fields. The wrapper doesn't bypass those contracts.
+
+## Storage, updates and private information
+
+One canonical user media store is shared by editing and publication. Uploads
+are renamed into the library; the publisher references the existing local ZIP.
+Per-job extraction scratch is removed after terminal jobs. Source, processed
+master and ZIP are distinct required artifacts; no arbitrary deletion of media
+or correction history occurs. Never use `docker compose down -v` as an upgrade.
+
+Commit/push owning-module fixes first, then bump root pins. Test before
+promoting immutable releases and retain exact previous units/config for
+rollback. Preserve the owner Pi/backend and other shared gateway sites. The
+owner-only promotion helpers now refuse to remove the hosted router.
+
+Passwords, API keys, tokens, browser profiles, cookies, private databases and
+media must not be staged. They stay in local private state or the operator's
+Nutstore Share/LazyEdit folder. `scripts/check_public_files.py` checks the index;
+also inspect the diff and audit owning modules separately. Gitignore isn't a
+secret remover and no scanner proves that every kind of sensitive prose is safe.
+
+## Verified scope
+
+Public account registration, provisioning, owner login/library, private desktop
+WSS/RFB, anonymous denial, scoped API login, resumable upload/SHA-256 and a single
+canonical upload were verified. The full web UI rendered without page errors.
+Twenty account/transport tests pass. Disposable containers, volumes, test
+identity and test browser were removed. No real social post was used as a smoke
+test; fresh invited accounts still need their own platform authentication.
+
+The source test suite includes React error-rendering checks. Install the locked
+frontend dependencies with `npm ci --prefix LazyEdit/app --no-audit --no-fund`
+before `scripts/autopublication test`. On a shared workstation, an existing
+installation of these exact dependencies may be reused through `NODE_PATH`.
+
+This is an invite-only pilot, not an untrusted public hosting claim. Shared
+browser origin, container Chromium's current sandbox mode, storage quotas,
+account recovery/billing and global GPU scheduling require further work before
+open registration. A separate domain/subdomain deployment can provide stronger
+browser-origin separation while retaining the same owner/Pi endpoint design.

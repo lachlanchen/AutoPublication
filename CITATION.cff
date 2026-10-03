@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use AutoPublication, please cite this repository."
+type: software
+title: "AutoPublication: account-isolated video and music publishing"
+version: 0.1.0
+date-released: 2026-10-03
+abstract: "Pinned LazyEdit, AutoPublish and monitoring components with invite-only Docker workspaces and private platform login desktops."
+authors:
+  - family-names: Chen
+    given-names: Lachlan
+    alias: lachlanchen
+repository-code: "https://github.com/lachlanchen/AutoPublication"
+url: "https://edit.lazying.art"
+keywords:
+  - video editing
+  - music publishing
+  - docker
+  - subtitles
+  - automation
