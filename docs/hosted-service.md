@@ -9,9 +9,9 @@ endpoint alongside the new Docker endpoints, not a shared worker for guests.
 This repository pins the implementation; it does not copy private deployment
 state. Read the authoritative LazyEdit guides:
 
-- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/ade9de4/references/2026-10-03-hosted-multiuser-docker.md)
-- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/ade9de4/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
-- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/ade9de4/references/studio/operations.md)
+- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/cb80417/references/2026-10-03-hosted-multiuser-docker.md)
+- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/cb80417/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
+- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/cb80417/references/studio/operations.md)
 
 ## Service boundaries
 
@@ -118,7 +118,7 @@ secret remover and no scanner proves that every kind of sensitive prose is safe.
 Public account registration, provisioning, owner login/library, private desktop
 WSS/RFB, anonymous denial, scoped API login, resumable upload/SHA-256 and a single
 canonical upload were verified. The full web UI rendered without page errors.
-Thirty-eight hosted/Studio contracts and three focused Python promotion checks
+Forty-one hosted/Studio contracts and seven focused Python editing/promotion checks
 pass. Live member/admin permissions, asset isolation, forged headers and PWA
 editing/preview were verified. No real social post was used as a smoke test.
 Only publication-enabled accounts need their own platform authentication.
@@ -198,3 +198,25 @@ Read the pinned [account and release handoff](../LazyEdit/references/2026-10-04-
 for the private-cell promotion, idle checks, rollback and qualification steps.
 TestFlight/internal availability and public review are separate states; the
 exact native release facts belong in the pinned source's `store/studio/release.json`.
+
+
+## Interrupted editing and client acceptance
+
+Preparation acceptance is not completion. The pinned source persists the original
+editing intent, resolved request and source identity, with a scoped recovery API
+that reuses completed checkpoints without another quota reservation or social
+post. Unknown dispatches remain held; clients must never create another key or
+fall through to the owner worker. See
+[preparation recovery](../LazyEdit/references/studio/preparation-recovery.md).
+
+The new recovery API is source-qualified, not promoted to the existing reviewer
+cell during LightMind acceptance. Read `preparationRecovery` from the actual
+scoped capability response before using it. The operator helper recovered the
+original harmless fixture through the live editing pipeline without replacing
+the worker; review, authenticated render/cover hashes and Range were verified.
+No social post or owner fallback was made.
+
+A private workspace `acceptance.lock` blocks the worker promotion helper while
+its client owns qualification. Source checkout does not restart live services,
+and completion of Studio editing does not remove the client's acceptance lock.
+Peer operation receipts and reviewer identities stay in ignored private handoffs.

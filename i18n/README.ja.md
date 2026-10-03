@@ -37,7 +37,7 @@ flowchart LR
 
 | 構成要素 | コミット | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | 編集・修正・Studio API・コンテナ |
+| `LazyEdit` | `cb80417` | 編集・修正・Studio API・コンテナ |
 | `AutoPublish` | `c7bcbe9` | プラットフォーム対応・ログイン・永続キュー |
 | `AutoPubMonitor` | `a097a054` | 既存の監視と同期 |
 | `whisper_with_lang_detect` | `5b02dceb` | 文字起こしと VAD |

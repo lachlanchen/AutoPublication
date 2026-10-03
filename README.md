@@ -35,7 +35,7 @@ flowchart LR
 
 | Component | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | Editing, correction, Studio API and hosted containers |
+| `LazyEdit` | `cb80417` | Editing, correction, Studio API and hosted containers |
 | `AutoPublish` | `c7bcbe9` | Platform adapters, login profiles and durable browser queue |
 | `AutoPubMonitor` | `a097a054` | Existing watch/sync supervision |
 | `whisper_with_lang_detect` | `5b02dceb` | Standalone transcription and VAD |

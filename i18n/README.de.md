@@ -37,7 +37,7 @@ flowchart LR
 
 | Komponente | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | Bearbeitung, Korrektur, Studio-API und Container |
+| `LazyEdit` | `cb80417` | Bearbeitung, Korrektur, Studio-API und Container |
 | `AutoPublish` | `c7bcbe9` | Plattformadapter, Anmeldung und dauerhafte Browserwarteschlange |
 | `AutoPubMonitor` | `a097a054` | Bestehende Überwachung und Synchronisierung |
 | `whisper_with_lang_detect` | `5b02dceb` | Eigenständige Transkription und VAD |

@@ -37,7 +37,7 @@ flowchart LR
 
 | 구성 요소 | 커밋 | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | 편집·교정·Studio API·컨테이너 |
+| `LazyEdit` | `cb80417` | 편집·교정·Studio API·컨테이너 |
 | `AutoPublish` | `c7bcbe9` | 플랫폼 어댑터·로그인·영구 브라우저 큐 |
 | `AutoPubMonitor` | `a097a054` | 기존 감시와 동기화 |
 | `whisper_with_lang_detect` | `5b02dceb` | 독립 전사 및 VAD |

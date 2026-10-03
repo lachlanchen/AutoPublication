@@ -37,7 +37,7 @@ flowchart LR
 
 | المكون | الإصدار | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | التحرير والتصحيح وStudio API والحاويات |
+| `LazyEdit` | `cb80417` | التحرير والتصحيح وStudio API والحاويات |
 | `AutoPublish` | `c7bcbe9` | موائمات المنصات والدخول وطابور المتصفح الدائم |
 | `AutoPubMonitor` | `a097a054` | المراقبة والمزامنة الموجودتان |
 | `whisper_with_lang_detect` | `5b02dceb` | النسخ المستقل وVAD |

@@ -37,7 +37,7 @@ flowchart LR
 
 | Thành phần | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | Biên tập, sửa, API Studio và container |
+| `LazyEdit` | `cb80417` | Biên tập, sửa, API Studio và container |
 | `AutoPublish` | `c7bcbe9` | Bộ kết nối nền tảng, đăng nhập và hàng đợi trình duyệt |
 | `AutoPubMonitor` | `a097a054` | Giám sát và đồng bộ hiện có |
 | `whisper_with_lang_detect` | `5b02dceb` | Phiên âm độc lập và VAD |

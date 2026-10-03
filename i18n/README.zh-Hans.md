@@ -37,7 +37,7 @@ flowchart LR
 
 | 组件 | 提交 | |
 | --- | --- | --- |
-| `LazyEdit` | `ade9de4` | 编辑、校正、Studio API 与容器 |
+| `LazyEdit` | `cb80417` | 编辑、校正、Studio API 与容器 |
 | `AutoPublish` | `c7bcbe9` | 平台适配、登录配置与持久化浏览器队列 |
 | `AutoPubMonitor` | `a097a054` | 既有监控和同步 |
 | `whisper_with_lang_detect` | `5b02dceb` | 独立转录与 VAD |
