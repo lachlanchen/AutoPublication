@@ -33,12 +33,14 @@ flowchart LR
 
 | Component | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `00e1d9c` | Editing, correction, Studio API and hosted containers |
-| `AutoPublish` | `3cc34fd` | Platform adapters, login profiles and durable browser queue |
+| `LazyEdit` | `8f2378e` | Editing, correction, Studio API and hosted containers |
+| `AutoPublish` | `c7bcbe9` | Platform adapters, login profiles and durable browser queue |
 | `AutoPubMonitor` | `a097a054` | Existing watch/sync supervision |
 | `whisper_with_lang_detect` | `5b02dceb` | Standalone transcription and VAD |
 
 [docs/hosted-service.md](docs/hosted-service.md) · [LazyEdit](https://github.com/lachlanchen/LazyEdit) · [AutoPublish](https://github.com/lachlanchen/AutoPublish) · [AutoPubMonitor](https://github.com/lachlanchen/AutoPubMonitor) · [MultilingualWhisper](https://github.com/lachlanchen/MultilingualWhisper)
+
+Native iOS, Android and Mac interfaces include eleven languages, private platform login controls and member account deletion. The owner Pi remains exclusive to lachlanchen. Apple/Google sign-in and store billing are prepared but disabled until provider setup, usage limits and real store tests are complete.
 
 ## Quick start
 
@@ -69,7 +71,7 @@ python scripts/check_public_files.py
 
 ## Status and scope
 
-Invite-only pilot deployed through the existing HTTPS/LazyEdge route. Account provisioning, private WSS desktop, scoped API login, resumable upload and owner isolation were verified. CPU Whisper is the tested runtime. Fresh platform accounts require their own QR/2FA login. Billing, account recovery, hard storage quotas and hostile-tenant hardening are not implemented.
+Invite-only pilot deployed through the existing HTTPS/LazyEdge route. Account provisioning, private WSS desktop, scoped API login, resumable upload and owner isolation were verified. CPU Whisper is the tested runtime. Fresh platform accounts require their own QR/2FA login. Account recovery, hard storage quotas and hostile-tenant hardening remain unfinished.
 
 ## Citation
 

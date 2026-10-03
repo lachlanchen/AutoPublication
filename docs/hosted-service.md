@@ -9,9 +9,9 @@ endpoint alongside the new Docker endpoints, not a shared worker for guests.
 This repository pins the implementation; it does not copy private deployment
 state. Read the authoritative LazyEdit guides:
 
-- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/00e1d9ce0fae0de0013ae138127c78887c56126d/references/2026-10-03-hosted-multiuser-docker.md)
-- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/00e1d9ce0fae0de0013ae138127c78887c56126d/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
-- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/00e1d9ce0fae0de0013ae138127c78887c56126d/references/studio/operations.md)
+- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/8f2378e/references/2026-10-03-hosted-multiuser-docker.md)
+- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/8f2378e/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
+- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/8f2378e/references/studio/operations.md)
 
 ## Service boundaries
 
@@ -116,7 +116,7 @@ secret remover and no scanner proves that every kind of sensitive prose is safe.
 Public account registration, provisioning, owner login/library, private desktop
 WSS/RFB, anonymous denial, scoped API login, resumable upload/SHA-256 and a single
 canonical upload were verified. The full web UI rendered without page errors.
-Twenty account/transport tests pass. Disposable containers, volumes, test
+Thirty-one account/transport, OAuth and billing-verifier contract tests pass. Disposable containers, volumes, test
 identity and test browser were removed. No real social post was used as a smoke
 test; fresh invited accounts still need their own platform authentication.
 
@@ -127,6 +127,39 @@ installation of these exact dependencies may be reused through `NODE_PATH`.
 
 This is an invite-only pilot, not an untrusted public hosting claim. Shared
 browser origin, container Chromium's current sandbox mode, storage quotas,
-account recovery/billing and global GPU scheduling require further work before
+account recovery and global GPU scheduling require further work before
 open registration. A separate domain/subdomain deployment can provide stronger
 browser-origin separation while retaining the same owner/Pi endpoint design.
+
+## Native apps, mobile login and account lifecycle
+
+The iOS, Android and Mac Catalyst interfaces provide native library, upload,
+publication settings, activity and account screens. The existing editor and
+private platform login desktop remain available through authenticated web
+views. Eleven UI languages are included. Only `lachlanchen` can select the
+original Pi; members receive their own Docker workspace and the authorized
+Vancouver sample, with no access to the owner's library or profiles.
+
+The desktop uses one bounded viewer per workspace. Zoom and a frozen QR image
+reuse that desktop; freezing disconnects streaming. Closing a selected browser
+preserves its profile, leaves a blank restricted desktop and refuses closure
+while publishing. Managed browser allowlists and shortcut restrictions retain
+publisher CDP uploads while preventing general desktop/file-browser use.
+These restrictions never modify the owner Pi.
+
+Members can delete their account after password confirmation, provided both
+queues and manual processing are idle. Grants are revoked immediately, then
+the provisioner removes only that member's confirmed volumes. Capacity is
+released after cleanup. Existing social posts remain on their platforms.
+
+Apple/Google identity and native store billing have verified local contracts
+but remain disabled until own provider configuration and real provider tests
+are complete. Requested download price is USD 0.99; requested monthly prices
+are USD 2.99, 14.99 and 29.89. Plan benefits, enforced limits, store products
+and paid-download subscription credit are not yet active. Do not represent a
+prepared verifier as a working subscription service.
+
+Read the pinned [account and release handoff](../LazyEdit/references/2026-10-04-hosted-account-and-release-handoff.md)
+for the private-cell promotion, idle checks, rollback and qualification steps.
+TestFlight/internal availability and public review are separate states; the
+exact native release facts belong in the pinned source's `store/studio/release.json`.

@@ -18,6 +18,8 @@ AutoPublication tích hợp LazyEdit, AutoPublish, AutoPubMonitor và phiên âm
 
 Dịch vụ hiện tại là [edit.lazying.art](https://edit.lazying.art); người được mời vào [/accounts](https://edit.lazying.art/accounts). Chủ sở hữu giữ máy xử lý và Pi riêng hiện có. Những người khác có Docker worker, dữ liệu, thiết lập, cơ sở dữ liệu và hồ sơ trình duyệt độc lập. Tên miền riêng là tùy chọn cho đợt thử nghiệm tin cậy này.
 
+Giao diện gốc iOS, Android và Mac có 11 ngôn ngữ, điều khiển đăng nhập nền tảng riêng và xóa tài khoản thành viên. Pi của chủ sở hữu chỉ dành cho lachlanchen. Đăng nhập Apple/Google và thanh toán qua cửa hàng đã được chuẩn bị nhưng chưa bật, chờ cấu hình nhà cung cấp, giới hạn sử dụng và thử nghiệm thực tế.
+
 ```mermaid
 flowchart LR
     E[LazyEdge / HTTPS] --> R[Studio ingress]
@@ -33,8 +35,8 @@ flowchart LR
 
 | Thành phần | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `00e1d9c` | Biên tập, sửa, API Studio và container |
-| `AutoPublish` | `3cc34fd` | Bộ kết nối nền tảng, đăng nhập và hàng đợi trình duyệt |
+| `LazyEdit` | `8f2378e` | Biên tập, sửa, API Studio và container |
+| `AutoPublish` | `c7bcbe9` | Bộ kết nối nền tảng, đăng nhập và hàng đợi trình duyệt |
 | `AutoPubMonitor` | `a097a054` | Giám sát và đồng bộ hiện có |
 | `whisper_with_lang_detect` | `5b02dceb` | Phiên âm độc lập và VAD |
 

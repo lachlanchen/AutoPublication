@@ -18,6 +18,8 @@ AutoPublication intègre LazyEdit, AutoPublish, AutoPubMonitor et la transcripti
 
 Le service actuel est [edit.lazying.art](https://edit.lazying.art) ; les invités passent par [/accounts](https://edit.lazying.art/accounts). Le propriétaire conserve son backend et son Pi privé. Les autres disposent de workers Docker, médias, réglages, bases et profils distincts. Un domaine séparé est facultatif pour ce pilote de confiance.
 
+Les interfaces natives iOS, Android et Mac incluent onze langues, des contrôles privés de connexion aux plateformes et la suppression du compte membre. Le Pi du propriétaire reste réservé à lachlanchen. La connexion Apple/Google et la facturation sont préparées mais désactivées en attendant la configuration des fournisseurs, les limites d’usage et les tests réels des boutiques.
+
 ```mermaid
 flowchart LR
     E[LazyEdge / HTTPS] --> R[Studio ingress]
@@ -33,8 +35,8 @@ flowchart LR
 
 | Composant | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `00e1d9c` | Montage, correction, API Studio et conteneurs |
-| `AutoPublish` | `3cc34fd` | Adaptateurs, connexions et file navigateur persistante |
+| `LazyEdit` | `8f2378e` | Montage, correction, API Studio et conteneurs |
+| `AutoPublish` | `c7bcbe9` | Adaptateurs, connexions et file navigateur persistante |
 | `AutoPubMonitor` | `a097a054` | Surveillance et synchronisation existantes |
 | `whisper_with_lang_detect` | `5b02dceb` | Transcription autonome et VAD |
 

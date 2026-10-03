@@ -18,6 +18,8 @@ AutoPublication 以固定原始碼版本整合 LazyEdit、AutoPublish、AutoPubM
 
 目前服務是 [edit.lazying.art](https://edit.lazying.art)，受邀使用者從 [/accounts](https://edit.lazying.art/accounts) 進入。原有使用者繼續使用既有後端和專屬 Pi 發布端；其他使用者使用獨立 Docker 工作端、媒體、設定、資料庫與瀏覽器設定檔。此可信邀請制試點不需要另一個網域。
 
+原生 iOS、Android 和 Mac 介面支援11種語言、私有平台登入控制及會員帳號刪除。原有 Pi 僅供 lachlanchen 使用。Apple/Google 登入與商店訂閱已準備，但在完成獨立供應商設定、使用限制和實際商店驗證前保持關閉。
+
 ```mermaid
 flowchart LR
     E[LazyEdge / HTTPS] --> R[Studio ingress]
@@ -33,8 +35,8 @@ flowchart LR
 
 | 元件 | 提交 | |
 | --- | --- | --- |
-| `LazyEdit` | `00e1d9c` | 編輯、校正、Studio API 與容器 |
-| `AutoPublish` | `3cc34fd` | 平台配接、登入設定與持久化瀏覽器佇列 |
+| `LazyEdit` | `8f2378e` | 編輯、校正、Studio API 與容器 |
+| `AutoPublish` | `c7bcbe9` | 平台配接、登入設定與持久化瀏覽器佇列 |
 | `AutoPubMonitor` | `a097a054` | 既有監控與同步 |
 | `whisper_with_lang_detect` | `5b02dceb` | 獨立轉錄與 VAD |
 
