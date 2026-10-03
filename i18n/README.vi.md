@@ -10,6 +10,8 @@
 
 AutoPublication tích hợp LazyEdit, AutoPublish, AutoPubMonitor và phiên âm đa ngôn ngữ bằng các kho mã được ghim. Dịch vụ Docker theo lời mời cung cấp cho mỗi người một màn hình Linux riêng để đăng nhập nền tảng, máy xử lý biên tập và hàng đợi xuất bản bền vững.
 
+Thành viên thông thường có thể chỉnh sửa và xem trước video mà không cần tài khoản mạng xã hội. Người vận hành bật tính năng đăng riêng cho các tài khoản được duyệt. Người xét duyệt có không gian chỉnh sửa riêng, không được truy cập Pi, kênh hay nội dung riêng của chủ sở hữu. Giới hạn hằng tháng là 10/60/150 phút video gốc; thanh toán vẫn tắt cho đến khi kiểm thử mua hàng thực tế.
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | Thành phần | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | Biên tập, sửa, API Studio và container |
+| `LazyEdit` | `ade9de4` | Biên tập, sửa, API Studio và container |
 | `AutoPublish` | `c7bcbe9` | Bộ kết nối nền tảng, đăng nhập và hàng đợi trình duyệt |
 | `AutoPubMonitor` | `a097a054` | Giám sát và đồng bộ hiện có |
 | `whisper_with_lang_detect` | `5b02dceb` | Phiên âm độc lập và VAD |

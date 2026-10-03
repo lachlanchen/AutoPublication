@@ -10,6 +10,8 @@
 
 AutoPublication 通过固定源码版本整合 LazyEdit、AutoPublish、AutoPubMonitor 和多语言转录。邀请制 Docker 服务为每位用户提供独立的 Linux 平台登录桌面、编辑后端和持久化发布队列。
 
+普通成员以编辑和预览为主，无需社交账号。发布由运营者为获准账号单独启用。审核员使用自己的编辑工作区，不会接触所有者的 Pi、频道或私人媒体。每月处理额度为源视频 10/60/150 分钟；实际购买测试完成前，商店订阅收费保持关闭。
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | 组件 | 提交 | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | 编辑、校正、Studio API 与容器 |
+| `LazyEdit` | `ade9de4` | 编辑、校正、Studio API 与容器 |
 | `AutoPublish` | `c7bcbe9` | 平台适配、登录配置与持久化浏览器队列 |
 | `AutoPubMonitor` | `a097a054` | 既有监控和同步 |
 | `whisper_with_lang_detect` | `5b02dceb` | 独立转录与 VAD |

@@ -10,6 +10,8 @@
 
 AutoPublication은 고정된 소스 저장소로 LazyEdit, AutoPublish, AutoPubMonitor와 다국어 전사를 통합합니다. 초대 전용 Docker 서비스는 사용자마다 플랫폼 로그인용 Linux 데스크톱, 편집 백엔드 및 영구 게시 큐를 제공합니다.
 
+일반 회원은 소셜 계정 없이 동영상을 편집하고 미리 볼 수 있습니다. 게시 기능은 운영자가 승인한 계정에 별도로 활성화합니다. 심사자는 자신의 편집 공간을 사용하며 소유자의 Pi, 채널 및 개인 미디어에는 접근하지 않습니다. 월 처리 한도는 원본 영상 10/60/150분이며 실제 구매 테스트가 끝날 때까지 결제는 비활성화됩니다.
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | 구성 요소 | 커밋 | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | 편집·교정·Studio API·컨테이너 |
+| `LazyEdit` | `ade9de4` | 편집·교정·Studio API·컨테이너 |
 | `AutoPublish` | `c7bcbe9` | 플랫폼 어댑터·로그인·영구 브라우저 큐 |
 | `AutoPubMonitor` | `a097a054` | 기존 감시와 동기화 |
 | `whisper_with_lang_detect` | `5b02dceb` | 독립 전사 및 VAD |

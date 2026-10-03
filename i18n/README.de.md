@@ -10,6 +10,8 @@
 
 AutoPublication verbindet LazyEdit, AutoPublish, AutoPubMonitor und mehrsprachige Transkription über festgelegte Quellstände. Der Docker-Dienst auf Einladung bietet jedem Nutzer einen privaten Linux-Desktop für Plattformanmeldungen, ein Bearbeitungsbackend und eine dauerhafte Veröffentlichungswarteschlange.
 
+Mitglieder können Videos ohne Social-Media-Konten bearbeiten und prüfen. Der Betreiber aktiviert die Veröffentlichung separat für zugelassene Konten. Prüfer erhalten einen eigenen Arbeitsbereich, ohne Zugriff auf den Pi, die Kanäle oder privaten Medien des Eigentümers. Die monatlichen Grenzen betragen 10/60/150 Minuten Quellvideo; Zahlungen bleiben bis zu echten Kauftests deaktiviert.
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | Komponente | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | Bearbeitung, Korrektur, Studio-API und Container |
+| `LazyEdit` | `ade9de4` | Bearbeitung, Korrektur, Studio-API und Container |
 | `AutoPublish` | `c7bcbe9` | Plattformadapter, Anmeldung und dauerhafte Browserwarteschlange |
 | `AutoPubMonitor` | `a097a054` | Bestehende Überwachung und Synchronisierung |
 | `whisper_with_lang_detect` | `5b02dceb` | Eigenständige Transkription und VAD |

@@ -10,6 +10,8 @@
 
 يجمع AutoPublication بين LazyEdit وAutoPublish وAutoPubMonitor والنسخ متعدد اللغات عبر مستودعات مصدر ذات إصدارات مثبتة. توفر خدمة Docker بالدعوة لكل مستخدم سطح مكتب Linux خاصًا لتسجيل الدخول إلى المنصات وخادم تحرير وطابور نشر دائمًا.
 
+تعديل الفيديو ومعاينته هما تجربة الأعضاء الأساسية، ولا يحتاجان إلى حسابات اجتماعية. يفعّل المشغّل النشر للحسابات المعتمدة بشكل منفصل. يحصل المراجعون على مساحة تعديل خاصة بهم، دون الوصول إلى جهاز Pi أو القنوات أو الوسائط الخاصة بالمالك. حدود المعالجة الشهرية هي 10/60/150 دقيقة من الفيديو المصدر، ويبقى الدفع معطلاً حتى اختبار الشراء الفعلي.
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | المكون | الإصدار | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | التحرير والتصحيح وStudio API والحاويات |
+| `LazyEdit` | `ade9de4` | التحرير والتصحيح وStudio API والحاويات |
 | `AutoPublish` | `c7bcbe9` | موائمات المنصات والدخول وطابور المتصفح الدائم |
 | `AutoPubMonitor` | `a097a054` | المراقبة والمزامنة الموجودتان |
 | `whisper_with_lang_detect` | `5b02dceb` | النسخ المستقل وVAD |

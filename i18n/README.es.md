@@ -10,6 +10,8 @@
 
 AutoPublication integra LazyEdit, AutoPublish, AutoPubMonitor y transcripción multilingüe mediante repositorios fijados. El servicio Docker por invitación ofrece a cada usuario un escritorio Linux privado para iniciar sesión, un backend de edición y una cola de publicación persistente.
 
+La edición y la vista previa son la experiencia normal de los miembros; no requieren cuentas sociales. El operador habilita la publicación por separado para cuentas aprobadas. Los revisores reciben su propio espacio de edición, sin acceso al Pi, los canales ni los medios privados del propietario. Los límites mensuales son 10/60/150 minutos de vídeo fuente; los cobros siguen desactivados hasta probar compras reales.
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | Componente | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | Edición, corrección, API Studio y contenedores |
+| `LazyEdit` | `ade9de4` | Edición, corrección, API Studio y contenedores |
 | `AutoPublish` | `c7bcbe9` | Adaptadores, acceso y cola persistente del navegador |
 | `AutoPubMonitor` | `a097a054` | Supervisión y sincronización existentes |
 | `whisper_with_lang_detect` | `5b02dceb` | Transcripción independiente y VAD |

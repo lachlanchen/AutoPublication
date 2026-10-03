@@ -10,6 +10,8 @@
 
 AutoPublication intègre LazyEdit, AutoPublish, AutoPubMonitor et la transcription multilingue avec des dépôts sources figés. Le service Docker sur invitation fournit à chaque utilisateur un bureau Linux privé pour ses connexions, un backend de montage et une file de publication persistante.
 
+Le montage et la prévisualisation sont les fonctions normales des membres, sans compte social. La publication est activée séparément par l’opérateur pour les comptes autorisés. Les évaluateurs disposent de leur propre espace, sans accès au Pi, aux chaînes ni aux médias privés du propriétaire. Les limites mensuelles sont de 10/60/150 minutes de vidéo source ; les achats restent désactivés avant les tests réels.
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | Composant | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | Montage, correction, API Studio et conteneurs |
+| `LazyEdit` | `ade9de4` | Montage, correction, API Studio et conteneurs |
 | `AutoPublish` | `c7bcbe9` | Adaptateurs, connexions et file navigateur persistante |
 | `AutoPubMonitor` | `a097a054` | Surveillance et synchronisation existantes |
 | `whisper_with_lang_detect` | `5b02dceb` | Transcription autonome et VAD |

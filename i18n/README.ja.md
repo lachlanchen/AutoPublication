@@ -10,6 +10,8 @@
 
 AutoPublication は LazyEdit、AutoPublish、AutoPubMonitor、多言語文字起こしを固定されたソースで統合します。招待制 Docker サービスは、プラットフォームへのログイン用 Linux デスクトップ、編集バックエンド、永続的な公開キューをユーザーごとに提供します。
 
+通常のメンバーは動画の編集とプレビューを利用でき、SNSアカウントは不要です。公開機能は運営者が承認済みアカウントに個別に有効化します。審査担当者には専用の編集環境を提供し、所有者のPi、チャンネル、私的なメディアは共有しません。月間処理枠は元動画10/60/150分で、実際の購入テストが済むまで課金は無効です。
+
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
 | [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
@@ -35,7 +37,7 @@ flowchart LR
 
 | 構成要素 | コミット | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | 編集・修正・Studio API・コンテナ |
+| `LazyEdit` | `ade9de4` | 編集・修正・Studio API・コンテナ |
 | `AutoPublish` | `c7bcbe9` | プラットフォーム対応・ログイン・永続キュー |
 | `AutoPubMonitor` | `a097a054` | 既存の監視と同期 |
 | `whisper_with_lang_detect` | `5b02dceb` | 文字起こしと VAD |

@@ -12,6 +12,9 @@
 - Build/test commands do not authorize a real social publication. Use synthetic
   media and no-target queue checks for verification. Never auto-retry an
   interrupted browser submission without reconciling platform history.
+- Normal members and reviewers edit/preview without social accounts. Hosted
+  publication is an explicit protected operator capability, not a subscription
+  or invitation benefit. Never share the personal Pi or channel credentials.
 - Keep registration invite-only. A workspace's browser and native tokens must
   never route to the owner's Pi or another user's account. Client commands
   require an explicit API server base.

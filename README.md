@@ -8,7 +8,9 @@
 
 [![Studio](https://img.shields.io/badge/Studio-edit.lazying.art-264ee4)](https://edit.lazying.art) [![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-ea4aaa)](https://github.com/sponsors/lachlanchen)
 
-AutoPublication integrates LazyEdit, AutoPublish, AutoPubMonitor and multilingual transcription through pinned source repositories. The invite-only Docker service provides each user with a private Linux desktop for platform login, an editing backend and a persistent publication queue.
+AutoPublication integrates LazyEdit, AutoPublish, AutoPubMonitor and multilingual transcription through pinned source repositories. The invite-only Docker service provides each user with a private editing backend, media store and persistent task queue. Approved publishing accounts can additionally use a restricted platform-login desktop.
+
+Editing and preview are the normal member experience; social accounts are unnecessary. Managed publication is separately enabled by the operator for approved accounts. Reviewers receive their own editing workspace, never the owner’s Pi, channels or private media. Monthly processing limits are 10/60/150 source-video minutes; store billing remains disabled pending real purchase tests.
 
 | Donate | PayPal | Stripe |
 | --- | --- | --- |
@@ -33,7 +35,7 @@ flowchart LR
 
 | Component | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `a212e32` | Editing, correction, Studio API and hosted containers |
+| `LazyEdit` | `ade9de4` | Editing, correction, Studio API and hosted containers |
 | `AutoPublish` | `c7bcbe9` | Platform adapters, login profiles and durable browser queue |
 | `AutoPubMonitor` | `a097a054` | Existing watch/sync supervision |
 | `whisper_with_lang_detect` | `5b02dceb` | Standalone transcription and VAD |
@@ -71,7 +73,7 @@ python scripts/check_public_files.py
 
 ## Status and scope
 
-Invite-only pilot deployed through the existing HTTPS/LazyEdge route. Account provisioning, private WSS desktop, scoped API login, resumable upload and owner isolation were verified. CPU Whisper is the tested runtime. Fresh platform accounts require their own QR/2FA login. Account recovery, hard storage quotas and hostile-tenant hardening remain unfinished.
+Invite-only pilot deployed through the existing HTTPS/LazyEdge route. Account provisioning, private WSS desktop, scoped API login, resumable upload and owner isolation were verified. CPU Whisper is the tested runtime. Optional publication requires an operator grant and the account’s own QR/2FA login. Account recovery, hard storage quotas and hostile-tenant hardening remain unfinished.
 
 ## Citation
 

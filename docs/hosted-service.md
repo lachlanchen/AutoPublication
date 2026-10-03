@@ -9,9 +9,9 @@ endpoint alongside the new Docker endpoints, not a shared worker for guests.
 This repository pins the implementation; it does not copy private deployment
 state. Read the authoritative LazyEdit guides:
 
-- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/a212e32/references/2026-10-03-hosted-multiuser-docker.md)
-- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/a212e32/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
-- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/a212e32/references/studio/operations.md)
+- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/ade9de4/references/2026-10-03-hosted-multiuser-docker.md)
+- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/ade9de4/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
+- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/ade9de4/references/studio/operations.md)
 
 ## Service boundaries
 
@@ -65,8 +65,10 @@ scripts/autopublication invite
 
 The default private state is `~/.local/share/lazyedit-hosted`. Invitations are
 single-use and expire after 72 hours. Existing-owner login is at the usual URL;
-guests register/login at `/accounts` and open their Studio. They sign into
-platforms in **Platform accounts**, then upload, process, preview and publish.
+guests register/login at `/accounts` and open their Studio to upload, correct,
+process and preview. Social accounts are not required. Publication and
+**Platform accounts** are optional operator-enabled capabilities; ordinary
+members and the reviewer cannot open those desktops or submit posts.
 Do not put owner SMTP recipients, cookies or profiles in the template. Use
 separate provider credentials/budgets before wider invitations.
 
@@ -116,9 +118,10 @@ secret remover and no scanner proves that every kind of sensitive prose is safe.
 Public account registration, provisioning, owner login/library, private desktop
 WSS/RFB, anonymous denial, scoped API login, resumable upload/SHA-256 and a single
 canonical upload were verified. The full web UI rendered without page errors.
-Thirty-one account/transport, OAuth and billing-verifier contract tests pass. Disposable containers, volumes, test
-identity and test browser were removed. No real social post was used as a smoke
-test; fresh invited accounts still need their own platform authentication.
+Thirty-eight hosted/Studio contracts and three focused Python promotion checks
+pass. Live member/admin permissions, asset isolation, forged headers and PWA
+editing/preview were verified. No real social post was used as a smoke test.
+Only publication-enabled accounts need their own platform authentication.
 
 The source test suite includes React error-rendering checks. Install the locked
 frontend dependencies with `npm ci --prefix LazyEdit/app --no-audit --no-fund`
@@ -155,18 +158,41 @@ released after cleanup. Existing social posts remain on their platforms.
 Google linking, fresh sign-in and real provider revocation passed in the own
 identity-only External/Testing project. Apple primary/Services ID/key setup is
 complete; actual authentication/revocation is unqualified. Credentials remain
-private. The gateway alone was promoted; worker/provisioner and Pi unchanged.
+private. Gateway, provisioner and the two permanent workers now run immutable
+`editor-first-20261004h` images from LazyEdit source `9fbe02b`. Volumes, original
+backend, Pi, shared ingress and LazyTunnel were preserved.
 
-USD 0.99 download pricing is configured on both stores. Billing stays disabled.
-Three own monthly Apple drafts were created/read back without price schedules,
-offers or submission. Apple's actual USA price list lacks the requested 29.89;
-29.90/29.95/29.99 are nearest. No price was substituted. Defined benefits,
-enforced limits, exact approved prices, real purchase tests and paid-download
-subscription credit remain required. See the pinned
+USD 0.99 download pricing is configured on both stores. Approved monthly
+prices are 2.99/14.99/29.90 with conservative 10/60/150 source-video minutes
+per UTC month. Hosted pilot limits are enforced; finished-run reuse needs no
+new processing allowance. Apple draft USA prices and eleven benefit locales
+were saved/read back. Google product names and benefits are drafts with no
+active base plans. Real purchase/restore/refund tests and paid-download credit
+remain pending, so billing stays disabled. See the pinned
 [identity operations](../LazyEdit/references/studio/identity-operations.md) and
 [release follow-through](../LazyEdit/references/studio/2026-10-04-release-follow-through.md).
-Public review still needs isolated reviewer social-channel access; owner
-accounts cannot be supplied. Prepared contracts/drafts are not active billing.
+
+Public review remains separate from test distribution. The reviewer has the
+same editing-only capabilities as ordinary members and does not need social
+credentials. Store text discloses operator-enabled publication; do not certify
+access to all publishing features from editing QA alone. The owner's Pi,
+channels, media and login sessions are never supplied to review.
+
+## Optional managed publication
+
+The private configuration uses `publishing.enabled`,
+`publishing.administrators` and immutable `publishing.accountIds`. Missing policy
+fails closed. Invitations, subscriptions, client headers and OAuth login do not
+grant publishing. Gateway and worker enforce this on every request, including
+old broad device grants. Disabled accounts can prepare/preview without dispatch;
+video/music posts and platform desktop access are rejected before job creation.
+Global disable pauses hosted publication. The original personal endpoint keeps
+its existing behavior and owner-only routing.
+
+Linked apps must inspect authenticated `capabilities.publishing` and granted
+scopes. Use [the capability handoff](../LazyEdit/references/studio/editor-first-and-optional-publication.md)
+for configuration, review access and API behavior. No account-specific runtime
+configuration belongs in Git.
 
 Read the pinned [account and release handoff](../LazyEdit/references/2026-10-04-hosted-account-and-release-handoff.md)
 for the private-cell promotion, idle checks, rollback and qualification steps.
