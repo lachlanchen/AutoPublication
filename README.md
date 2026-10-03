@@ -33,14 +33,14 @@ flowchart LR
 
 | Component | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `8f2378e` | Editing, correction, Studio API and hosted containers |
+| `LazyEdit` | `a212e32` | Editing, correction, Studio API and hosted containers |
 | `AutoPublish` | `c7bcbe9` | Platform adapters, login profiles and durable browser queue |
 | `AutoPubMonitor` | `a097a054` | Existing watch/sync supervision |
 | `whisper_with_lang_detect` | `5b02dceb` | Standalone transcription and VAD |
 
 [docs/hosted-service.md](docs/hosted-service.md) · [LazyEdit](https://github.com/lachlanchen/LazyEdit) · [AutoPublish](https://github.com/lachlanchen/AutoPublish) · [AutoPubMonitor](https://github.com/lachlanchen/AutoPubMonitor) · [MultilingualWhisper](https://github.com/lachlanchen/MultilingualWhisper)
 
-Native iOS, Android and Mac interfaces include eleven languages, private platform login controls and member account deletion. The owner Pi remains exclusive to lachlanchen. Apple/Google sign-in and store billing are prepared but disabled until provider setup, usage limits and real store tests are complete.
+Native iOS, Android and Mac interfaces include eleven languages, private platform login controls and member account deletion. The owner Pi remains exclusive to lachlanchen. Google linking, sign-in and revocation passed real browser checks in the identity-only testing project; Apple configuration awaits real sign-in qualification. Store billing stays disabled pending defined limits and real purchase tests.
 
 ## Quick start
 

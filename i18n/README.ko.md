@@ -18,7 +18,7 @@ AutoPublication은 고정된 소스 저장소로 LazyEdit, AutoPublish, AutoPubM
 
 현재 서비스는 [edit.lazying.art](https://edit.lazying.art)이며 초대 사용자는 [/accounts](https://edit.lazying.art/accounts)로 들어갑니다. 기존 소유자는 현재 백엔드와 전용 Pi 게시기를 계속 사용합니다. 다른 사용자의 Docker 워커, 미디어, 설정, 데이터베이스, 브라우저 프로필은 분리됩니다. 신뢰할 수 있는 초대 시험 운영에는 별도 도메인이 필수는 아닙니다.
 
-iOS, Android, Mac의 네이티브 화면은 11개 언어, 비공개 플랫폼 로그인 제어, 회원 계정 삭제를 지원합니다. 소유자의 Pi는 lachlanchen만 사용할 수 있습니다. Apple/Google 로그인과 스토어 결제는 준비되어 있지만 공급자 설정, 사용 한도, 실제 스토어 테스트가 완료될 때까지 비활성 상태입니다.
+iOS, Android, Mac의 네이티브 화면은 11개 언어, 비공개 플랫폼 로그인 제어, 회원 계정 삭제를 지원합니다. 소유자의 Pi는 lachlanchen만 사용할 수 있습니다. Google 연결, 로그인, 철회는 실제 브라우저로 검증했으며 본인 확인 전용 테스트 프로젝트를 사용합니다. Apple은 실제 로그인 검증 대기 중입니다. 결제는 사용 한도와 실제 구매 테스트 완료 전까지 비활성 상태입니다.
 
 ```mermaid
 flowchart LR
@@ -35,7 +35,7 @@ flowchart LR
 
 | 구성 요소 | 커밋 | |
 | --- | --- | --- |
-| `LazyEdit` | `8f2378e` | 편집·교정·Studio API·컨테이너 |
+| `LazyEdit` | `a212e32` | 편집·교정·Studio API·컨테이너 |
 | `AutoPublish` | `c7bcbe9` | 플랫폼 어댑터·로그인·영구 브라우저 큐 |
 | `AutoPubMonitor` | `a097a054` | 기존 감시와 동기화 |
 | `whisper_with_lang_detect` | `5b02dceb` | 독립 전사 및 VAD |

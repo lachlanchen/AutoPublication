@@ -18,7 +18,7 @@ AutoPublication 通过固定源码版本整合 LazyEdit、AutoPublish、AutoPubM
 
 当前服务是 [edit.lazying.art](https://edit.lazying.art)，受邀用户从 [/accounts](https://edit.lazying.art/accounts) 进入。原有用户继续使用既有后端和专属 Pi 发布端；其他用户使用独立 Docker 工作端、媒体、设置、数据库和浏览器配置。这个可信邀请制试点不需要另一个域名。
 
-原生 iOS、Android 和 Mac 界面支持11种语言、私有平台登录控制及会员账号删除。原有 Pi 仅供 lachlanchen 使用。Apple/Google 登录与商店订阅已准备，但在完成独立供应商配置、使用限制和真实商店验证前保持关闭。
+原生 iOS、Android 和 Mac 界面支持11种语言、私有平台登录控制及会员账号删除。原有 Pi 仅供 lachlanchen 使用。Google 账号关联、登录和撤销已通过真实浏览器验证，项目仍为身份登录测试状态；Apple 配置已准备，待真实登录验证。订阅购买仍关闭，等待确定使用限制和真实购买测试。
 
 ```mermaid
 flowchart LR
@@ -35,7 +35,7 @@ flowchart LR
 
 | 组件 | 提交 | |
 | --- | --- | --- |
-| `LazyEdit` | `8f2378e` | 编辑、校正、Studio API 与容器 |
+| `LazyEdit` | `a212e32` | 编辑、校正、Studio API 与容器 |
 | `AutoPublish` | `c7bcbe9` | 平台适配、登录配置与持久化浏览器队列 |
 | `AutoPubMonitor` | `a097a054` | 既有监控和同步 |
 | `whisper_with_lang_detect` | `5b02dceb` | 独立转录与 VAD |

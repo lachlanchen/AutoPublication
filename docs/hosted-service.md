@@ -9,9 +9,9 @@ endpoint alongside the new Docker endpoints, not a shared worker for guests.
 This repository pins the implementation; it does not copy private deployment
 state. Read the authoritative LazyEdit guides:
 
-- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/8f2378e/references/2026-10-03-hosted-multiuser-docker.md)
-- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/8f2378e/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
-- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/8f2378e/references/studio/operations.md)
+- [Docker setup and resource/storage limits](https://github.com/lachlanchen/LazyEdit/blob/a212e32/references/2026-10-03-hosted-multiuser-docker.md)
+- [Current LazyEdge routing and rollback](https://github.com/lachlanchen/LazyEdit/blob/a212e32/references/2026-10-03-edit-lazyedge-hosted-deployment.md)
+- [Existing owner operations](https://github.com/lachlanchen/LazyEdit/blob/a212e32/references/studio/operations.md)
 
 ## Service boundaries
 
@@ -152,12 +152,21 @@ queues and manual processing are idle. Grants are revoked immediately, then
 the provisioner removes only that member's confirmed volumes. Capacity is
 released after cleanup. Existing social posts remain on their platforms.
 
-Apple/Google identity and native store billing have verified local contracts
-but remain disabled until own provider configuration and real provider tests
-are complete. Requested download price is USD 0.99; requested monthly prices
-are USD 2.99, 14.99 and 29.89. Plan benefits, enforced limits, store products
-and paid-download subscription credit are not yet active. Do not represent a
-prepared verifier as a working subscription service.
+Google linking, fresh sign-in and real provider revocation passed in the own
+identity-only External/Testing project. Apple primary/Services ID/key setup is
+complete; actual authentication/revocation is unqualified. Credentials remain
+private. The gateway alone was promoted; worker/provisioner and Pi unchanged.
+
+USD 0.99 download pricing is configured on both stores. Billing stays disabled.
+Three own monthly Apple drafts were created/read back without price schedules,
+offers or submission. Apple's actual USA price list lacks the requested 29.89;
+29.90/29.95/29.99 are nearest. No price was substituted. Defined benefits,
+enforced limits, exact approved prices, real purchase tests and paid-download
+subscription credit remain required. See the pinned
+[identity operations](../LazyEdit/references/studio/identity-operations.md) and
+[release follow-through](../LazyEdit/references/studio/2026-10-04-release-follow-through.md).
+Public review still needs isolated reviewer social-channel access; owner
+accounts cannot be supplied. Prepared contracts/drafts are not active billing.
 
 Read the pinned [account and release handoff](../LazyEdit/references/2026-10-04-hosted-account-and-release-handoff.md)
 for the private-cell promotion, idle checks, rollback and qualification steps.

@@ -18,7 +18,7 @@ AutoPublication は LazyEdit、AutoPublish、AutoPubMonitor、多言語文字起
 
 現在のサービスは [edit.lazying.art](https://edit.lazying.art)、招待ユーザーの入口は [/accounts](https://edit.lazying.art/accounts) です。所有者は既存のバックエンドと専用 Pi を継続利用します。他のユーザーの Docker ワーカー、メディア、設定、データベース、ブラウザプロファイルは独立しています。信頼できる招待制の試験運用では別ドメインは任意です。
 
-ネイティブの iOS・Android・Mac 画面は11言語に対応し、専用のプラットフォームログイン操作と会員アカウント削除を備えます。所有者の Pi は lachlanchen 専用です。Apple/Google ログインとストア課金は準備済みですが、プロバイダー設定・利用制限・実際のストアテストが完了するまで無効です。
+ネイティブの iOS・Android・Mac 画面は11言語に対応し、専用のプラットフォームログイン操作と会員アカウント削除を備えます。所有者の Pi は lachlanchen 専用です。Google の連携・ログイン・取り消しは実際のブラウザーで検証済みで、本人認証のみのテストプロジェクトを使用しています。Apple は実際のログイン検証待ちです。課金は利用制限と購入テストが完了するまで無効です。
 
 ```mermaid
 flowchart LR
@@ -35,7 +35,7 @@ flowchart LR
 
 | 構成要素 | コミット | |
 | --- | --- | --- |
-| `LazyEdit` | `8f2378e` | 編集・修正・Studio API・コンテナ |
+| `LazyEdit` | `a212e32` | 編集・修正・Studio API・コンテナ |
 | `AutoPublish` | `c7bcbe9` | プラットフォーム対応・ログイン・永続キュー |
 | `AutoPubMonitor` | `a097a054` | 既存の監視と同期 |
 | `whisper_with_lang_detect` | `5b02dceb` | 文字起こしと VAD |

@@ -18,7 +18,7 @@ AutoPublication verbindet LazyEdit, AutoPublish, AutoPubMonitor und mehrsprachig
 
 Der aktuelle Dienst läuft auf [edit.lazying.art](https://edit.lazying.art); Einladungen führen zu [/accounts](https://edit.lazying.art/accounts). Der Eigentümer behält sein Backend und seinen privaten Pi. Andere Nutzer erhalten getrennte Docker-Worker, Medien, Einstellungen, Datenbanken und Browserprofile. Eine weitere Domain ist für diesen vertrauensbasierten Pilot optional.
 
-Die nativen Oberflächen für iOS, Android und Mac bieten elf Sprachen, private Plattform-Anmeldung und die Löschung des Mitgliedskontos. Der bisherige Pi bleibt ausschließlich lachlanchen vorbehalten. Apple/Google-Anmeldung und Store-Abrechnung sind vorbereitet, bleiben aber bis zur Anbietereinrichtung, Durchsetzung von Nutzungslimits und echten Store-Tests deaktiviert.
+Die nativen Oberflächen für iOS, Android und Mac bieten elf Sprachen, private Plattform-Anmeldung und die Löschung des Mitgliedskontos. Der bisherige Pi bleibt ausschließlich lachlanchen vorbehalten. Google-Verknüpfung, Anmeldung und Widerruf wurden im echten Browser mit einem reinen Identitäts-Testprojekt geprüft; Apple wartet auf die echte Anmeldeprüfung. Die Abrechnung bleibt bis zur Festlegung der Nutzungslimits und echten Kauftests deaktiviert.
 
 ```mermaid
 flowchart LR
@@ -35,7 +35,7 @@ flowchart LR
 
 | Komponente | Commit | |
 | --- | --- | --- |
-| `LazyEdit` | `8f2378e` | Bearbeitung, Korrektur, Studio-API und Container |
+| `LazyEdit` | `a212e32` | Bearbeitung, Korrektur, Studio-API und Container |
 | `AutoPublish` | `c7bcbe9` | Plattformadapter, Anmeldung und dauerhafte Browserwarteschlange |
 | `AutoPubMonitor` | `a097a054` | Bestehende Überwachung und Synchronisierung |
 | `whisper_with_lang_detect` | `5b02dceb` | Eigenständige Transkription und VAD |
