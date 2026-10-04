@@ -220,3 +220,28 @@ A private workspace `acceptance.lock` blocks the worker promotion helper while
 its client owns qualification. Source checkout does not restart live services,
 and completion of Studio editing does not remove the client's acceptance lock.
 Peer operation receipts and reviewer identities stay in ignored private handoffs.
+
+## Open subtitle targets: staged source
+
+LazyEdit implementation `e572f54`, with documentation follow-through `aff8982`,
+adds a shared CLDR subtitle resolver, 103 common targets and validated extra
+tags such as `pt-BR`, `sr-Latn`, `fil`, `eo` and numeric regions. API/settings,
+generic translation, PWA/native selectors and CLI now retain these choices.
+Invalid explicit targets fail instead of silently substituting default languages.
+Imported translations stay selectable; ordering, reserved rows, readings and
+one-shot overrides retain the existing pipeline's contracts.
+
+The source exposes scoped `GET/POST /v1/studio/languages`; linked clients must
+check `capabilities.subtitleLanguageCatalogue` before using it. UI locales, ASR
+inputs, metadata templates and subtitle targets are separate. A valid tag is not
+a guarantee of linguistic, font or provider quality. Arabic fixture rendering
+exposed an existing RTL token-order limitation, now documented and warned about.
+
+[Implementation, render evidence and test commands](https://github.com/lachlanchen/LazyEdit/blob/aff8982/references/2026-10-04-open-subtitle-languages.md)
+record 93 focused Python and 45 Studio/hosted/frontend checks, Android compilation
+and Swift syntax validation. The integration test wrapper includes the four new
+frontend language contracts. The runtime worker remains `editor-first-20261004h`;
+LightMind's reviewer acceptance hold prevents promotion or replacement. Updating
+this source pin does not restart it, deploy the feature or publish a real post.
+Promote backend, dependencies, Studio and frontend together after qualification;
+native device acceptance and the separate RTL rendering repair remain open.

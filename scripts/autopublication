@@ -44,7 +44,7 @@ catch {
   process.exit(1);
 }
 JS
-    node --test "$source_root"/hosted/test.mjs "$source_root"/hosted/*.test.mjs "$source_root"/studio/test.mjs "$source_root"/studio/*.test.mjs ;;
+    node --test "$source_root"/hosted/test.mjs "$source_root"/hosted/*.test.mjs "$source_root"/studio/test.mjs "$source_root"/studio/*.test.mjs "$source_root"/app/lib/subtitleLanguages.test.mjs ;;
   client)
     supplied=false
     for arg in "$@"; do
